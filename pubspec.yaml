@@ -70,6 +70,7 @@ flutter:
     - assets/logos/facebook.jpg
     - assets/logos/google.jpg
     - assets/images/background.jpg
+    - assets/images/radar_scan.gif
     - assets/logos/avatar.png
     - assets/logos/logo-yacht.png
     - assets/logos/diamond.png
