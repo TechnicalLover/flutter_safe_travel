@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safetravel/component/inspiration_card.dart';
 import 'package:safetravel/component/nearby_card.dart';
+import 'package:safetravel/screens/Location/tracking_location_screen.dart';
 
 import 'package:safetravel/utilities/constants.dart';
 
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.black45, fontWeight: FontWeight.bold)),
                 Spacer(),
                 IconButton(
-                  onPressed: () => {print("icon button press")},
+                  onPressed: () => {Navigator.of(context).push(MaterialPageRoute(builder: (context) => TrackingLocationScreen()))},
                   icon: Icon(Icons.add_moderator),
                   color: kPrimaryColor,
                 )
