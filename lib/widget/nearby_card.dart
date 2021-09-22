@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:safetravel/utilities/constants.dart';
 
-
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_constructors_in_immutables
 // ignore_for_file: prefer_const_literals_to_create_immutables
@@ -40,11 +39,11 @@ class _NearByYouCardState extends State<NearByYouCard> {
           Stack(
             children: <Widget>[
               GestureDetector(
-                onTap: widget.press,
-                child: Card(
-                  child: Image.asset(widget.image),
-                ),
-              ),
+                  onTap: widget.press,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    child: Image.asset(widget.image),
+                  )),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Align(
@@ -54,6 +53,7 @@ class _NearByYouCardState extends State<NearByYouCard> {
               )
             ],
           ),
+          SizedBox(height: 5.0),
           GestureDetector(
             onTap: widget.press,
             child: Container(
@@ -63,8 +63,8 @@ class _NearByYouCardState extends State<NearByYouCard> {
                   borderRadius: BorderRadius.circular(15.0),
                   boxShadow: [
                     BoxShadow(
-                        offset: Offset(2, 7),
-                        blurRadius: 10.0,
+                        offset: Offset(5, 5),
+                        blurRadius: 5.0,
                         color: kPrimaryColor.withOpacity(0.20))
                   ]),
               child: Row(

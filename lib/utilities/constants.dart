@@ -14,12 +14,21 @@ final kHintTextStyle = TextStyle(
   color: Colors.white,
   fontFamily: 'OpenSans',
 );
+final kTextStyleHeading = TextStyle(
+    color: Colors.black54,
+    fontSize: 15.0,
+    fontFamily: 'OpenSans',
+    fontWeight: FontWeight.bold);
 
 final kLabelStyle = TextStyle(
   color: Colors.white,
   fontWeight: FontWeight.bold,
   fontFamily: 'OpenSans',
 );
+
+final kTextPrice = TextStyle(
+    color: kPrimaryColor.withOpacity(0.5), fontWeight: FontWeight.bold);
+
 final hoverColor = Colors.white70;
 final kBoxDecorationStyle = BoxDecoration(
   color: Color.fromRGBO(158, 217, 232, 0.1),
