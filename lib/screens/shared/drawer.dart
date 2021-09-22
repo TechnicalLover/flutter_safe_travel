@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:safetravel/screens/auth/login_screen.dart';
+import 'package:safetravel/screens/history_order/history_order_screen.dart';
 
 import 'package:safetravel/screens/main_screen.dart';
+import 'package:safetravel/screens/profile/profile_screen.dart';
 import 'package:safetravel/utilities/constants.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
@@ -24,56 +26,50 @@ class NavigationDrawerWidget extends StatelessWidget {
                 buildMenuItem(
                   text: 'Home',
                   icon: Icons.cabin,
-                  onClicked: () => selectedItem(context, 3),
+                  onClicked: () => selectedItem(context, 0),
                 ),
                 const SizedBox(height: 16),
                 buildMenuItem(
                   text: 'Profile',
                   icon: Icons.people_alt_rounded,
-                  onClicked: () => selectedItem(context, 0),
+                  onClicked: () => selectedItem(context, 1),
                 ),
                 const SizedBox(height: 16),
                 buildMenuItem(
                   text: 'Your Booking',
                   icon: Icons.add_shopping_cart,
-                  onClicked: () => selectedItem(context, 3),
-                ),
-                const SizedBox(height: 16),
-                buildMenuItem(
-                  text: 'Favourites',
-                  icon: Icons.favorite_border,
-                  onClicked: () => selectedItem(context, 1),
+                  onClicked: () => selectedItem(context, 2),
                 ),
                 const SizedBox(height: 16),
                 buildMenuItem(
                   text: 'Certification Covid 19',
                   icon: Icons.add_moderator_outlined,
-                  onClicked: () => selectedItem(context, 1),
+                  onClicked: () => selectedItem(context, 4),
                 ),
                 const SizedBox(height: 16),
                 buildMenuItem(
                   text: 'History',
                   icon: Icons.history,
-                  onClicked: () => selectedItem(context, 2),
+                  onClicked: () => selectedItem(context, 5),
                 ),
                 const SizedBox(height: 16),
                 buildMenuItem(
                   text: 'Setting',
                   icon: Icons.settings,
-                  onClicked: () => selectedItem(context, 3),
+                  onClicked: () => selectedItem(context, 6),
                 ),
                 const SizedBox(height: 24),
                 Divider(color: Colors.white70),
                 buildMenuItem(
                   text: 'Updates',
                   icon: Icons.update,
-                  onClicked: () => selectedItem(context, 4),
+                  onClicked: () => selectedItem(context, 7),
                 ),
                 const SizedBox(height: 16),
                 buildMenuItem(
                   text: 'Logout',
                   icon: Icons.logout,
-                  onClicked: () => selectedItem(context, 5),
+                  onClicked: () => selectedItem(context, 8),
                 ),
               ],
             ),
@@ -107,7 +103,17 @@ class NavigationDrawerWidget extends StatelessWidget {
           builder: (context) => MainScreen(),
         ));
         break;
+      case 1:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ProfileScreen(),
+        ));
+        break;
       case 5:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => HistoryOrderScreen(),
+        ));
+        break;
+      case 8:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => LoginScreen(),
         ));
