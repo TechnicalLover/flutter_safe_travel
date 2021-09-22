@@ -7,7 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 // ignore_for_file: public_member_api_docs
 
 const kTextColor = Color(0xFF3C4046);
-const kPrimaryColor = Color(0xFF009688);
+const kPrimaryColor = Color(0xFF1DADB0);
+const kSecondaryColor = Color(0xFF1DADB0);
 const double kDefaultPadding = 20.0;
 final kHintTextStyle = TextStyle(
   color: Colors.white,

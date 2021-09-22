@@ -4,11 +4,11 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:safetravel/screens/Location/tracking_location_screen.dart';
-import 'package:safetravel/screens/chats/chats_screen.dart';
-import 'package:safetravel/screens/favorite/favorite_screen.dart';
+import 'package:safetravel/screens/Experiance/Experiance_screen.dart';
 import 'package:safetravel/screens/home/home_screen.dart';
+import 'package:safetravel/screens/profile/profile_screen.dart';
 import 'package:safetravel/screens/shared/drawer.dart';
+import 'package:safetravel/screens/tour/tour_screen.dart';
 
 import 'package:safetravel/utilities/constants.dart';
 // ignore_for_file: prefer_const_constructors
@@ -32,9 +32,9 @@ class _MainScreenState extends State<MainScreen> {
   int pageIndex = 0;
   List<Widget> pageList = <Widget>[
     HomeScreen(),
-    FavoriteScreen(),
-    ChatsScreeen(),
-    TrackingLocationScreen()
+    ExperienceScreen(),
+    TourScreen(),
+    ProfileScreen()
   ];
   _buildAppBar() {
     return AppBar(
@@ -101,10 +101,11 @@ class _MainScreenState extends State<MainScreen> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.favorite), label: "Favorite"),
-            BottomNavigationBarItem(icon: Icon(Icons.chat), label: "Chats"),
+                icon: Icon(Icons.art_track_rounded), label: "Experience"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.location_off), label: "Location")
+                icon: Icon(Icons.beach_access_rounded), label: "Tour"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.people_alt_sharp), label: "Account")
           ],
         ));
   }
