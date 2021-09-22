@@ -36,45 +36,49 @@ class _MainScreenState extends State<MainScreen> {
     ChatsScreeen(),
     TrackingLocationScreen()
   ];
+  _buildAppBar() {
+    return AppBar(
+        elevation: 0.0,
+        backgroundColor: kPrimaryColor,
+        automaticallyImplyLeading: false,
+        title:
+            Text("safetravel.com", style: GoogleFonts.allura(letterSpacing: 2)),
+        leading: Container(
+          width: 50.0,
+          height: 50.0,
+          decoration: ShapeDecoration(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0)),
+            image: DecorationImage(
+                image: AssetImage("assets/logos/logo-yacht.png")),
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+              onPressed: () => {print("notification press")},
+              icon: Icon(
+                Icons.notifications,
+                color: Colors.white,
+                size: 20,
+              )),
+          Builder(
+            builder: (context) => Container(
+              child: IconButton(
+                  onPressed: () => {Scaffold.of(context).openEndDrawer()},
+                  icon: Icon(
+                    Icons.menu_outlined,
+                    color: Colors.white,
+                    size: 30.0,
+                  )),
+            ),
+          )
+        ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            elevation: 0.0,
-            backgroundColor: kPrimaryColor,
-            automaticallyImplyLeading: false,
-            title: Text("safetravel.com",
-                style: GoogleFonts.allura(letterSpacing: 2)),
-            leading: Container(
-              width: 50.0,
-              height: 50.0,
-              decoration: ShapeDecoration(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0)),
-                image: DecorationImage(
-                    image: AssetImage("assets/logos/logo-yacht.png")),
-              ),
-            ),
-            actions: <Widget>[
-              IconButton(
-                  onPressed: () => {print("notification press")},
-                  icon: Icon(
-                    Icons.notifications,
-                    color: Colors.white,
-                    size: 20,
-                  )),
-              Builder(
-                builder: (context) => Container(
-                  child: IconButton(
-                      onPressed: () => {Scaffold.of(context).openEndDrawer()},
-                      icon: Icon(
-                        Icons.menu_outlined,
-                        color: Colors.white,
-                        size: 30.0,
-                      )),
-                ),
-              )
-            ]),
+        appBar: _buildAppBar(),
         endDrawer: NavigationDrawerWidget(),
         body: PageTransitionSwitcher(
           transitionBuilder: (child, primaryAnimation, secondaryAnimation) =>

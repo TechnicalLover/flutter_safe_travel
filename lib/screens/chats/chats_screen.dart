@@ -10,7 +10,6 @@ import 'package:safetravel/utilities/constants.dart';
 // ignore_for_file: prefer_const_literals_to_create_immutables
 // ignore_for_file: public_member_api_docs
 
-
 class ChatsScreeen extends StatefulWidget {
   ChatsScreeen({Key? key}) : super(key: key);
 
