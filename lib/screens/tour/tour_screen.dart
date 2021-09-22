@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:safetravel/component/inspiration_card.dart';
-import 'package:safetravel/component/nearby_card.dart';
+import 'package:safetravel/widget/inspiration_card.dart';
+import 'package:safetravel/widget/list_tour_card.dart';
+import 'package:safetravel/widget/nearby_card.dart';
 import 'package:safetravel/screens/location/tracking_location_screen.dart';
 
 import 'package:safetravel/utilities/constants.dart';
@@ -25,22 +26,22 @@ class _TourScreenState extends State<TourScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: <Widget>[
-                Text("Hi Sang! Make sure you are safe covid 19 ",
-                    style: Theme.of(context).textTheme.subtitle2?.copyWith(
-                        color: Colors.black45, fontWeight: FontWeight.bold)),
-                Spacer(),
-                IconButton(
-                  onPressed: () => {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => TrackingLocationScreen()))
-                  },
-                  icon: Icon(Icons.add_moderator),
-                  color: kPrimaryColor,
-                )
-              ],
-            ),
+            // Row(
+            //   children: <Widget>[
+            //     Text("Hi Sang! Make sure you are safe covid 19 ",
+            //         style: Theme.of(context).textTheme.subtitle2?.copyWith(
+            //             color: Colors.black45, fontWeight: FontWeight.bold)),
+            //     Spacer(),
+            //     IconButton(
+            //       onPressed: () => {
+            //         Navigator.of(context).push(MaterialPageRoute(
+            //             builder: (context) => TrackingLocationScreen()))
+            //       },
+            //       icon: Icon(Icons.add_moderator),
+            //       color: kPrimaryColor,
+            //     )
+            //   ],
+            // ),
             SizedBox(
               height: 20.0,
             ),
@@ -92,7 +93,7 @@ class _TourScreenState extends State<TourScreen> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                            text: "Near by ",
+                            text: "List Tour For You ",
                             style: TextStyle(
                                 color: Colors.black54,
                                 fontWeight: FontWeight.bold,
@@ -119,19 +120,19 @@ class _TourScreenState extends State<TourScreen> {
             ),
           ),
         ),
-        Spacer(),
-        Container(
-          margin: EdgeInsets.only(right: kDefaultPadding),
-          child: RaisedButton(
-              onPressed: () => {},
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20)),
-              color: kPrimaryColor,
-              child: Text(
-                "More",
-                style: TextStyle(color: Colors.white),
-              )),
-        )
+        // Spacer(),
+        // Container(
+        //   margin: EdgeInsets.only(right: kDefaultPadding),
+        //   child: RaisedButton(
+        //       onPressed: () => {},
+        //       shape: RoundedRectangleBorder(
+        //           borderRadius: BorderRadius.circular(20)),
+        //       color: kPrimaryColor,
+        //       child: Text(
+        //         "More",
+        //         style: TextStyle(color: Colors.white),
+        //       )),
+        // )
       ],
     );
   }
@@ -177,33 +178,37 @@ class _TourScreenState extends State<TourScreen> {
 
   Widget _buildNearByCard() {
     return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
+      scrollDirection: Axis.vertical,
+      child: Column(
         children: [
-          NearByYouCard(
-              image: "assets/yachts/yacht1.jpg",
-              title: "Classic",
-              address: "Hòn Tiên",
-              price: 1000,
-              press: () => {print("Hon Tien")}),
-          NearByYouCard(
-              image: "assets/yachts/yacht2.jpg",
-              title: "Business",
-              address: "Phú Quốc",
-              price: 1000,
-              press: () => {print("Hon Ba")}),
-          NearByYouCard(
-              image: "assets/yachts/yacht3.jpg",
-              title: "Business",
-              address: "Hà Tiên",
-              price: 1000,
-              press: () => {print("Phu Quoc")}),
-          NearByYouCard(
-              image: "assets/yachts/yacht4.jpg",
-              title: "Luxury",
-              address: "Resort Vin",
-              price: 1000,
-              press: () => {print("Test")})
+          Row(children: [
+            ListTourCard(
+                image: "assets/yachts/yacht1.jpg",
+                title: "Classic",
+                address: "Hòn Tiên",
+                price: 5000,
+                press: () => {print("Hon Tien")}),
+            ListTourCard(
+                image: "assets/yachts/yacht2.jpg",
+                title: "Business",
+                address: "Phú Quốc",
+                price: 998,
+                press: () => {print("Hon Ba")}),
+          ]),
+          Row(children: [
+            ListTourCard(
+                image: "assets/yachts/yacht3.jpg",
+                title: "Business",
+                address: "Hà Tiên",
+                price: 800,
+                press: () => {print("Phu Quoc")}),
+            ListTourCard(
+                image: "assets/yachts/yacht4.jpg",
+                title: "Luxury",
+                address: "Resort Vin",
+                price: 18976,
+                press: () => {print("Test")})
+          ])
         ],
       ),
     );
