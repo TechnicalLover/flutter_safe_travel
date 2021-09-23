@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:safetravel/utilities/constants.dart';
 
@@ -18,7 +19,6 @@ class _BlogCardState extends State<BlogCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onLongPress: () => {},
-      
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -92,6 +92,31 @@ class _BlogCardState extends State<BlogCard> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset("assets/images/blog.jpg"),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: 'T',
+                    style: GoogleFonts.notoSerif(
+                      color: Colors.black,
+                      fontSize: 24,
+                    ),
+                  ),
+                  TextSpan(
+                    text:
+                        "ravel blogs nowadays are starting to look all the same, with generic off-the-shelf templates, difficult navigation, way too many unnecessary pop-ups and don't get me started on scroll hijacking (why do people do this?).",
+                    style: GoogleFonts.notoSerif(
+                        color: Colors.black,
+                        fontSize: 12,
+                        height: 1.5,
+                        wordSpacing: 2),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
