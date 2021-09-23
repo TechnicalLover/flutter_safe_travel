@@ -22,12 +22,12 @@ class _BlogCardState extends State<BlogCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onLongPress: () => {},
-      child: Column(
+      child: Card(child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: EdgeInsets.all(10),
             child: Column(
               children: [
                 Wrap(
@@ -182,7 +182,7 @@ class _BlogCardState extends State<BlogCard> {
             ),
           )
         ],
-      ),
+      ),)
     );
   }
 }
