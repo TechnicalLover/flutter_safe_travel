@@ -181,7 +181,7 @@ class _TourScreenState extends State<TourScreen> {
       scrollDirection: Axis.vertical,
       child: Column(
         children: [
-          Row(children: [
+          Wrap(children: [
             ListTourCard(
                 image: "assets/yachts/yacht1.jpg",
                 title: "Classic",
@@ -194,8 +194,6 @@ class _TourScreenState extends State<TourScreen> {
                 address: "Phú Quốc",
                 price: 998,
                 press: () => {print("Hon Ba")}),
-          ]),
-          Row(children: [
             ListTourCard(
                 image: "assets/yachts/yacht3.jpg",
                 title: "Business",
@@ -207,8 +205,20 @@ class _TourScreenState extends State<TourScreen> {
                 title: "Luxury",
                 address: "Resort Vin",
                 price: 18976,
+                press: () => {print("Test")}),
+            ListTourCard(
+                image: "assets/yachts/yacht4.jpg",
+                title: "Luxury",
+                address: "Resort Vin",
+                price: 18976,
+                press: () => {print("Test")}),
+            ListTourCard(
+                image: "assets/yachts/yacht4.jpg",
+                title: "Luxury",
+                address: "Resort Vin",
+                price: 18976,
                 press: () => {print("Test")})
-          ])
+          ]),
         ],
       ),
     );
