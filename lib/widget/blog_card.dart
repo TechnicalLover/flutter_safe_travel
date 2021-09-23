@@ -15,6 +15,9 @@ class BlogCard extends StatefulWidget {
 }
 
 class _BlogCardState extends State<BlogCard> {
+  bool isLiked = false;
+  int likeQuantity = 106;
+  String location= "Đà lạt";
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -75,7 +78,24 @@ class _BlogCardState extends State<BlogCard> {
                           size: 18,
                         ),
                         Text(
-                          '106 Likes',
+                          likeQuantity.toString() + ' Likes',
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        )
+                      ],
+                    ),
+                    Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
+                      spacing: 4,
+                      children: [
+                        Icon(
+                          Icons.location_on,
+                          color: Colors.grey,
+                          size: 18,
+                        ),
+                        Text(
+                          location,
                           style: TextStyle(
                             color: Colors.grey,
                           ),
@@ -119,6 +139,48 @@ class _BlogCardState extends State<BlogCard> {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Spacer(),
+                TextButton.icon(
+                    label: Text(
+                      "Like",
+                      style: TextStyle(
+                          color: isLiked ? kPrimaryColor : Colors.grey),
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        isLiked = !isLiked;
+                        if (isLiked) {
+                          likeQuantity++;
+                        } else {
+                          likeQuantity--;
+                        }
+                      });
+                    },
+                    icon: Icon(
+                      isLiked ? Icons.favorite : Icons.favorite_outline,
+                      color: isLiked ? kPrimaryColor : Colors.grey,
+                      size: 35,
+                    )),
+                SizedBox(width: 20),
+                TextButton.icon(
+                    label: Text(
+                      "Comment",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.comment_outlined,
+                      color: Colors.grey,
+                      size: 35,
+                    ))
+              ],
+            ),
+          )
         ],
       ),
     );
