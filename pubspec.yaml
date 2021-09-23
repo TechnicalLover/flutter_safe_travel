@@ -77,6 +77,8 @@ flutter:
     - assets/logos/diamond.png
     - assets/logos/yachts_animation.gif
     - assets/images/weather-icon.jpg
+    - assets/images/blog.jpg
+    - assets/images/avatar-blog.jpg
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

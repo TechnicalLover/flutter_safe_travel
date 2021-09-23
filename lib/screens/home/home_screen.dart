@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:safetravel/widget/blog_card.dart';
 import 'package:safetravel/widget/nearby_card.dart';
 import 'package:safetravel/screens/location/tracking_location_screen.dart';
 import 'package:safetravel/utilities/constants.dart';
@@ -23,6 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
             padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 24.0),
@@ -34,7 +37,27 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          _buildTourForYou()
+          _buildTourForYou(),
+          Center(
+            child: Text(
+              "Travel Blog To You",
+              style: TextStyle(
+                  fontFamily: GoogleFonts.allura().fontFamily,
+                  color: kPrimaryColor,
+                  shadows: <Shadow>[
+                    Shadow(
+                      offset: Offset(5, 5),
+                      color: kPrimaryColor,
+                      blurRadius: 10,
+                    )
+                  ],
+                  fontSize: 30),
+            ),
+          ),
+          SizedBox(
+            height: 24,
+          ),
+          BlogCard(),
         ],
       ),
     );
