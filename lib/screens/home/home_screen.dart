@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:safetravel/screens/home/components/categories.dart';
+import 'package:safetravel/screens/home/components/discount_banner.dart';
 import 'package:safetravel/widget/blog_card.dart';
 import 'package:safetravel/widget/nearby_card.dart';
 import 'package:safetravel/screens/location/tracking_location_screen.dart';
@@ -34,6 +36,8 @@ class _HomeScreenState extends State<HomeScreen> {
               children: <Widget>[
                 _buildHeaderCovid(),
                 // WeatherCard(),
+                DiscountBanner(),
+                Categories(),
                 _buildHeading(),
               ],
             ),
@@ -99,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Container(
                     child: Text(
-                      "recommended to you".toUpperCase(),
+                      "Special for you",
                       style: kTextStyleHeading,
                     ),
                   ),
