@@ -253,7 +253,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                     children: [
                       Icon(
                         Icons.assistant_photo,
-                        color: kPrimaryColor,
+                        color: Colors.red.shade400,
                       ),
                       Text(
                         "Phú Quốc",
