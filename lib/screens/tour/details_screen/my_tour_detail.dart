@@ -232,9 +232,20 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                 children: [
                   Column(
                     children: [
-                      Icon(
-                        Icons.location_on,
-                        color: kPrimaryColor,
+                      Ink(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                            style: BorderStyle.solid,
+                            color: kPrimaryColor,
+                          ),
+                        ),
+                        child: Icon(
+                          Icons.location_on,
+                          color: kPrimaryColor,
+                        ),
                       ),
                       Text(
                         "Hà Tiên",
@@ -251,9 +262,19 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                   ),
                   Column(
                     children: [
-                      Icon(
-                        Icons.assistant_photo,
-                        color: Colors.red.shade400,
+                      Ink(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              style: BorderStyle.solid,
+                              color: Colors.red.shade400),
+                        ),
+                        child: Icon(
+                          Icons.assistant_photo,
+                          color: Colors.red.shade400,
+                        ),
                       ),
                       Text(
                         "Phú Quốc",
