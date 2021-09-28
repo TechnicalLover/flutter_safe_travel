@@ -61,7 +61,7 @@ class _TourScreenState extends State<TourScreen> {
               ),
               child: TextField(
                 decoration: InputDecoration(
-                    hintText: "Search for your Yacht...",
+                    hintText: "Country, City, Tourist Place...",
                     hintStyle: TextStyle(
                       color: kPrimaryColor.withOpacity(0.5),
                       fontFamily: GoogleFonts.allura().fontFamily,
