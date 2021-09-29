@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:safetravel/main.dart';
 import 'package:safetravel/screens/auth/login_screen.dart';
 import 'package:safetravel/utilities/constants.dart';
+import 'my_posts.dart';
+import 'my_tours.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -105,7 +107,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Column(
                           children: [
                             RaisedButton(
-                                onPressed: () => {},
+                                onPressed: () => {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => MyPost()),
+                                      ),
+                                    },
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(5)),
                                 color: kPrimaryColor,
@@ -130,7 +138,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Column(
                           children: [
                             RaisedButton(
-                                onPressed: () => {},
+                                onPressed: () => {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => MyTour()),
+                                      ),
+                                    },
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(5)),
                                 color: kPrimaryColor,
@@ -171,7 +185,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         style: TextStyle(color: Colors.white),
                       )),
                   RaisedButton(
-                      onPressed: () => {},
+                      onPressed: () => {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginScreen()),
+                            ),
+                          },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       color: kPrimaryColor,
