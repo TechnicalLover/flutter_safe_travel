@@ -17,9 +17,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SafeArea(
-            child: SingleChildScrollView(
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: SingleChildScrollView(
           padding: EdgeInsets.all(32),
           child: Column(
             children: [
@@ -142,7 +142,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => MyTour()),
+                                            builder: (context) => TestWidget()),
                                       ),
                                     },
                                 shape: RoundedRectangleBorder(
@@ -203,6 +203,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               )
             ],
           ),
-        )));
+        ),
+      ),
+    );
   }
 }
