@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:safetravel/screens/tour/tour_detail_screen.dart';
+import 'package:safetravel/screens/tour/tour_screen.dart';
 import 'package:safetravel/screens/home/components/categories.dart';
 import 'package:safetravel/screens/home/components/discount_banner.dart';
 import 'package:safetravel/widget/blog_card.dart';
@@ -109,7 +111,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Spacer(),
                   RaisedButton(
-                      onPressed: () => {},
+                      onPressed: () => {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => TourScreen()))
+                          },
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
                       color: kPrimaryColor,
@@ -136,25 +141,37 @@ class _HomeScreenState extends State<HomeScreen> {
               title: "Classic",
               address: "Hòn Tiên",
               price: 1000,
-              press: () => {print("Hon Tien")}),
+              press: () => {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => TourDetail()))
+                  }),
           NearByYouCard(
               image: "assets/yachts/yacht2.jpg",
               title: "Business",
               address: "Phú Quốc",
               price: 1000,
-              press: () => {print("Hon Ba")}),
+              press: () => {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => TourDetail()))
+                  }),
           NearByYouCard(
               image: "assets/yachts/yacht3.jpg",
               title: "Business",
               address: "Hà Tiên",
               price: 1000,
-              press: () => {print("Phu Quoc")}),
+              press: () => {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => TourDetail()))
+                  }),
           NearByYouCard(
               image: "assets/yachts/yacht4.jpg",
               title: "Luxury",
               address: "Resort Vin",
               price: 1000,
-              press: () => {print("Test")})
+              press: () => {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => TourDetail()))
+                  })
         ],
       ),
     );

@@ -7,6 +7,8 @@ import 'package:safetravel/screens/location/tracking_location_screen.dart';
 
 import 'package:safetravel/utilities/constants.dart';
 
+import 'tour_detail_screen.dart';
+
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_constructors_in_immutables
 // ignore_for_file: prefer_const_literals_to_create_immutables
@@ -187,37 +189,55 @@ class _TourScreenState extends State<TourScreen> {
                 title: "Classic",
                 address: "Hòn Tiên",
                 price: 5000,
-                press: () => {print("Hon Tien")}),
+                press: () => {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => TourDetail()))
+                    }),
             ListTourCard(
                 image: "assets/yachts/yacht2.jpg",
                 title: "Business",
                 address: "Phú Quốc",
                 price: 998,
-                press: () => {print("Hon Ba")}),
+                press: () => {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => TourDetail()))
+                    }),
             ListTourCard(
                 image: "assets/yachts/yacht3.jpg",
                 title: "Business",
                 address: "Hà Tiên",
                 price: 800,
-                press: () => {print("Phu Quoc")}),
+                press: () => {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => TourDetail()))
+                    }),
             ListTourCard(
                 image: "assets/yachts/yacht4.jpg",
                 title: "Luxury",
                 address: "Resort Vin",
                 price: 18976,
-                press: () => {print("Test")}),
+                press: () => {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => TourDetail()))
+                    }),
             ListTourCard(
                 image: "assets/yachts/yacht4.jpg",
                 title: "Luxury",
                 address: "Resort Vin",
                 price: 18976,
-                press: () => {print("Test")}),
+                press: () => {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => TourDetail()))
+                    }),
             ListTourCard(
                 image: "assets/yachts/yacht4.jpg",
                 title: "Luxury",
                 address: "Resort Vin",
                 price: 18976,
-                press: () => {print("Test")})
+                press: () => {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => TourDetail()))
+                    })
           ]),
         ],
       ),
