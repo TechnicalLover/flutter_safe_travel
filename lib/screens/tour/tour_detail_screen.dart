@@ -1,5 +1,8 @@
 //import 'dart:ui';
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
+import 'package:safetravel/utilities/constants.dart';
 import 'package:safetravel/widget/photo-album.dart';
 
 import 'confirm.dart';
@@ -114,6 +117,7 @@ class TourDetail extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Column(
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               Text("\$33",
                                   style: TextStyle(
@@ -162,32 +166,67 @@ class TourDetail extends StatelessWidget {
                         ],
                       ),
                       PhotoAlbum(imgArray),
-                      Text(
-                        'Time: 4 PM',
-                      ),
-                      Text(
-                        'Date: 28/10/2021',
-                      ),
-                      Text('Place: Phu Quoc'),
-                      Text('Person: 5'),
-                      Text('Price: \$33'),
-                      ButtonTheme(
-                        minWidth: 1000.0,
-                        height: 100.0,
-                        child: OutlinedButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => Confirm()));
-                          },
-                          child: Text(
-                            "Book",
-                            style: TextStyle(color: Colors.white),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Wrap(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Place: Phu Quoc',
+                                    style: kTextPrice,
+                                  ),
+                                  Text(
+                                    'Date: 28/10/2021',
+                                    style: kTextPrice,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Column(
+                                children: [
+                                  Text(
+                                    'Time: 4 PM',
+                                    style: kTextPrice,
+                                  ),
+                                  Text(
+                                    'Price: \$33',
+                                    style: kTextPrice,
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Colors.blue.shade800),
+                          Wrap(
+                            children: [
+                              Container(
+                                width: 100,
+                                child: ButtonTheme(
+                                  child: OutlinedButton(
+                                    onPressed: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) => Confirm()));
+                                    },
+                                    child: Text(
+                                      "Book",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.blue.shade800),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
+                        ],
                       )
                     ],
                   ),
