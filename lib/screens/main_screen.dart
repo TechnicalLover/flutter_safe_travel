@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safetravel/screens/Experiance/Experiance_screen.dart';
+import 'package:safetravel/screens/Location/map.dart';
 import 'package:safetravel/screens/home/home_screen.dart';
 import 'package:safetravel/screens/profile/profile_screen.dart';
 import 'package:safetravel/screens/shared/drawer.dart';
@@ -37,7 +38,7 @@ class _MainScreenState extends State<MainScreen> {
     ExperienceScreen(),
     TourScreen(),
     QRCode(),
-    ProfileScreen(),
+    MapCovid(),
   ];
   _buildAppBar() {
     return AppBar(
@@ -110,7 +111,7 @@ class _MainScreenState extends State<MainScreen> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.qr_code), label: "QR Code"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.people_alt_sharp), label: "Account"),
+                icon: Icon(Icons.location_on_sharp), label: "Map Covid-19"),
           ],
         ));
   }
