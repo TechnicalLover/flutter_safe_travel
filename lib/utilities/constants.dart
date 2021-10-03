@@ -41,3 +41,27 @@ final kBoxDecorationStyle = BoxDecoration(
     ),
   ],
 );
+
+final kSearchBarDecorationStyle = BoxDecoration(
+  color: Colors.white,
+  borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30) ),
+  boxShadow: [
+    BoxShadow(
+      color: kPrimaryColor,
+      blurRadius: 6.0,
+      offset: Offset(0, 2),
+    ),
+  ],
+);
+
+final kAddBlogDecorationStyle = BoxDecoration(
+  color: Colors.white,
+  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30) ),
+  boxShadow: [
+    BoxShadow(
+      color: kPrimaryColor,
+      blurRadius: 6.0,
+      offset: Offset(0, 2),
+    ),
+  ],
+);

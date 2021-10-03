@@ -7,7 +7,6 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:safetravel/screens/auth/login_screen.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
