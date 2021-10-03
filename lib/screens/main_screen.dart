@@ -11,6 +11,8 @@ import 'package:safetravel/screens/shared/drawer.dart';
 import 'package:safetravel/screens/tour/tour_screen.dart';
 
 import 'package:safetravel/utilities/constants.dart';
+
+import 'tour/qr-code.dart';
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_constructors_in_immutables
 // ignore_for_file: prefer_const_literals_to_create_immutables
@@ -34,7 +36,8 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     ExperienceScreen(),
     TourScreen(),
-    ProfileScreen()
+    QRCode(),
+    ProfileScreen(),
   ];
   _buildAppBar() {
     return AppBar(
@@ -105,7 +108,9 @@ class _MainScreenState extends State<MainScreen> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.beach_access_rounded), label: "Tour"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.people_alt_sharp), label: "Account")
+                icon: Icon(Icons.qr_code), label: "QR Code"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.people_alt_sharp), label: "Account"),
           ],
         ));
   }
