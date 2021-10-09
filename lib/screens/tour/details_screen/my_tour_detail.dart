@@ -24,7 +24,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
                       image: DecorationImage(
-                          image: AssetImage("assets/yachts/yacht3.jpg"),
+                          image: AssetImage("assets/tours/tour1.jpg"),
                           fit: BoxFit.cover)),
                   child: Stack(
                     children: [
