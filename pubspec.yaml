@@ -44,16 +44,15 @@ dependencies:
   animated_splash_screen: ^1.1.0
   intl: ^0.17.0
   another_carousel_pro:
-     git:
-       url: https://github.com/iamnabink/another_carousel_pro.git
-       ref: master
+    git:
+      url: https://github.com/iamnabink/another_carousel_pro.git
+      ref: master
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   webview_flutter: ^2.1.1
-  carousel_slider: ^4.0.0
-
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -77,6 +76,9 @@ flutter:
     - assets/yachts/yacht2.jpg
     - assets/yachts/yacht3.jpg
     - assets/yachts/yacht4.jpg
+    - assets/tours/tour1.jpg
+    - assets/tours/tour2.jpg
+    - assets/tours/tour4.jpg
     - assets/logos/facebook.jpg
     - assets/logos/google.jpg
     - assets/images/background.jpg

@@ -1,17 +1,20 @@
+// import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:safetravel/screens/home/components/carousel_slider.dart';
 import 'package:safetravel/screens/tour/tour_detail_screen.dart';
 import 'package:safetravel/screens/tour/tour_screen.dart';
 import 'package:safetravel/screens/home/components/categories.dart';
-import 'package:safetravel/screens/home/components/discount_banner.dart';
-import 'package:safetravel/widget/blog_card.dart';
+// import 'package:safetravel/screens/home/components/discount_banner.dart';
+// import 'package:safetravel/widget/blog_card.dart';
 import 'package:safetravel/widget/inspiration_card.dart';
 import 'package:safetravel/widget/nearby_card.dart';
 import 'package:safetravel/screens/location/tracking_location_screen.dart';
 import 'package:safetravel/utilities/constants.dart';
-import 'package:intl/intl.dart';
-import 'package:safetravel/widget/weather_card.dart';
+// import 'package:intl/intl.dart';
+// import 'package:safetravel/widget/weather_card.dart';
+
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_constructors_in_immutables
 // ignore_for_file: prefer_const_literals_to_create_immutables
@@ -53,6 +56,10 @@ class _HomeScreenState extends State<HomeScreen> {
           Center(
             child: Text("Tour near you", style: shadownText),
           ),
+          SizedBox(
+            height: 5,
+          ),
+          CarouselSliderTour(),
           SizedBox(
             height: 10,
           ),
@@ -164,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         children: [
           NearByYouCard(
-              image: "assets/yachts/yacht1.jpg",
+              image: "assets/tours/tour1.jpg",
               title: "Classic",
               address: "Hòn Tiên",
               price: 1000,
@@ -173,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         MaterialPageRoute(builder: (context) => TourDetail()))
                   }),
           NearByYouCard(
-              image: "assets/yachts/yacht2.jpg",
+              image: "assets/tours/tour2.jpg",
               title: "Business",
               address: "Phú Quốc",
               price: 1000,
@@ -182,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         MaterialPageRoute(builder: (context) => TourDetail()))
                   }),
           NearByYouCard(
-              image: "assets/yachts/yacht3.jpg",
+              image: "assets/tours/tour4.jpg",
               title: "Business",
               address: "Hà Tiên",
               price: 1000,
@@ -191,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         MaterialPageRoute(builder: (context) => TourDetail()))
                   }),
           NearByYouCard(
-              image: "assets/yachts/yacht4.jpg",
+              image: "assets/tours/tour4.jpg",
               title: "Luxury",
               address: "Resort Vin",
               price: 1000,
