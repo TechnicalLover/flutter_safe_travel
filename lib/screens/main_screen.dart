@@ -37,7 +37,6 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     ExperienceScreen(),
     TourScreen(),
-    QRCode(),
     MapCovid(),
   ];
   _buildAppBar() {
@@ -108,8 +107,6 @@ class _MainScreenState extends State<MainScreen> {
                 icon: Icon(Icons.art_track_rounded), label: "Experience"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.beach_access_rounded), label: "Tour"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.qr_code), label: "QR Code"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.location_on_sharp), label: "Map Covid-19"),
           ],

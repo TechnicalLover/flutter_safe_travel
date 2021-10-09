@@ -114,28 +114,13 @@ class _NearByYouCardState extends State<NearByYouCard> {
                                     color: Colors.orange,
                                   )),
                               onRatingUpdate: (value) {}),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text("\$1299.00",
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      decoration: TextDecoration.lineThrough,
-                                      color: Colors.grey,
-                                      fontWeight: FontWeight.bold)),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                "\$999.00",
-                                style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: kPrimaryColor),
-                              ),
-                            ],
-                          ),
+                          Text(
+                            "${widget.price}\$",
+                            style: Theme.of(context)
+                                .textTheme
+                                .button
+                                ?.copyWith(color: kPrimaryColor),
+                          )
                         ],
                       ),
                     ),

@@ -28,17 +28,7 @@ final kLabelStyle = TextStyle(
 
 final kTextPrice = TextStyle(
     color: kPrimaryColor.withOpacity(0.5), fontWeight: FontWeight.bold);
-final shadownText = TextStyle(
-    fontFamily: GoogleFonts.allura().fontFamily,
-    color: kPrimaryColor,
-    shadows: <Shadow>[
-      Shadow(
-        offset: Offset(5, 5),
-        color: kPrimaryColor,
-        blurRadius: 10,
-      )
-    ],
-    fontSize: 30);
+
 final hoverColor = Colors.white70;
 final kBoxDecorationStyle = BoxDecoration(
   color: Color.fromRGBO(158, 217, 232, 0.1),
@@ -54,8 +44,7 @@ final kBoxDecorationStyle = BoxDecoration(
 
 final kSearchBarDecorationStyle = BoxDecoration(
   color: Colors.white,
-  borderRadius: BorderRadius.only(
-      topLeft: Radius.circular(30), topRight: Radius.circular(30)),
+  borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30) ),
   boxShadow: [
     BoxShadow(
       color: kPrimaryColor,
@@ -67,8 +56,7 @@ final kSearchBarDecorationStyle = BoxDecoration(
 
 final kAddBlogDecorationStyle = BoxDecoration(
   color: Colors.white,
-  borderRadius: BorderRadius.only(
-      bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
+  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30) ),
   boxShadow: [
     BoxShadow(
       color: kPrimaryColor,
@@ -77,3 +65,5 @@ final kAddBlogDecorationStyle = BoxDecoration(
     ),
   ],
 );
+
+

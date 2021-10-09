@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:safetravel/screens/Location/tracking_location_screen.dart';
 import 'package:safetravel/screens/tour/details_screen/my_tour_detail.dart';
 import 'package:safetravel/utilities/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,31 +13,24 @@ class Categories extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             CategoryCard(
-                icon: "assets/icons/flash.png",
-                text: "Khuyến mãi",
-                press: () => {}),
+                icon: "assets/icons/flash.png", text: "Deals", press: () => {}),
             CategoryCard(
                 icon: "assets/icons/ticket.png",
-                text: "Tour đã đặt",
+                text: "Booked",
                 press: () => Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => TravelDetailPage()))),
             CategoryCard(
                 icon: "assets/icons/heart.png",
-                text: "An toàn",
-                press: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => TrackingLocationScreen()))),
-            CategoryCard(
-                icon: "assets/icons/gift.png",
-                text: "quà tặng ",
+                text: "Heathly",
                 press: () => {}),
             CategoryCard(
-                icon: "assets/icons/more.png",
-                text: "Xem thêm",
-                press: () => {})
+                icon: "assets/icons/gift.png",
+                text: "Daily Gift",
+                press: () => {}),
+            CategoryCard(
+                icon: "assets/icons/more.png", text: "More", press: () => {})
           ]),
     );
   }
