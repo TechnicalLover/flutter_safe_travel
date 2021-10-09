@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:safetravel/utilities/constants.dart';
 
@@ -14,15 +16,16 @@ class DiscountBanner extends StatelessWidget {
 
       padding: EdgeInsets.symmetric(
         horizontal: 20,
-        vertical: 20,
+        vertical: 30,
       ),
       decoration: BoxDecoration(
-        color: Color.fromRGBO(3, 83, 151, 1),
+        color: Color.fromRGBO(3, 83, 151, 0.8),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text.rich(
         TextSpan(
           style: TextStyle(color: Colors.white),
+          // ignore: prefer_const_literals_to_create_immutables
           children: [
             TextSpan(text: "A Summer Surpise\n"),
             TextSpan(

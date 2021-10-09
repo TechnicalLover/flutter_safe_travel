@@ -22,27 +22,50 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
   Widget _BuildAddBlogBar() {
     return Column(mainAxisAlignment: MainAxisAlignment.start, children: [
       Container(
-          alignment: Alignment.centerLeft,
-          height: 60.0,
-          decoration: kAddBlogDecorationStyle,
-          margin: const EdgeInsets.only(left: 10, right: 10),
-          child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                minimumSize: Size(double.infinity, double.maxFinite),
-                primary: Colors.white,
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                  ),
-                ), // double.infinity is the width and 30 is the height
-              ),
-              child: Text(
-                "Add your new experience",
-                style: TextStyle(color: kPrimaryColor),
-              )))
+        alignment: Alignment.centerLeft,
+        height: 60.0,
+        decoration: kAddBlogDecorationStyle,
+        margin: const EdgeInsets.only(left: 10, right: 10),
+        child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              minimumSize: Size(double.infinity, double.maxFinite),
+              primary: Colors.white,
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30),
+                ),
+              ), // double.infinity is the width and 30 is the height
+            ),
+            child: Text(
+              "Add your new experience",
+              style: TextStyle(color: kPrimaryColor),
+            )),
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Center(
+        child: Text(
+          "Blog Travel",
+          style: TextStyle(
+              fontFamily: GoogleFonts.allura().fontFamily,
+              color: kPrimaryColor,
+              shadows: <Shadow>[
+                Shadow(
+                  offset: Offset(5, 5),
+                  color: kPrimaryColor,
+                  blurRadius: 10,
+                )
+              ],
+              fontSize: 30),
+        ),
+      ),
+      SizedBox(
+        height: 5,
+      )
     ]);
   }
 
@@ -62,12 +85,18 @@ class _ExperienceScreenState extends State<ExperienceScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                BlogCard(),SizedBox(height: 5),
-                BlogCard(),SizedBox(height: 5),
-                BlogCard(),SizedBox(height: 5),
-                BlogCard(),SizedBox(height: 5),
-                BlogCard(),SizedBox(height: 5),
-                BlogCard(),SizedBox(height: 5),
+                BlogCard(),
+                SizedBox(height: 5),
+                BlogCard(),
+                SizedBox(height: 5),
+                BlogCard(),
+                SizedBox(height: 5),
+                BlogCard(),
+                SizedBox(height: 5),
+                BlogCard(),
+                SizedBox(height: 5),
+                BlogCard(),
+                SizedBox(height: 5),
               ],
             ),
           ))

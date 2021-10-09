@@ -86,7 +86,7 @@ class _TourScreenState extends State<TourScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
           child: Container(
-            height: 24,
+            height: 30,
             child: Stack(
               children: <Widget>[
                 Padding(
@@ -95,14 +95,13 @@ class _TourScreenState extends State<TourScreen> {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                            text: "List Tour For You ",
-                            style: TextStyle(
-                                color: Colors.black54,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15)),
+                            text: "List Tour For You ", style: shadownText),
                         WidgetSpan(
-                          child:
-                              Icon(Icons.person_pin_circle_outlined, size: 20),
+                          child: Icon(
+                            Icons.person_pin_circle_outlined,
+                            size: 30,
+                            color: kPrimaryColor,
+                          ),
                         ),
                       ],
                     ),
@@ -181,6 +180,7 @@ class _TourScreenState extends State<TourScreen> {
   Widget _buildNearByCard() {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
+      padding: EdgeInsets.only(top: 30),
       child: Column(
         children: [
           Wrap(children: [
@@ -244,47 +244,7 @@ class _TourScreenState extends State<TourScreen> {
     );
   }
 
-  Widget _buildTourPopulate() {
-    return Padding(
-        padding: EdgeInsets.all(20.0),
-        child: Container(
-            width: double.infinity,
-            alignment: Alignment.centerLeft,
-            child: ListView(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              padding: EdgeInsets.only(top: 12, bottom: 30),
-              children: [
-                InspirationCard(
-                  image: "assets/yachts/yacht1.jpg",
-                  description:
-                      "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit.",
-                  title: "Top 10 Yacht Luxury ",
-                  press: () => {print("top10 1")},
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                InspirationCard(
-                  image: "assets/yachts/yacht2.jpg",
-                  description:
-                      "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit,",
-                  title: "Top 5 Yacht Rent a lot ",
-                  press: () => {print("top10 2")},
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
-                InspirationCard(
-                  image: "assets/yachts/yacht3.jpg",
-                  description:
-                      "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit,",
-                  title: "Top 5 Popular place ",
-                  press: () => {print("top10 3")},
-                ),
-              ],
-            )));
-  }
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -295,8 +255,8 @@ class _TourScreenState extends State<TourScreen> {
           _buildHeaderSearchBox(),
           _buildNearByYou(),
           _buildNearByCard(),
-          _buildHeadingPopulate(),
-          _buildTourPopulate()
+          // _buildHeadingPopulate(),
+          // _buildTourPopulate()
         ],
       ),
     );

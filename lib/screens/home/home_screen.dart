@@ -6,6 +6,7 @@ import 'package:safetravel/screens/tour/tour_screen.dart';
 import 'package:safetravel/screens/home/components/categories.dart';
 import 'package:safetravel/screens/home/components/discount_banner.dart';
 import 'package:safetravel/widget/blog_card.dart';
+import 'package:safetravel/widget/inspiration_card.dart';
 import 'package:safetravel/widget/nearby_card.dart';
 import 'package:safetravel/screens/location/tracking_location_screen.dart';
 import 'package:safetravel/utilities/constants.dart';
@@ -38,7 +39,11 @@ class _HomeScreenState extends State<HomeScreen> {
               children: <Widget>[
                 _buildHeaderCovid(),
                 // WeatherCard(),
-                DiscountBanner(),
+                // DiscountBanner(),
+                SizedBox(
+                  height: 10,
+                ),
+                _buildSearch(),
                 Categories(),
                 _buildHeading(),
               ],
@@ -46,26 +51,48 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           _buildTourForYou(),
           Center(
-            child: Text(
-              "Travel Blog To You",
-              style: TextStyle(
-                  fontFamily: GoogleFonts.allura().fontFamily,
-                  color: kPrimaryColor,
-                  shadows: <Shadow>[
-                    Shadow(
-                      offset: Offset(5, 5),
-                      color: kPrimaryColor,
-                      blurRadius: 10,
-                    )
-                  ],
-                  fontSize: 30),
-            ),
+            child: Text("Tour near you", style: shadownText),
           ),
           SizedBox(
-            height: 24,
+            height: 10,
           ),
-          BlogCard(),
+          Center(
+            child: Text("Tour Populate", style: shadownText),
+          ),
+          _buildTourPopulate(),
         ],
+      ),
+    );
+  }
+
+  Widget _buildSearch() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      height: 45,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+              offset: Offset(0, 10),
+              blurRadius: 20,
+              color: kPrimaryColor.withOpacity(0.23))
+        ],
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+            hintText: "Country, City, Tourist Place...",
+            hintStyle: TextStyle(
+              color: kPrimaryColor.withOpacity(0.5),
+              fontFamily: GoogleFonts.allura().fontFamily,
+            ),
+            enabledBorder: InputBorder.none,
+            focusedBorder: InputBorder.none,
+            suffixIcon: Icon(
+              Icons.search,
+              color: kPrimaryColor,
+            )),
       ),
     );
   }
@@ -73,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildHeaderCovid() {
     return Row(
       children: <Widget>[
-        Text("Hi Sang! Make sure you are safe covid 19 ",
+        Text("Hi Sang! đảm bảo bạn an toàn với covid 19 ",
             style: Theme.of(context)
                 .textTheme
                 .subtitle2
@@ -105,8 +132,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Container(
                     child: Text(
-                      "Special for you",
-                      style: kTextStyleHeading,
+                      "Suggest for you",
+                      style: shadownText,
                     ),
                   ),
                   Spacer(),
@@ -175,5 +202,47 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+  }
+
+  Widget _buildTourPopulate() {
+    return Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Container(
+            width: double.infinity,
+            alignment: Alignment.centerLeft,
+            child: ListView(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.only(top: 12, bottom: 30),
+              children: [
+                InspirationCard(
+                  image: "assets/yachts/yacht1.jpg",
+                  description:
+                      "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit.",
+                  title: "Top 10 Yacht Luxury ",
+                  press: () => {print("top10 1")},
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                InspirationCard(
+                  image: "assets/yachts/yacht2.jpg",
+                  description:
+                      "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit,",
+                  title: "Top 5 Yacht Rent a lot ",
+                  press: () => {print("top10 2")},
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                InspirationCard(
+                  image: "assets/yachts/yacht3.jpg",
+                  description:
+                      "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit,",
+                  title: "Top 5 Popular place ",
+                  press: () => {print("top10 3")},
+                ),
+              ],
+            )));
   }
 }
