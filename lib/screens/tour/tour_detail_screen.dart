@@ -211,7 +211,7 @@ class _TourDetailState extends State<TourDetail> {
                 "Thông Tin",
                 style: TextStyle(
                   color: kSecondaryColor,
-                  fontSize: 26,
+                  fontSize: 25,
                 ),
                 textAlign: TextAlign.start,
               )
@@ -319,11 +319,8 @@ class _TourDetailState extends State<TourDetail> {
 
   Widget _builBottomBar() {
     return Container(
-      height: 80,
-      width: double.infinity,
-      color: kPrimaryColor,
-      padding: const EdgeInsets.only(
-          left: 30, right: 30, top: 10, bottom: 10),
+      height: 120,
+      padding: const EdgeInsets.only(left: 30, right: 30, top: 10, bottom: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -335,18 +332,34 @@ class _TourDetailState extends State<TourDetail> {
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    "1.789.000 đ",
-                    style: TextStyle(color: Colors.red, fontSize: 24),
-                  ),
-                  Text(
-                    "/3 ngày",
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  Column(
+                    children: [
+                      Text("\$1299.00",
+                          style: TextStyle(
+                              fontSize: 24,
+                              decoration: TextDecoration.lineThrough,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold)),
+                      Wrap(
+                        children: [
+                          Text(
+                            "\$999.00",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: kPrimaryColor),
+                          ),
+                          Text(
+                            "/3 ngày",
+                            style: TextStyle(color: Colors.black, fontSize: 20),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ],
-              )
+              ),
             ],
           ),
           Spacer(),
@@ -373,7 +386,7 @@ class _TourDetailState extends State<TourDetail> {
     );
   }
 
-      Widget _builLocationTour() {
+  Widget _builLocationTour() {
     return Container(
       width: double.infinity,
       height: 150,
@@ -393,7 +406,7 @@ class _TourDetailState extends State<TourDetail> {
               ),
               Container(
                 height: 1,
-                width: 300,
+                width: 230,
                 color: Colors.blueGrey,
               ),
               Icon(
@@ -411,7 +424,7 @@ class _TourDetailState extends State<TourDetail> {
                 style: TextStyle(color: Colors.blue, fontSize: 20),
               ),
               SizedBox(
-                width: 200,
+                width: 120,
               ),
               Text(
                 "Điểm đến",
@@ -423,14 +436,14 @@ class _TourDetailState extends State<TourDetail> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Tp. Đà nẵng",
+                "Tp.Đà nẵng",
                 style: TextStyle(color: Colors.black, fontSize: 20),
               ),
               SizedBox(
-                width: 200,
+                width: 150,
               ),
               Text(
-                "Tp. Đà Nẵng",
+                "Tp.Đà Nẵng",
                 style: TextStyle(color: Colors.black, fontSize: 20),
               ),
             ],
@@ -453,46 +466,45 @@ class _TourDetailState extends State<TourDetail> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Expanded(
-                child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  AppBar(
-                    title: Text("TOUR"),
-                    backgroundColor: kPrimaryColor,
-                  ),
-                  _builCarouselSliderImage(),
-                  Divider(
-                    height: 10,
-                    thickness: 20,
-                    color: Color(0x1D1DADB0),
-                  ),
-                  _builTitleTour(),
-                  Divider(
-                    height: 10,
-                    thickness: 1,
-                    indent: 20,
-                    endIndent: 20,
-                    color: kSecondaryColor,
-                  ),
-                  _builLocationTour(),
-                  Divider(
-                    height: 10,
-                    thickness: 20,
-                    color: Color(0x1D1DADB0),
-                  ),
-                  _builInfomationTour(),
-                  Divider(
-                    height: 10,
-                    thickness: 20,
-                    color: Color(0x1D1DADB0),
-                  ),
-                  _builWayPart(),
-                ],
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: <Widget>[
+                    AppBar(
+                      title: Text("TOUR"),
+                      backgroundColor: kPrimaryColor,
+                    ),
+                    _builCarouselSliderImage(),
+                    Divider(
+                      height: 10,
+                      thickness: 20,
+                      color: Color(0x1D1DADB0),
+                    ),
+                    _builTitleTour(),
+                    Divider(
+                      height: 10,
+                      thickness: 1,
+                      indent: 20,
+                      endIndent: 20,
+                      color: kSecondaryColor,
+                    ),
+                    _builLocationTour(),
+                    Divider(
+                      height: 10,
+                      thickness: 20,
+                      color: Color(0x1D1DADB0),
+                    ),
+                    _builInfomationTour(),
+                    Divider(
+                      height: 10,
+                      thickness: 20,
+                      color: Color(0x1D1DADB0),
+                    ),
+                    _builWayPart(),
+                  ],
+                ),
               ),
-            )),
+            ),
             _builBottomBar()
           ],
         ));
