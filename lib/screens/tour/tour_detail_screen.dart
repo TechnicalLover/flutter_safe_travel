@@ -194,7 +194,10 @@ class _TourDetailState extends State<TourDetail> {
       padding: const EdgeInsets.all(10),
       child: Text(
         "Đà Nẵng - Sơn Trà - Hội An- Bà Nà - Núi Thần Tài (3N2Đ)",
-        style: TextStyle(color: kPrimaryColor, fontSize: 28),
+        style: TextStyle(
+            color: kPrimaryColor,
+            fontSize: 28,
+            decoration: TextDecoration.none),
       ),
     );
   }
@@ -214,9 +217,9 @@ class _TourDetailState extends State<TourDetail> {
               Text(
                 "Thông Tin",
                 style: TextStyle(
-                  color: kSecondaryColor,
-                  fontSize: 25,
-                ),
+                    color: kSecondaryColor,
+                    fontSize: 25,
+                    decoration: TextDecoration.none),
                 textAlign: TextAlign.start,
               )
             ],
@@ -231,12 +234,12 @@ class _TourDetailState extends State<TourDetail> {
             children: [
               Text(
                 "Mã Tour",
-                style: TextStyle(color: Colors.blueGrey, fontSize: 20),
+                style: TextStyle(color: Colors.blueGrey, fontSize: 20, decoration: TextDecoration.none),
               ),
               Spacer(),
               Text(
                 "T-052539050121-MZ1BGJ",
-                style: TextStyle(color: Colors.black, fontSize: 20),
+                style: TextStyle(color: Colors.black, fontSize: 20, decoration: TextDecoration.none),
               ),
             ],
           ),
@@ -250,12 +253,12 @@ class _TourDetailState extends State<TourDetail> {
             children: [
               Text(
                 "Thời Gian",
-                style: TextStyle(color: Colors.blueGrey, fontSize: 20),
+                style: TextStyle(color: Colors.blueGrey, fontSize: 20, decoration: TextDecoration.none),
               ),
               Spacer(),
               Text(
                 "3 ngày",
-                style: TextStyle(color: Colors.black, fontSize: 20),
+                style: TextStyle(color: Colors.black, fontSize: 20, decoration: TextDecoration.none),
               ),
             ],
           ),
@@ -269,12 +272,12 @@ class _TourDetailState extends State<TourDetail> {
             children: [
               Text(
                 "Điểm khởi hành",
-                style: TextStyle(color: Colors.blueGrey, fontSize: 20),
+                style: TextStyle(color: Colors.blueGrey, fontSize: 20, decoration: TextDecoration.none),
               ),
               Spacer(),
               Text(
                 "Tp. Đà Nẵng",
-                style: TextStyle(color: Colors.black, fontSize: 20),
+                style: TextStyle(color: Colors.black, fontSize: 20, decoration: TextDecoration.none),
               ),
             ],
           ),
@@ -288,12 +291,12 @@ class _TourDetailState extends State<TourDetail> {
             children: [
               Text(
                 "Quốc gia",
-                style: TextStyle(color: Colors.blueGrey, fontSize: 20),
+                style: TextStyle(color: Colors.blueGrey, fontSize: 20, decoration: TextDecoration.none),
               ),
               Spacer(),
               Text(
                 "Việt Nam",
-                style: TextStyle(color: Colors.black, fontSize: 20),
+                style: TextStyle(color: Colors.black, fontSize: 20, decoration: TextDecoration.none),
               ),
             ],
           ),
@@ -307,12 +310,12 @@ class _TourDetailState extends State<TourDetail> {
             children: [
               Text(
                 "Loại tour",
-                style: TextStyle(color: Colors.blueGrey, fontSize: 20),
+                style: TextStyle(color: Colors.blueGrey, fontSize: 20, decoration: TextDecoration.none),
               ),
               Spacer(),
               Text(
                 "Tour nội địa",
-                style: TextStyle(color: Colors.black, fontSize: 20),
+                style: TextStyle(color: Colors.black, fontSize: 20, decoration: TextDecoration.none),
               ),
             ],
           )
@@ -333,7 +336,7 @@ class _TourDetailState extends State<TourDetail> {
             children: [
               Text(
                 "Giá chỉ từ",
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                style: TextStyle(color: Colors.white, fontSize: 20, decoration: TextDecoration.none),
               ),
               Row(
                 children: [
@@ -342,9 +345,9 @@ class _TourDetailState extends State<TourDetail> {
                       Text("\$1299.00",
                           style: TextStyle(
                               fontSize: 24,
-                              decoration: TextDecoration.lineThrough,
+                              decoration: TextDecoration.none,
                               color: Colors.grey,
-                              fontWeight: FontWeight.bold)),
+                              fontWeight: FontWeight.bold,)),
                       Wrap(
                         children: [
                           Text(
@@ -352,11 +355,11 @@ class _TourDetailState extends State<TourDetail> {
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
-                                color: kPrimaryColor),
+                                color: kPrimaryColor, decoration: TextDecoration.none),
                           ),
                           Text(
                             "/3 ngày",
-                            style: TextStyle(color: Colors.black, fontSize: 20),
+                            style: TextStyle(color: Colors.black, fontSize: 20, decoration: TextDecoration.none),
                           ),
                         ],
                       )
@@ -425,11 +428,11 @@ class _TourDetailState extends State<TourDetail> {
               children: [
                 Text(
                   "Điểm Khởi hành",
-                  style: TextStyle(color: Colors.blue, fontSize: 20),
+                  style: TextStyle(color: Colors.blue, fontSize: 20, decoration: TextDecoration.none),
                 ),
                 Text(
                   "Điểm đến",
-                  style: TextStyle(color: Colors.red, fontSize: 20),
+                  style: TextStyle(color: Colors.red, fontSize: 20, decoration: TextDecoration.none),
                 ),
               ],
             ),
@@ -438,11 +441,11 @@ class _TourDetailState extends State<TourDetail> {
               children: [
                 Text(
                   "Tp.Đà nẵng",
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: TextStyle(color: Colors.black, fontSize: 20, decoration: TextDecoration.none),
                 ),
                 Text(
                   "Tp.Đà Nẵng",
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: TextStyle(color: Colors.black, fontSize: 20, decoration: TextDecoration.none),
                 ),
               ],
             )
