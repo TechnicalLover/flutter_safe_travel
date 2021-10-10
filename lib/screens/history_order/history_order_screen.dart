@@ -33,8 +33,6 @@ List<Transaction> transactions = List.generate(20, (index) {
   ..sort((v1, v2) => v2.createdMillis - v1.createdMillis);
 
 class TransactionPage extends StatefulWidget {
-  // TransactionPage({Key key}) : super(key: key);
-
   @override
   _TransactionPageState createState() => _TransactionPageState();
 }

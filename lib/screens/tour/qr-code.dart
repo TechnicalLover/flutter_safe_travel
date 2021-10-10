@@ -8,6 +8,8 @@ class QRCode extends StatelessWidget {
         appBar: AppBar(
           title: Text('QR Code'),
           backgroundColor: kPrimaryColor,
+
+          
         ),
         body: Container(
           child: Column(
