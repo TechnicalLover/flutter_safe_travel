@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:safetravel/screens/tour/qr-code.dart';
+import 'package:safetravel/screens/tour/qr_code.dart';
 import 'dart:math';
 
 import 'package:safetravel/utilities/constants.dart';
