@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_fourth_page.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_second_page.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_sucess.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_third_page.dart';
+import 'package:safetravel/screens/tour/confirm/credit_cards_page.dart';
 import 'package:safetravel/utilities/constants.dart';
 
 import 'confirm_constants.dart';
+import 'confirm_first_page.dart';
 
 class Confirm extends StatefulWidget {
   const Confirm({Key? key}) : super(key: key);
@@ -15,14 +20,16 @@ class Confirm extends StatefulWidget {
 
 class _ConfirmState extends State<Confirm> {
   final PageController _pageController = PageController();
-  final int steps = 3;
+  final int steps = 4;
   final title = [
     'Thông tin liên hệ',
     'Số lượng hành khách',
     'Hóa đơn',
+    'Thanh toán',
+    'Thanh toán',
   ];
+  final indicators = [false, false, false, false];
 
-  int _genderValue = 0;
   int _currentIndex = 0;
 
   @override
@@ -88,8 +95,8 @@ class _ConfirmState extends State<Confirm> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
-        height: 100,
-        alignment: Alignment.centerLeft,
+        height: 85,
+        alignment: Alignment.center,
         child: Text(
           title[_currentIndex],
           style: h1,
@@ -102,13 +109,19 @@ class _ConfirmState extends State<Confirm> {
     Widget pageContent = const SizedBox();
     switch (_currentIndex) {
       case 0:
-        pageContent = firstPage();
+        pageContent = const FirstPage();
         break;
       case 1:
-        pageContent = secondPage();
+        pageContent = const SecondPage();
         break;
       case 2:
-        pageContent = thirdPage();
+        pageContent = const ThirdPage();
+        break;
+      case 3:
+        pageContent = CreditCardsPage();
+        break;
+      case 4:
+        pageContent = const ConfirmSucess();
         break;
     }
     return Expanded(
@@ -130,8 +143,8 @@ class _ConfirmState extends State<Confirm> {
     );
   }
 
-  SizedBox footer() {
-    return SizedBox(
+  Widget footer() {
+    return Container(
       height: 100,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -152,337 +165,13 @@ class _ConfirmState extends State<Confirm> {
               'Tiếp tục',
               () {
                 setState(() {
-                  if (_currentIndex < steps - 1) _currentIndex++;
+                  if (_currentIndex < steps) _currentIndex++;
+                  if (_currentIndex > 0) indicators[_currentIndex - 1] = true;
                 });
               },
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Padding firstPage() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Form(
-        child: Column(
-          children: [
-            textFiled(Icon(Icons.account_circle), 'Họ và tên'),
-            const SizedBox(
-              height: 15,
-            ),
-            genderRadio(),
-            textFiled(Icon(Icons.mail_outline), 'Email'),
-            textFiled(Icon(Icons.phone), 'Số điện thoại'),
-            textFiled(Icon(Icons.home), 'Địa chỉ'),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Row genderRadio() {
-    return Row(
-      children: [
-        Container(
-          width: 25,
-          height: 25,
-          margin: EdgeInsets.symmetric(horizontal: 12),
-          child: Image.asset('assets/icons/gender.png'),
-        ),
-        Text(
-          'Giới tính',
-          style: formStyle.copyWith(fontSize: 16),
-        ),
-        Row(
-          children: [
-            Radio(
-              value: 0,
-              groupValue: _genderValue,
-              onChanged: (value) {
-                setState(() {
-                  _genderValue = value as int;
-                });
-              },
-            ),
-            Text(
-              "Nam",
-              style: formStyle.copyWith(fontSize: 16),
-            ),
-          ],
-        ),
-        Row(
-          children: [
-            Radio(
-              value: 1,
-              groupValue: _genderValue,
-              onChanged: (value) {
-                setState(() {
-                  _genderValue = value as int;
-                });
-              },
-            ),
-            Text(
-              "Nữ",
-              style: formStyle.copyWith(fontSize: 16),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  TextFormField textFiled(Icon icon, String text) {
-    return TextFormField(
-      decoration: InputDecoration(
-        prefixIcon: icon,
-        labelText: text,
-        //labelStyle: formStyle,
-      ),
-    );
-  }
-
-  Padding secondPage() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Column(
-        children: [
-          peopleCounterContainer(),
-          Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(top: 20),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Chi tiết giá',
-                  style: h2,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 15),
-                padding: EdgeInsets.symmetric(horizontal: 0),
-                child: Column(
-                  children: [
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          RichText(
-                            text: TextSpan(
-                              text: 'Người lớn ',
-                              style: h3nor,
-                              children: const <TextSpan>[
-                                TextSpan(
-                                    text: 'x 2',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
-                              ],
-                            ),
-                          ),
-                          Text('200 000 VNĐ', style: h3),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 3,
-                    ),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          RichText(
-                            text: TextSpan(
-                              text: 'Trẻ con ',
-                              style: h3nor,
-                              children: const <TextSpan>[
-                                TextSpan(
-                                    text: 'x 2',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
-                              ],
-                            ),
-                          ),
-                          Text('100 000 VNĐ', style: h3),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          RichText(
-                            text: TextSpan(
-                              text: 'Trẻ sơ sinh ',
-                              style: h3nor,
-                              children: const <TextSpan>[
-                                TextSpan(
-                                    text: 'x 1',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold)),
-                              ],
-                            ),
-                          ),
-                          Text('50 000 VNĐ', style: h3),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                height: 1,
-                color: goodBlack,
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                alignment: Alignment.centerLeft,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Tạm tính',
-                      style: h2,
-                    ),
-                    Text(
-                      '350 000 VNĐ',
-                      style: h2.copyWith(
-                        color: kPrimaryColor,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget peopleCounterContainer() {
-    return Column(
-      children: [
-        peopleCounter(
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 6),
-            child: SvgPicture.asset(
-              'assets/icons/adult.svg',
-              allowDrawingOutsideViewBox: true,
-            ),
-          ),
-          'Người lớn',
-          '16+ tuổi',
-        ),
-        peopleCounter(
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 9),
-            child: SvgPicture.asset(
-              'assets/icons/child.svg',
-              allowDrawingOutsideViewBox: true,
-            ),
-          ),
-          'Trẻ con',
-          '2-15 tuổi',
-        ),
-        peopleCounter(
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: SvgPicture.asset(
-              'assets/icons/baby.svg',
-              allowDrawingOutsideViewBox: true,
-            ),
-          ),
-          'Trẻ sơ sinh',
-          'Dưới 2 tuổi',
-        ),
-      ],
-    );
-  }
-
-  Padding thirdPage() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: Text('Hello world'),
-    );
-  }
-
-  Widget peopleCounter(Widget icon, String title, String hint) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                height: 40,
-                width: 30,
-                child: icon,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: h3nor,
-                  ),
-                  Text(
-                    hint,
-                    style: h4nor.copyWith(
-                      color: goodGray,
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              roundButton(
-                Icon(
-                  Icons.remove_outlined,
-                  size: 15,
-                  color: goodGray,
-                ),
-              ),
-              Container(
-                alignment: Alignment.center,
-                width: 50,
-                child: Text(
-                  '1',
-                  style: h2,
-                ),
-              ),
-              roundButton(
-                Icon(
-                  Icons.add_outlined,
-                  size: 15,
-                  color: goodGray,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget roundButton(Icon icon) {
-    return SizedBox(
-      width: 30,
-      height: 30,
-      child: RawMaterialButton(
-        onPressed: () {},
-        fillColor: Colors.white,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [icon],
-        ),
-        shape: const CircleBorder(),
       ),
     );
   }
@@ -546,7 +235,7 @@ class _ConfirmState extends State<Confirm> {
     );
   }
 
-  Widget indicator(int hasTail, int status) {
+  Widget indicator(int index, int status) {
     var checkedContainer = Container(
       width: 15,
       height: 15,
@@ -562,8 +251,8 @@ class _ConfirmState extends State<Confirm> {
       ),
     );
     var currentContainer = Container(
-      width: 10,
-      height: 10,
+      width: 15,
+      height: 15,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         boxShadow: [boxShadow],
@@ -581,7 +270,8 @@ class _ConfirmState extends State<Confirm> {
         border: Border.all(width: 2, color: kPrimaryColor05),
       ),
     );
-    Container container;
+    if (indicators[index]) status = 0;
+    Widget container;
     switch (status) {
       case 0:
         container = checkedContainer;
@@ -589,15 +279,40 @@ class _ConfirmState extends State<Confirm> {
       case 1:
         container = currentContainer;
         break;
-      default:
+      case 2:
         container = uncheckedContainer;
+        break;
+      default:
+        container = checkedContainer;
     }
-    if (hasTail > 0) {
+    Widget result;
+    if (index == _currentIndex) {
+      result = Stack(
+        alignment: Alignment.center,
+        children: [
+          Container(
+            height: 17,
+            width: 17,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.white,
+            ),
+          ),
+          container,
+        ],
+      );
+    } else {
+      result = container;
+    }
+    if (index > 0) {
+      double tailWidth = 40;
+      if (status == 0 || status == 1) tailWidth = 35;
+      //if (index == steps - 1 && _currentIndex == steps) tailWidth = 30;
       return Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: status != 0 && status != 1 ? 40 : 35,
+            width: tailWidth,
             height: 2,
             decoration: BoxDecoration(
               color:
@@ -605,11 +320,11 @@ class _ConfirmState extends State<Confirm> {
               boxShadow: [boxShadow],
             ),
           ),
-          container,
+          result,
         ],
       );
     } else {
-      return container;
+      return result;
     }
   }
   //end

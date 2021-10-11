@@ -70,4 +70,11 @@ final h4nor = TextStyle(
   fontFamily: mainFont,
 );
 
+final h3ita = TextStyle(
+  color: goodBlack,
+  fontSize: 15.36,
+  fontFamily: mainFont,
+  fontStyle: FontStyle.italic,
+);
+
 final formStyle = h3nor;
