@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
- /* Widget _buildHeaderCovid() {
+  /* Widget _buildHeaderCovid() {
     return Row(
       children: <Widget>[
         Text("Hi Sang! đảm bảo bạn an toàn với covid 19 ",
@@ -184,9 +184,18 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         children: [
           NearByYouCard(
+              image: "assets/tours/tour4.jpg",
+              title: "Luxury",
+              address: "Đà nẵng",
+              price: 1000,
+              press: () => {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => TourDetail()))
+                  }),
+          NearByYouCard(
               image: "assets/tours/tour1.jpg",
               title: "Classic",
-              address: "Hòn Tiên",
+              address: "Huế",
               price: 1000,
               press: () => {
                     Navigator.of(context).push(
@@ -213,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
           NearByYouCard(
               image: "assets/tours/tour4.jpg",
               title: "Luxury",
-              address: "Resort Vin",
+              address: "Đà nẵng",
               price: 1000,
               press: () => {
                     Navigator.of(context).push(

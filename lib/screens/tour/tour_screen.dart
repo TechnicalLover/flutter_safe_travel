@@ -199,16 +199,16 @@ class _TourScreenState extends State<TourScreen> {
         children: [
           Wrap(children: [
             ListTourCard(
-                image: "assets/yachts/yacht1.jpg",
+                image: "assets/tours/tour1.jpg",
                 title: "Classic",
-                address: "Hòn Tiên",
+                address: "Huế",
                 price: 5000,
                 press: () => {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TourDetail()))
                     }),
             ListTourCard(
-                image: "assets/yachts/yacht2.jpg",
+                image: "assets/tours/tour2.jpg",
                 title: "Business",
                 address: "Phú Quốc",
                 price: 998,
@@ -217,7 +217,7 @@ class _TourScreenState extends State<TourScreen> {
                           MaterialPageRoute(builder: (context) => TourDetail()))
                     }),
             ListTourCard(
-                image: "assets/yachts/yacht3.jpg",
+                image: "assets/tours/tour4.jpg",
                 title: "Business",
                 address: "Hà Tiên",
                 price: 800,
@@ -226,27 +226,45 @@ class _TourScreenState extends State<TourScreen> {
                           MaterialPageRoute(builder: (context) => TourDetail()))
                     }),
             ListTourCard(
-                image: "assets/yachts/yacht4.jpg",
+                image: "assets/tours/tour1.jpg",
                 title: "Luxury",
-                address: "Resort Vin",
+                address: "Đà nẵng",
                 price: 18976,
                 press: () => {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TourDetail()))
                     }),
             ListTourCard(
-                image: "assets/yachts/yacht4.jpg",
+                image: "assets/tours/tour1.jpg",
                 title: "Luxury",
-                address: "Resort Vin",
+                address: "Hội an",
                 price: 18976,
                 press: () => {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TourDetail()))
                     }),
             ListTourCard(
-                image: "assets/yachts/yacht4.jpg",
+                image: "assets/tours/tour4.jpg",
                 title: "Luxury",
-                address: "Resort Vin",
+                address: "Đà nẵng",
+                price: 18976,
+                press: () => {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => TourDetail()))
+                    }),
+            ListTourCard(
+                image: "assets/tours/tour4.jpg",
+                title: "Luxury",
+                address: "Vũng Tàu",
+                price: 18976,
+                press: () => {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => TourDetail()))
+                    }),
+            ListTourCard(
+                image: "assets/tours/tour4.jpg",
+                title: "Luxury",
+                address: "Ninh Bình",
                 price: 18976,
                 press: () => {
                       Navigator.of(context).push(
