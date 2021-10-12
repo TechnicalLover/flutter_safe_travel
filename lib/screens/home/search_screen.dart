@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:safetravel/screens/tour/tour_detail_screen.dart';
 import 'package:safetravel/utilities/constants.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -14,7 +15,11 @@ class _SearchScreenState extends State<SearchScreen> {
   bool ngay2 = false;
   bool ngay3 = false;
   bool ngay4 = false;
+  String _value = 'Tất cả';
   DateTime? _selectedDate;
+
+  TextEditingController stringDate = TextEditingController();
+  TextEditingController price = TextEditingController();
   @override
   Widget build(BuildContext context) {
     void _presentDatePicker() {
@@ -29,6 +34,8 @@ class _SearchScreenState extends State<SearchScreen> {
         }
         setState(() {
           _selectedDate = pickedDate;
+          stringDate.text =
+              'Ngày khỏi hành: ${DateFormat.yMd().format(_selectedDate!)}';
         });
       });
       print('...');
@@ -42,10 +49,16 @@ class _SearchScreenState extends State<SearchScreen> {
         ),
         title: Text('Bạn muốn đi đâu?'),
         actions: <Widget>[
-          Center(
-            child: Text(
-              'Tạo lại',
-              style: TextStyle(fontSize: 14),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Center(
+              child: GestureDetector(
+                onTap: () => {},
+                child: Text(
+                  'Tạo lại',
+                  style: TextStyle(fontSize: 14),
+                ),
+              ),
             ),
           ),
         ],
@@ -70,9 +83,8 @@ class _SearchScreenState extends State<SearchScreen> {
                       onPressed: () => _presentDatePicker(),
                     ),
                     border: InputBorder.none,
-                    hintText: _selectedDate == null
-                        ? 'Ngày khởi hành'
-                        : '${DateFormat.yMd().format(_selectedDate!)}'),
+                    hintText: 'Ngày khởi hành'),
+                controller: stringDate,
               ),
               Divider(),
               TextField(
@@ -90,10 +102,125 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               Divider(),
               TextField(
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.filter_alt_outlined),
+                    prefixIcon: IconButton(
+                        icon: const Icon(Icons.attach_money_outlined),
+                        onPressed: () {
+                          showModalBottomSheet<void>(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return StatefulBuilder(
+                                  builder: (BuildContext context, setState) =>
+                                      Container(
+                                          height: 400,
+                                          child: Center(
+                                              child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: <Widget>[
+                                              const Text(
+                                                'Giá',
+                                                style: TextStyle(
+                                                    fontSize: 20,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              SingleChildScrollView(
+                                                child: Column(
+                                                  children: [
+                                                    ListTile(
+                                                      title:
+                                                          const Text('Tất cả'),
+                                                      leading: Radio<String>(
+                                                        value: 'Tất cả',
+                                                        groupValue: _value,
+                                                        onChanged: (value) {
+                                                          setState(() {
+                                                            _value = value!;
+                                                            price.text = value!;
+                                                          });
+                                                        },
+                                                      ),
+                                                    ),
+                                                    ListTile(
+                                                      title: const Text(
+                                                          'Dưới 10.000.000đ'),
+                                                      leading: Radio<String>(
+                                                        value:
+                                                            'Dưới 10.000.000đ',
+                                                        groupValue: _value,
+                                                        onChanged: (value) {
+                                                          setState(() {
+                                                            _value = value!;
+                                                            price.text = value!;
+                                                          });
+                                                        },
+                                                      ),
+                                                    ),
+                                                    ListTile(
+                                                      title: const Text(
+                                                          'Dưới 10.000.000đ - 20.000.000đ'),
+                                                      leading: Radio<String>(
+                                                        value:
+                                                            'Dưới 10.000.000đ - 20.000.000đ',
+                                                        groupValue: _value,
+                                                        onChanged: (value) {
+                                                          setState(() {
+                                                            _value = value!;
+                                                            price.text = value!;
+                                                          });
+                                                        },
+                                                      ),
+                                                    ),
+                                                    ListTile(
+                                                      title: const Text(
+                                                          'Dưới 20.000.000đ - 30.000.000đ'),
+                                                      leading: Radio<String>(
+                                                        value:
+                                                            'Dưới 20.000.000đ - 30.000.000đ',
+                                                        groupValue: _value,
+                                                        onChanged: (value) {
+                                                          setState(() {
+                                                            _value = value!;
+                                                            price.text = value!;
+                                                          });
+                                                        },
+                                                      ),
+                                                    ),
+                                                    ListTile(
+                                                      title: const Text(
+                                                          'Dưới 40.000.000đ'),
+                                                      leading: Radio<String>(
+                                                        value:
+                                                            'Dưới 40.000.000đ',
+                                                        groupValue: _value,
+                                                        onChanged: (value) {
+                                                          setState(() {
+                                                            _value = value!;
+                                                            price.text = value!;
+                                                          });
+                                                        },
+                                                      ),
+                                                    ),
+                                                    ElevatedButton(
+                                                      child: const Text('Chọn'),
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              context),
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ))),
+                                );
+                              });
+                        }),
                     border: InputBorder.none,
-                    hintText: 'Tất cả'),
+                    hintText: 'Chọn giá'),
+                controller: price,
               ),
               Divider(),
               TextField(
@@ -192,27 +319,28 @@ class _SearchScreenState extends State<SearchScreen> {
                         setState(() {});
                       },
                     ),
-                    SizedBox(
-                      height: 60,
-                      width: 150,
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                              borderSide: BorderSide(color: Colors.red),
-                            ),
-                            filled: true,
-                            hintStyle: TextStyle(color: Colors.grey[800]),
-                            hintText: "Nhập số ngày đi",
-                            fillColor: Colors.grey[200]),
-                      ),
-                    )
                   ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 210.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(10),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      filled: true,
+                      hintStyle: TextStyle(color: Colors.grey[800]),
+                      hintText: "Nhập tổng ngày đi",
+                      fillColor: Colors.grey[200]),
+                  keyboardType: TextInputType.number,
                 ),
               ),
               Divider(),
               ElevatedButton(
-                  onPressed: ()=> {},
+                  onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => TourDetail())),
                   style: ElevatedButton.styleFrom(
                     shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(30.0),
