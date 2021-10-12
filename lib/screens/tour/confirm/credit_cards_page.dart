@@ -6,6 +6,7 @@ class CreditCardsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Container(
         padding: const EdgeInsets.all(8.0),
@@ -13,10 +14,12 @@ class CreditCardsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             _buildCreditCard(
-                color: const Color(0xFF090943),
-                cardExpiration: "08/2022",
-                cardHolder: "DAO PHUONG NAM",
-                cardNumber: "3546 7532 XXXX 9742"),
+              color: const Color(0xFF090943),
+              cardExpiration: "08/2022",
+              cardHolder: "DAO PHUONG NAM",
+              cardNumber: "3546 7532 XXXX 9742",
+              size: size,
+            ),
             _buildAddCardButton(),
             customLine(
               Text('Số tiền cần thanh toán',
@@ -34,7 +37,8 @@ class CreditCardsPage extends StatelessWidget {
       {required Color color,
       required String cardNumber,
       required String cardHolder,
-      required String cardExpiration}) {
+      required String cardExpiration,
+      required Size size}) {
     return Card(
       elevation: 10,
       color: Colors.black,
@@ -42,7 +46,7 @@ class CreditCardsPage extends StatelessWidget {
         borderRadius: BorderRadius.circular(14),
       ),
       child: Container(
-        height: 200,
+        height: size.width * 0.6,
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 22.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
