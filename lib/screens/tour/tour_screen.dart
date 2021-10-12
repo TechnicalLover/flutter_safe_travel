@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:safetravel/screens/home/search_screen.dart';
 import 'package:safetravel/widget/inspiration_card.dart';
 import 'package:safetravel/widget/list_tour_card.dart';
 import 'package:safetravel/widget/nearby_card.dart';
@@ -63,17 +64,30 @@ class _TourScreenState extends State<TourScreen> {
               ),
               child: TextField(
                 decoration: InputDecoration(
-                    hintText: "Country, City, Tourist Place...",
-                    hintStyle: TextStyle(
-                      color: kPrimaryColor.withOpacity(0.5),
-                      fontFamily: GoogleFonts.allura().fontFamily,
-                    ),
-                    enabledBorder: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    suffixIcon: Icon(
-                      Icons.search,
-                      color: kPrimaryColor,
-                    )),
+                  hintText: "Country, City, Tourist Place...",
+                  hintStyle: TextStyle(
+                    color: kPrimaryColor.withOpacity(0.5),
+                    fontFamily: GoogleFonts.allura().fontFamily,
+                  ),
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                  suffixIcon: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Icon(
+                        Icons.search,
+                        color: kPrimaryColor,
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.filter_alt_rounded),
+                        color: kPrimaryColor,
+                        onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => SearchScreen())),
+                      )
+                    ],
+                  ),
+                ),
               ),
             )
           ],
@@ -243,8 +257,6 @@ class _TourScreenState extends State<TourScreen> {
       ),
     );
   }
-
- 
 
   @override
   Widget build(BuildContext context) {
