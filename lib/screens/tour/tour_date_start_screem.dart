@@ -79,341 +79,403 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
         title: Text("Chọn ngày", style: h1.copyWith(color: Colors.white)),
         backgroundColor: kPrimaryColor,
       ),
-      body: Container(
-        color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Expanded(
-                child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: Container(
-                        width: double.infinity,
-                        height: 1000,
-                        margin: const EdgeInsets.only(right: 5, left: 5),
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Expanded(
+              child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Container(
+                      width: double.infinity,
+                      margin: const EdgeInsets.only(right: 5, left: 5),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 10),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [cardShadow],
+                            ),
+                            padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+                            child: Column(
                               children: [
-                                Text(
-                                  "Chọn tháng khởi hành",
-                                  style: h1.copyWith(color: kPrimaryColor),
-                                  textAlign: TextAlign.start,
-                                )
-                              ],
-                            ),
-                            Divider(
-                              height: 40,
-                              thickness: 1,
-                              color: kSecondaryColor,
-                            ),
-                            Card(
-                                elevation: 0,
-                                child: Column(
+                                Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Spacer(),
-                                        OutlinedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                setSelectedItem(0);
-                                              });
-                                            },
-                                            style: OutlinedButton.styleFrom(
-                                                minimumSize: Size(100, 35)),
-                                            child: monthSelect(0, 0)),
-                                        Spacer(),
-                                        OutlinedButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              setSelectedItem(1);
-                                            });
-                                          },
-                                          style: OutlinedButton.styleFrom(
-                                              minimumSize: Size(100, 35)),
-                                          child: monthSelect(1, 0),
-                                        ),
-                                        Spacer(),
-                                        OutlinedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                setSelectedItem(2);
-                                              });
-                                            },
-                                            style: OutlinedButton.styleFrom(
-                                                minimumSize: Size(100, 35)),
-                                            child: monthSelect(2, 0)),
-                                        Spacer(),
-                                        OutlinedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                setSelectedItem(3);
-                                              });
-                                            },
-                                            style: OutlinedButton.styleFrom(
-                                                minimumSize: Size(110, 35)),
-                                            child: monthSelect(3, 1)),
-                                        Spacer()
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Spacer(),
-                                        OutlinedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                setSelectedItem(4);
-                                              });
-                                            },
-                                            style: OutlinedButton.styleFrom(
-                                                minimumSize: Size(110, 35)),
-                                            child: monthSelect(4, 1)),
-                                        Spacer(),
-                                        OutlinedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                setSelectedItem(5);
-                                              });
-                                            },
-                                            style: OutlinedButton.styleFrom(
-                                                minimumSize: Size(110, 35)),
-                                            child: monthSelect(5, 1)),
-                                        Spacer(),
-                                        OutlinedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                setSelectedItem(6);
-                                              });
-                                            },
-                                            style: OutlinedButton.styleFrom(
-                                                minimumSize: Size(110, 35)),
-                                            child: monthSelect(6, 1)),
-                                        Spacer(),
-                                        OutlinedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                setSelectedItem(7);
-                                              });
-                                            },
-                                            style: OutlinedButton.styleFrom(
-                                                minimumSize: Size(110, 35)),
-                                            child: monthSelect(7, 1)),
-                                        Spacer()
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Spacer(),
-                                        OutlinedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                setSelectedItem(8);
-                                              });
-                                            },
-                                            style: OutlinedButton.styleFrom(
-                                                minimumSize: Size(110, 35)),
-                                            child: monthSelect(8, 1)),
-                                        Spacer(),
-                                        OutlinedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                setSelectedItem(9);
-                                              });
-                                            },
-                                            style: OutlinedButton.styleFrom(
-                                                minimumSize: Size(110, 35)),
-                                            child: monthSelect(9, 1)),
-                                        Spacer(),
-                                        OutlinedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                setSelectedItem(10);
-                                              });
-                                            },
-                                            style: OutlinedButton.styleFrom(
-                                                minimumSize: Size(110, 35)),
-                                            child: monthSelect(10, 1)),
-                                        Spacer(),
-                                        OutlinedButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                setSelectedItem(11);
-                                              });
-                                            },
-                                            style: OutlinedButton.styleFrom(
-                                                minimumSize: Size(110, 35)),
-                                            child: monthSelect(11, 1)),
-                                        Spacer()
-                                      ],
-                                    ),
+                                    Text(
+                                      "Chọn tháng khởi hành",
+                                      style: h1.copyWith(color: kPrimaryColor),
+                                      textAlign: TextAlign.start,
+                                    )
                                   ],
-                                )),
-                            Divider(
-                              height: 50,
-                              thickness: 20,
-                              color: Color(0x1D1DADB0),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Lịch khởi hành sắp tới",
-                                  style: h1.copyWith(color: kPrimaryColor),
-                                  textAlign: TextAlign.start,
-                                )
+                                ),
+                                Divider(
+                                  height: 40,
+                                  thickness: 1,
+                                  color: kSecondaryColor,
+                                ),
+                                Card(
+                                    elevation: 0,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      setSelectedItem(0);
+                                                    });
+                                                  },
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                          minimumSize:
+                                                              Size(100, 35)),
+                                                  child: monthSelect(0, 0)),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                onPressed: () {
+                                                  setState(() {
+                                                    setSelectedItem(1);
+                                                  });
+                                                },
+                                                style: OutlinedButton.styleFrom(
+                                                    minimumSize: Size(100, 35)),
+                                                child: monthSelect(1, 0),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      setSelectedItem(2);
+                                                    });
+                                                  },
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                          minimumSize:
+                                                              Size(100, 35)),
+                                                  child: monthSelect(2, 0)),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      setSelectedItem(3);
+                                                    });
+                                                  },
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                          minimumSize:
+                                                              Size(110, 35)),
+                                                  child: monthSelect(3, 1)),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      setSelectedItem(4);
+                                                    });
+                                                  },
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                          minimumSize:
+                                                              Size(110, 35)),
+                                                  child: monthSelect(4, 1)),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      setSelectedItem(5);
+                                                    });
+                                                  },
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                          minimumSize:
+                                                              Size(110, 35)),
+                                                  child: monthSelect(5, 1)),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      setSelectedItem(6);
+                                                    });
+                                                  },
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                          minimumSize:
+                                                              Size(110, 35)),
+                                                  child: monthSelect(6, 1)),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      setSelectedItem(7);
+                                                    });
+                                                  },
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                          minimumSize:
+                                                              Size(110, 35)),
+                                                  child: monthSelect(7, 1)),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      setSelectedItem(8);
+                                                    });
+                                                  },
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                          minimumSize:
+                                                              Size(110, 35)),
+                                                  child: monthSelect(8, 1)),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      setSelectedItem(9);
+                                                    });
+                                                  },
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                          minimumSize:
+                                                              Size(110, 35)),
+                                                  child: monthSelect(9, 1)),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      setSelectedItem(10);
+                                                    });
+                                                  },
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                          minimumSize:
+                                                              Size(110, 35)),
+                                                  child: monthSelect(10, 1)),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                  onPressed: () {
+                                                    setState(() {
+                                                      setSelectedItem(11);
+                                                    });
+                                                  },
+                                                  style:
+                                                      OutlinedButton.styleFrom(
+                                                          minimumSize:
+                                                              Size(110, 35)),
+                                                  child: monthSelect(11, 1)),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    )),
                               ],
                             ),
-                            Divider(
-                              height: 40,
-                              thickness: 1,
-                              color: kSecondaryColor,
+                          ),
+                          SizedBox(height: 15),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [cardShadow],
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                            padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+                            child: Column(
                               children: [
-                                OutlinedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        setSelectedDay(0);
-                                      });
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                        minimumSize: Size(460, 35)),
-                                    child: daySelect(0)),
-                                OutlinedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        setSelectedDay(1);
-                                      });
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                        minimumSize: Size(460, 35)),
-                                    child: daySelect(1)),
-                                OutlinedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        setSelectedDay(2);
-                                      });
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                        minimumSize: Size(460, 35)),
-                                    child: daySelect(2)),
-                                OutlinedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        setSelectedDay(3);
-                                      });
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                        minimumSize: Size(460, 35)),
-                                    child: daySelect(3)),
-                                OutlinedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        setSelectedDay(4);
-                                      });
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                        minimumSize: Size(460, 35)),
-                                    child: daySelect(4)),
-                                OutlinedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        setSelectedDay(5);
-                                      });
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                        minimumSize: Size(460, 35)),
-                                    child: daySelect(5)),
-                                OutlinedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        setSelectedDay(6);
-                                      });
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                        minimumSize: Size(460, 35)),
-                                    child: daySelect(6)),
-                                OutlinedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        setSelectedDay(7);
-                                      });
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                        minimumSize: Size(460, 35)),
-                                    child: daySelect(7)),
-                                OutlinedButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        setSelectedDay(8);
-                                      });
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                        minimumSize: Size(460, 35)),
-                                    child: daySelect(8)),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Lịch khởi hành sắp tới",
+                                      style: h1.copyWith(color: kPrimaryColor),
+                                      textAlign: TextAlign.start,
+                                    )
+                                  ],
+                                ),
+                                Divider(
+                                  height: 40,
+                                  thickness: 1,
+                                  color: kSecondaryColor,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    OutlinedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            setSelectedDay(0);
+                                          });
+                                        },
+                                        style: OutlinedButton.styleFrom(
+                                            minimumSize: Size(460, 35)),
+                                        child: daySelect(0)),
+                                    OutlinedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            setSelectedDay(1);
+                                          });
+                                        },
+                                        style: OutlinedButton.styleFrom(
+                                            minimumSize: Size(460, 35)),
+                                        child: daySelect(1)),
+                                    OutlinedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            setSelectedDay(2);
+                                          });
+                                        },
+                                        style: OutlinedButton.styleFrom(
+                                            minimumSize: Size(460, 35)),
+                                        child: daySelect(2)),
+                                    OutlinedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            setSelectedDay(3);
+                                          });
+                                        },
+                                        style: OutlinedButton.styleFrom(
+                                            minimumSize: Size(460, 35)),
+                                        child: daySelect(3)),
+                                    OutlinedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            setSelectedDay(4);
+                                          });
+                                        },
+                                        style: OutlinedButton.styleFrom(
+                                            minimumSize: Size(460, 35)),
+                                        child: daySelect(4)),
+                                    OutlinedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            setSelectedDay(5);
+                                          });
+                                        },
+                                        style: OutlinedButton.styleFrom(
+                                            minimumSize: Size(460, 35)),
+                                        child: daySelect(5)),
+                                    OutlinedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            setSelectedDay(6);
+                                          });
+                                        },
+                                        style: OutlinedButton.styleFrom(
+                                            minimumSize: Size(460, 35)),
+                                        child: daySelect(6)),
+                                    OutlinedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            setSelectedDay(7);
+                                          });
+                                        },
+                                        style: OutlinedButton.styleFrom(
+                                            minimumSize: Size(460, 35)),
+                                        child: daySelect(7)),
+                                    OutlinedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            setSelectedDay(8);
+                                          });
+                                        },
+                                        style: OutlinedButton.styleFrom(
+                                            minimumSize: Size(460, 35)),
+                                        child: daySelect(8)),
+                                  ],
+                                ),
                               ],
                             ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            nextButton(
-                              'Tiếp tục',
-                              () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => Confirm()));
-                              },
-                            ),
-                          ],
-                        ))))
-          ],
-        ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          nextButton(
+                            'Tiếp tục',
+                            () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => Confirm()));
+                            },
+                          ),
+                          SizedBox(
+                            height: 40,
+                          ),
+                        ],
+                      ))))
+        ],
       ),
     );
   }
 
   Widget daySelect(index) {
     String start = "Khởi hành " +
-        _days[index].toString() +
+        _days[index].toString().padLeft(2, '0') +
         "/" +
-        selectMonth.toString() +
+        selectMonth.toString().padLeft(2, '0') +
         "/" +
         selectYear.toString();
     String end = "Kết thúc " +
-        (_days[index] + 3).toString() +
+        (_days[index] + 3).toString().padLeft(2, '0') +
         "/" +
-        selectMonth.toString() +
+        selectMonth.toString().padLeft(2, '0') +
         "/" +
         selectYear.toString();
     Color color = _isSelectedDay[index] ? kSecondaryColor : Colors.black;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(
-          child: Text(
-            start,
-            style: h2nor.copyWith(
-              color: color,
+        Expanded(
+          flex: 41,
+          child: FittedBox(
+            fit: BoxFit.fitWidth,
+            child: Text(
+              start,
+              style: h2nor.copyWith(
+                color: color,
+              ),
             ),
           ),
         ),
-        Icon(Icons.arrow_forward_ios_rounded, color: color, size: 18),
-        Container(
-          child: Text(
-            end,
-            style: h2nor.copyWith(
-              color: color,
+        Expanded(
+          flex: 20,
+          child: Icon(Icons.arrow_forward_ios_rounded, color: color, size: 15),
+        ),
+        Expanded(
+          flex: 39,
+          child: FittedBox(
+            fit: BoxFit.fitWidth,
+            child: Text(
+              end,
+              style: h2nor.copyWith(
+                color: color,
+              ),
             ),
           ),
         ),
@@ -425,13 +487,21 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
     return FittedBox(
       fit: BoxFit.fitWidth,
       child: Text(
-        _months[indexMonth].toString() + "/" + _year[indexYear].toString(),
+        _months[indexMonth].toString().padLeft(2, '0') +
+            "/" +
+            _year[indexYear].toString().padLeft(2, '0'),
         style: h2nor.copyWith(
           color: _isSelected[indexMonth] ? kSecondaryColor : Colors.black,
         ),
       ),
     );
   }
+
+  BoxShadow cardShadow = BoxShadow(
+    color: goodGray.withOpacity(0.2),
+    offset: const Offset(-1, 8),
+    blurRadius: 20,
+  );
 
   Widget nextButton(String text, VoidCallback onPressed) {
     return SizedBox(
