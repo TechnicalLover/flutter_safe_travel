@@ -34,7 +34,7 @@ class _NearByYouCardState extends State<NearByYouCard> {
 
     return Container(
       margin: EdgeInsets.all(10.0),
-      width: size.width * 0.7,
+      width: size.width * 0.9,
       child: Column(
         children: <Widget>[
           Stack(
