@@ -55,7 +55,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           _buildTourForYou(),
           Center(
-            child: Text("Tour near you", style: shadownText),
+            child: Text(
+              "Tour gần bạn",
+              style: shadownText,
+            ),
           ),
           SizedBox(
             height: 5,
@@ -65,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 10,
           ),
           Center(
-            child: Text("Tour Populate", style: shadownText),
+            child: Text("Tour phổ biến", style: shadownText),
           ),
           _buildTourPopulate(),
         ],
@@ -90,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: TextField(
         decoration: InputDecoration(
-          hintText: "Country, City, Tourist Place...",
+          hintText: "Bạn muốn đi đâu? ...",
           hintStyle: TextStyle(
             color: kPrimaryColor.withOpacity(0.5),
             fontFamily: GoogleFonts.allura().fontFamily,
@@ -152,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Container(
                     child: Text(
-                      "Suggest for you",
+                      "Gợi ý cho bạn",
                       style: shadownText,
                     ),
                   ),

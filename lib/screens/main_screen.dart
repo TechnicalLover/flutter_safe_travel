@@ -10,6 +10,7 @@ import 'package:safetravel/screens/home/home_screen.dart';
 import 'package:safetravel/screens/home/search_screen.dart';
 import 'package:safetravel/screens/profile/profile_screen.dart';
 import 'package:safetravel/screens/shared/drawer.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/screens/tour/tour_screen.dart';
 
 import 'package:safetravel/utilities/constants.dart';
@@ -43,8 +44,8 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> pageList = <Widget>[
     HomeScreen(),
-    ExperienceScreen(),
     TourScreen(),
+    ExperienceScreen(),
     MapCovid(),
   ];
   _buildAppBar() {
@@ -53,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: kPrimaryColor,
         automaticallyImplyLeading: false,
         title:
-            Text("safetravel.com", style: GoogleFonts.allura(letterSpacing: 2)),
+            Text("safetravel.com", style: TextStyle(fontFamily: fontHeading)),
         leading: Container(
           width: 50.0,
           height: 50.0,
@@ -112,9 +113,9 @@ class _MainScreenState extends State<MainScreen> {
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.art_track_rounded), label: "Experience"),
-            BottomNavigationBarItem(
                 icon: Icon(Icons.beach_access_rounded), label: "Tour"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.art_track_rounded), label: "Review"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.location_on_sharp), label: "Map-Covid19"),
           ],

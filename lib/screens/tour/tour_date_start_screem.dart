@@ -421,11 +421,14 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
     );
   }
 
-  Text monthSelect(indexMonth, indexYear) {
-    return Text(
-      _months[indexMonth].toString() + "/" + _year[indexYear].toString(),
-      style: h2nor.copyWith(
-        color: _isSelected[indexMonth] ? kSecondaryColor : Colors.black,
+  Widget monthSelect(indexMonth, indexYear) {
+    return FittedBox(
+      fit: BoxFit.fitWidth,
+      child: Text(
+        _months[indexMonth].toString() + "/" + _year[indexYear].toString(),
+        style: h2nor.copyWith(
+          color: _isSelected[indexMonth] ? kSecondaryColor : Colors.black,
+        ),
       ),
     );
   }

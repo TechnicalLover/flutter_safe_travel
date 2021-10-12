@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/utilities/constants.dart';
 
 // ignore_for_file: prefer_const_constructors
@@ -74,8 +75,13 @@ class _NearByYouCardState extends State<NearByYouCard> {
                     child: RichText(
                       text: TextSpan(children: [
                         TextSpan(
-                            text: "${widget.title}\n".toUpperCase(),
-                            style: Theme.of(context).textTheme.button),
+                          text: "${widget.title}\n".toUpperCase(),
+                          style: TextStyle(
+                              fontFamily: fontHeading,
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold),
+                        ),
                         TextSpan(
                             text: "${widget.address}".toUpperCase(),
                             style: TextStyle(
@@ -96,6 +102,7 @@ class _NearByYouCardState extends State<NearByYouCard> {
                     padding: const EdgeInsets.all(15.0),
                     child: Container(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           RatingBar(
                               itemSize: 20,
@@ -114,13 +121,13 @@ class _NearByYouCardState extends State<NearByYouCard> {
                                     color: Colors.orange,
                                   )),
                               onRatingUpdate: (value) {}),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Text("\$1299.00",
+                              Text("2 000 000 VND",
                                   style: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 19,
                                       decoration: TextDecoration.lineThrough,
                                       color: Colors.grey,
                                       fontWeight: FontWeight.bold)),
@@ -128,9 +135,9 @@ class _NearByYouCardState extends State<NearByYouCard> {
                                 width: 5,
                               ),
                               Text(
-                                "\$999.00",
+                                "1 325 000 VND",
                                 style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.bold,
                                     color: kPrimaryColor),
                               ),

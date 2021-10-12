@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_constructors_in_immutables
 // ignore_for_file: prefer_const_literals_to_create_immutables
@@ -17,6 +16,7 @@ final boxShadow = BoxShadow(
 );
 
 String mainFont = 'OpenSans';
+String fontHeading = "iCielBCRostrum";
 
 final h1 = TextStyle(
   color: goodBlack,

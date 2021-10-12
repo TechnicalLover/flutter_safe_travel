@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_constructors_in_immutables
@@ -29,16 +30,16 @@ final kLabelStyle = TextStyle(
 final kTextPrice = TextStyle(
     color: kPrimaryColor.withOpacity(0.5), fontWeight: FontWeight.bold);
 final shadownText = TextStyle(
-    fontFamily: GoogleFonts.allura().fontFamily,
-    color: kPrimaryColor,
+    fontFamily: fontHeading,
+    color: goodBlack,
     shadows: <Shadow>[
       Shadow(
-        offset: Offset(5, 5),
-        color: kPrimaryColor,
+        offset: Offset(-3, 3),
+        color: goodBlack.withOpacity(0.5),
         blurRadius: 10,
       )
     ],
-    fontSize: 30);
+    fontSize: 25);
 final hoverColor = Colors.white70;
 final kBoxDecorationStyle = BoxDecoration(
   color: Color.fromRGBO(158, 217, 232, 0.1),
