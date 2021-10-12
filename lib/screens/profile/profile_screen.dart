@@ -17,6 +17,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Trang cá nhân"),
+        backgroundColor: kPrimaryColor,
+      ),
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -46,7 +50,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: 60,
               ),
               Text(
-                "This is my name",
+                "Huỳnh Dũng",
                 style: TextStyle(
                     fontSize: 25.0,
                     color: Colors.blueGrey,
@@ -57,7 +61,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: 10,
               ),
               Text(
-                "10 years old - USA",
+                "21 tuổi",
                 style: TextStyle(
                     fontSize: 18.0,
                     color: Colors.black45,
@@ -68,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: 10,
               ),
               Text(
-                "Im a super cute pet",
+                "Tôi rất thích đi du lịch ",
                 style: TextStyle(
                     fontSize: 16.0,
                     color: Colors.black45,
@@ -82,14 +86,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   onPressed: () => {},
                   color: kPrimaryColor,
                   child: Text(
-                    "Edit Profile",
+                    "Chỉnh sửa ",
                     style: TextStyle(letterSpacing: 2.0, color: Colors.white),
                   )),
               SizedBox(
                 height: 15,
               ),
               Text(
-                "Activities",
+                "Hoạt động",
                 style: TextStyle(
                     fontSize: 18.0,
                     color: Colors.black45,
@@ -118,7 +122,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     borderRadius: BorderRadius.circular(5)),
                                 color: kPrimaryColor,
                                 child: Text(
-                                  "MY POSTS",
+                                  "Bài đăng",
                                   style: TextStyle(color: Colors.white),
                                 )),
                             SizedBox(
@@ -149,7 +153,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     borderRadius: BorderRadius.circular(5)),
                                 color: kPrimaryColor,
                                 child: Text(
-                                  "MY TOURS",
+                                  "Tour của tôi",
                                   style: TextStyle(color: Colors.white),
                                 )),
                             SizedBox(
@@ -175,30 +179,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  RaisedButton(
-                      onPressed: () => {},
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      color: kPrimaryColor,
-                      child: Text(
-                        "About us",
-                        style: TextStyle(color: Colors.white),
-                      )),
-                  RaisedButton(
-                      onPressed: () => {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginScreen()),
-                            ),
-                          },
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      color: kPrimaryColor,
-                      child: Text(
-                        "Sign out",
-                        style: TextStyle(color: Colors.white),
-                      ))
+                  // RaisedButton(
+                  //     onPressed: () => {},
+                  //     shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(20)),
+                  //     color: kPrimaryColor,
+                  //     child: Text(
+                  //       "About us",
+                  //       style: TextStyle(color: Colors.white),
+                  //     )),
+                  // RaisedButton(
+                  //     onPressed: () => {
+                  //           Navigator.push(
+                  //             context,
+                  //             MaterialPageRoute(
+                  //                 builder: (context) => LoginScreen()),
+                  //           ),
+                  //         },
+                  //     shape: RoundedRectangleBorder(
+                  //         borderRadius: BorderRadius.circular(20)),
+                  //     color: kPrimaryColor,
+                  //     child: Text(
+                  //       "Sign out",
+                  //       style: TextStyle(color: Colors.white),
+                  //     ))
                 ],
               )
             ],

@@ -71,9 +71,15 @@ class _TourDetailState extends State<TourDetail> {
                     body: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Image.network(
-                            imgArray[0],
-                            fit: BoxFit.cover,
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.network(
+                                imgArray[0],
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                           Container(
                               width: double.infinity,
@@ -104,9 +110,15 @@ class _TourDetailState extends State<TourDetail> {
                     body: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Image.network(
-                            imgArray[1],
-                            fit: BoxFit.cover,
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.network(
+                                imgArray[1],
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                           Container(
                               width: double.infinity,
@@ -137,9 +149,15 @@ class _TourDetailState extends State<TourDetail> {
                     body: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Image.network(
-                            imgArray[2],
-                            fit: BoxFit.cover,
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.network(
+                                imgArray[2],
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                           Container(
                               width: double.infinity,
@@ -188,7 +206,6 @@ class _TourDetailState extends State<TourDetail> {
   Widget _builTitleTour() {
     return Container(
       width: double.infinity,
-      height: 100,
       color: Colors.white,
       margin: const EdgeInsets.only(right: 5, left: 5),
       padding: const EdgeInsets.all(10),
@@ -374,10 +391,11 @@ class _TourDetailState extends State<TourDetail> {
               Row(
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("\$1299.00",
+                      Text("Giá chỉ từ",
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 20,
                             decoration: TextDecoration.none,
                             color: Colors.grey,
                             fontWeight: FontWeight.bold,
@@ -385,9 +403,9 @@ class _TourDetailState extends State<TourDetail> {
                       Wrap(
                         children: [
                           Text(
-                            "\$999.00",
+                            "1.325.000 VND",
                             style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: kPrimaryColor,
                                 decoration: TextDecoration.none),
@@ -418,7 +436,7 @@ class _TourDetailState extends State<TourDetail> {
               style: TextStyle(fontSize: 30),
             ),
             style: ElevatedButton.styleFrom(
-              primary: Colors.red,
+              primary: kPrimaryColor,
               elevation: 0,
               minimumSize: Size(150, 50),
               shape: RoundedRectangleBorder(
@@ -553,17 +571,24 @@ class _TourDetailState extends State<TourDetail> {
                       color: Color(0x1D1DADB0),
                     ),
                     _builWayPart(),
-                    SizedBox(width: double.infinity,height: 10,),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 10,
+                    ),
                     Divider(
                       height: 10,
                       thickness: 20,
                       color: Color(0x1D1DADB0),
                     ),
                     ElevatedButton(
-                        onPressed: ()=> {},
-                        style: ElevatedButton.styleFrom( minimumSize: Size(double.infinity, 50),
+                        onPressed: () => {},
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: Size(double.infinity, 50),
                         ),
-                        child: Text('Xem Review', style: TextStyle(fontSize: 30),))
+                        child: Text(
+                          'Xem Review',
+                          style: TextStyle(fontSize: 30),
+                        ))
                   ],
                 ),
               ),

@@ -142,6 +142,17 @@ class _HistoryOrderScreenState extends State<HistoryOrderScreen> {
         ),
         child: Row(
           children: <Widget>[
+            Wrap(
+              children: [
+                IconButton(
+                    onPressed: () => {print("press")},
+                    icon: Icon(
+                      Icons.qr_code,
+                      size: 30,
+                      color: Colors.white,
+                    ))
+              ],
+            ),
             Expanded(
               flex: 1,
               child: Container(

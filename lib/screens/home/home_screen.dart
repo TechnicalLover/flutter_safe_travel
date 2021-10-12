@@ -166,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(20)),
                       color: kPrimaryColor,
                       child: Text(
-                        "More",
+                        "Tất cả",
                         style: TextStyle(color: Colors.white),
                       ))
                 ],

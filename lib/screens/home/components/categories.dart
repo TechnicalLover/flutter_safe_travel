@@ -33,7 +33,7 @@ class Categories extends StatelessWidget {
                         builder: (context) => TrackingLocationScreen()))),
             CategoryCard(
                 icon: "assets/icons/gift.png",
-                text: "quà tặng ",
+                text: "Quà tặng ",
                 press: () => {}),
             CategoryCard(
                 icon: "assets/icons/more.png",

@@ -288,7 +288,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                 ],
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Wrap(
                     children: [
@@ -322,9 +322,10 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                             fontWeight: FontWeight.bold),
                       )
                     ],
-                  )
+                  ),
                 ],
-              )
+              ),
+              
             ],
           ),
         ),
