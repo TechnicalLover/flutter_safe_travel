@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:safetravel/utilities/constants.dart';
 
-import 'confirm.dart';
+import 'confirm/confirm.dart';
 
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_constructors_in_immutables
@@ -46,7 +46,7 @@ var _isSelectedDay = [
   false,
   false,
 ];
-var _days=[1, 4, 7, 10, 13, 16, 19, 22, 25];
+var _days = [1, 4, 7, 10, 13, 16, 19, 22, 25];
 
 var _months = [10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var _year = [2021, 2022];
@@ -363,135 +363,239 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                             thickness: 1,
                             color: kSecondaryColor,
                           ),
-                         Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                           OutlinedButton(
-                               onPressed: () {
-                                 setState(() {
-                                   setSelectedDay(0);
-                                 });
-                               },
-                               child: Text(
-                                 "Khởi hành "+ _days[0].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[0]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
-                                 style: TextStyle(
-                                     fontSize: 20,
-                                     color: _isSelectedDay[0]
-                                         ? kSecondaryColor
-                                         : Colors.black),
-                               )),
-                           OutlinedButton(
-                               onPressed: () {
-                                 setState(() {
-                                   setSelectedDay(1);
-                                 });
-                               },
-                               child: Text(
-                                 "Khởi hành "+ _days[1].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[1]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
-                                 style: TextStyle(
-                                     fontSize: 20,
-                                     color: _isSelectedDay[1]
-                                         ? kSecondaryColor
-                                         : Colors.black),
-                               )),
-                           OutlinedButton(
-                               onPressed: () {
-                                 setState(() {
-                                   setSelectedDay(2);
-                                 });
-                               },
-                               child: Text(
-                                 "Khởi hành "+ _days[2].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[2]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
-                                 style: TextStyle(
-                                     fontSize: 20,
-                                     color: _isSelectedDay[2]
-                                         ? kSecondaryColor
-                                         : Colors.black),
-                               )),
-                           OutlinedButton(
-                               onPressed: () {
-                                 setState(() {
-                                   setSelectedDay(3);
-                                 });
-                               },
-                               child: Text(
-                                 "Khởi hành "+ _days[3].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[3]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
-                                 style: TextStyle(
-                                     fontSize: 20,
-                                     color: _isSelectedDay[3]
-                                         ? kSecondaryColor
-                                         : Colors.black),
-                               )),
-                           OutlinedButton(
-                               onPressed: () {
-                                 setState(() {
-                                   setSelectedDay(4);
-                                 });
-                               },
-                               child: Text(
-                                 "Khởi hành "+ _days[4].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[4]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
-                                 style: TextStyle(
-                                     fontSize: 20,
-                                     color: _isSelectedDay[4]
-                                         ? kSecondaryColor
-                                         : Colors.black),
-                               )),
-                           OutlinedButton(
-                               onPressed: () {
-                                 setState(() {
-                                   setSelectedDay(5);
-                                 });
-                               },
-                               child: Text(
-                                 "Khởi hành "+ _days[5].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[5]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
-                                 style: TextStyle(
-                                     fontSize: 20,
-                                     color: _isSelectedDay[5]
-                                         ? kSecondaryColor
-                                         : Colors.black),
-                               )),
-                           OutlinedButton(
-                               onPressed: () {
-                                 setState(() {
-                                   setSelectedDay(6);
-                                 });
-                               },
-                               child: Text(
-                                 "Khởi hành "+ _days[6].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[6]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
-                                 style: TextStyle(
-                                     fontSize: 20,
-                                     color: _isSelectedDay[6]
-                                         ? kSecondaryColor
-                                         : Colors.black),
-                               )),
-                           OutlinedButton(
-                               onPressed: () {
-                                 setState(() {
-                                   setSelectedDay(7);
-                                 });
-                               },
-                               child: Text(
-                                 "Khởi hành "+ _days[7].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[7]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
-                                 style: TextStyle(
-                                     fontSize: 20,
-                                     color: _isSelectedDay[7]
-                                         ? kSecondaryColor
-                                         : Colors.black),
-                               )),
-                           OutlinedButton(
-                               onPressed: () {
-                                 setState(() {
-                                   setSelectedDay(8);
-                                 });
-                               },
-                               child: Text(
-                                 "Khởi hành "+ _days[8].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[8]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
-                                 style: TextStyle(
-                                     fontSize: 20,
-                                     color: _isSelectedDay[8]
-                                         ? kSecondaryColor
-                                         : Colors.black),
-                               )),
-                           ],),
-                          SizedBox(height: 20,),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              OutlinedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      setSelectedDay(0);
+                                    });
+                                  },
+                                  child: Text(
+                                    "Khởi hành " +
+                                        _days[0].toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString() +
+                                        "----- Kết thúc " +
+                                        (_days[0] + 3).toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString(),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: _isSelectedDay[0]
+                                            ? kSecondaryColor
+                                            : Colors.black),
+                                  )),
+                              OutlinedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      setSelectedDay(1);
+                                    });
+                                  },
+                                  child: Text(
+                                    "Khởi hành " +
+                                        _days[1].toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString() +
+                                        "----- Kết thúc " +
+                                        (_days[1] + 3).toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString(),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: _isSelectedDay[1]
+                                            ? kSecondaryColor
+                                            : Colors.black),
+                                  )),
+                              OutlinedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      setSelectedDay(2);
+                                    });
+                                  },
+                                  child: Text(
+                                    "Khởi hành " +
+                                        _days[2].toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString() +
+                                        "----- Kết thúc " +
+                                        (_days[2] + 3).toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString(),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: _isSelectedDay[2]
+                                            ? kSecondaryColor
+                                            : Colors.black),
+                                  )),
+                              OutlinedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      setSelectedDay(3);
+                                    });
+                                  },
+                                  child: Text(
+                                    "Khởi hành " +
+                                        _days[3].toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString() +
+                                        "----- Kết thúc " +
+                                        (_days[3] + 3).toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString(),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: _isSelectedDay[3]
+                                            ? kSecondaryColor
+                                            : Colors.black),
+                                  )),
+                              OutlinedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      setSelectedDay(4);
+                                    });
+                                  },
+                                  child: Text(
+                                    "Khởi hành " +
+                                        _days[4].toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString() +
+                                        "----- Kết thúc " +
+                                        (_days[4] + 3).toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString(),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: _isSelectedDay[4]
+                                            ? kSecondaryColor
+                                            : Colors.black),
+                                  )),
+                              OutlinedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      setSelectedDay(5);
+                                    });
+                                  },
+                                  child: Text(
+                                    "Khởi hành " +
+                                        _days[5].toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString() +
+                                        "----- Kết thúc " +
+                                        (_days[5] + 3).toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString(),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: _isSelectedDay[5]
+                                            ? kSecondaryColor
+                                            : Colors.black),
+                                  )),
+                              OutlinedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      setSelectedDay(6);
+                                    });
+                                  },
+                                  child: Text(
+                                    "Khởi hành " +
+                                        _days[6].toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString() +
+                                        "----- Kết thúc " +
+                                        (_days[6] + 3).toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString(),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: _isSelectedDay[6]
+                                            ? kSecondaryColor
+                                            : Colors.black),
+                                  )),
+                              OutlinedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      setSelectedDay(7);
+                                    });
+                                  },
+                                  child: Text(
+                                    "Khởi hành " +
+                                        _days[7].toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString() +
+                                        "----- Kết thúc " +
+                                        (_days[7] + 3).toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString(),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: _isSelectedDay[7]
+                                            ? kSecondaryColor
+                                            : Colors.black),
+                                  )),
+                              OutlinedButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      setSelectedDay(8);
+                                    });
+                                  },
+                                  child: Text(
+                                    "Khởi hành " +
+                                        _days[8].toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString() +
+                                        "----- Kết thúc " +
+                                        (_days[8] + 3).toString() +
+                                        "/" +
+                                        selectMonth.toString() +
+                                        "/" +
+                                        selectYear.toString(),
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: _isSelectedDay[8]
+                                            ? kSecondaryColor
+                                            : Colors.black),
+                                  )),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
                           ElevatedButton(
                             onPressed: () => {
                               Navigator.of(context).push(MaterialPageRoute(
@@ -506,11 +610,11 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                               elevation: 0,
                               minimumSize: Size(150, 50),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(45)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(45)),
                               ),
                             ), // double.infinity is the width and 30 is the height
                           ),
-
                         ],
                       ))))
         ],
