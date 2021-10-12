@@ -8,17 +8,14 @@ import 'dart:io';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:safetravel/screens/auth/login_screen.dart';
-import 'package:safetravel/screens/tour/confirm/confirm.dart';
-import 'package:safetravel/utilities/constants.dart';
 
-void main() => {HttpOverrides.global = MyHttpOverrides(), runApp(MyApp())};
+void main() => { HttpOverrides.global = MyHttpOverrides(), runApp(MyApp())};
 
-class MyHttpOverrides extends HttpOverrides {
+class MyHttpOverrides extends HttpOverrides{
   @override
-  HttpClient createHttpClient(SecurityContext? context) {
+  HttpClient createHttpClient(SecurityContext? context){
     return super.createHttpClient(context)
-      ..badCertificateCallback =
-          (X509Certificate cert, String host, int port) => true;
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
   }
 }
 
@@ -30,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Login UI',
       debugShowCheckedModeBanner: false,
-      home: Confirm(),
+      home: LoginScreen(),
     );
   }
 }
