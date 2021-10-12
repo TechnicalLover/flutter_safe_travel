@@ -100,7 +100,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                 "Chọn tháng khởi hành",
                                 style: TextStyle(
                                   color: kSecondaryColor,
-                                  fontSize: 26,
+                                  fontSize: 26, decoration: TextDecoration.none
                                 ),
                                 textAlign: TextAlign.start,
                               )
@@ -125,7 +125,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(0);
                                             });
-                                          },
+                                          }, style: OutlinedButton.styleFrom(minimumSize: Size(100, 35)),
                                           child: Text(
                                             _months[0].toString() +
                                                 "/" +
@@ -142,7 +142,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(1);
                                             });
-                                          },
+                                          },style: OutlinedButton.styleFrom(minimumSize: Size(100, 35)),
                                           child: Text(
                                             _months[1].toString() +
                                                 "/" +
@@ -159,7 +159,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(2);
                                             });
-                                          },
+                                          },style: OutlinedButton.styleFrom(minimumSize: Size(100, 35)),
                                           child: Text(
                                             _months[2].toString() +
                                                 "/" +
@@ -176,7 +176,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(3);
                                             });
-                                          },
+                                          },style: OutlinedButton.styleFrom(minimumSize: Size(110, 35)),
                                           child: Text(
                                             _months[3].toString() +
                                                 "/" +
@@ -199,7 +199,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(4);
                                             });
-                                          },
+                                          },style: OutlinedButton.styleFrom(minimumSize: Size(110, 35)),
                                           child: Text(
                                             _months[4].toString() +
                                                 "/" +
@@ -216,7 +216,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(5);
                                             });
-                                          },
+                                          },style: OutlinedButton.styleFrom(minimumSize: Size(110, 35)),
                                           child: Text(
                                             _months[5].toString() +
                                                 "/" +
@@ -233,7 +233,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(6);
                                             });
-                                          },
+                                          },style: OutlinedButton.styleFrom(minimumSize: Size(110, 35)),
                                           child: Text(
                                             _months[6].toString() +
                                                 "/" +
@@ -250,7 +250,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(7);
                                             });
-                                          },
+                                          },style: OutlinedButton.styleFrom(minimumSize: Size(110, 35)),
                                           child: Text(
                                             _months[7].toString() +
                                                 "/" +
@@ -273,7 +273,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(8);
                                             });
-                                          },
+                                          },style: OutlinedButton.styleFrom(minimumSize: Size(110, 35)),
                                           child: Text(
                                             _months[8].toString() +
                                                 "/" +
@@ -290,7 +290,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(9);
                                             });
-                                          },
+                                          },style: OutlinedButton.styleFrom(minimumSize: Size(110, 35)),
                                           child: Text(
                                             _months[9].toString() +
                                                 "/" +
@@ -307,7 +307,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(10);
                                             });
-                                          },
+                                          },style: OutlinedButton.styleFrom(minimumSize: Size(110, 35)),
                                           child: Text(
                                             _months[10].toString() +
                                                 "/" +
@@ -324,7 +324,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                             setState(() {
                                               setSelectedItem(11);
                                             });
-                                          },
+                                          },style: OutlinedButton.styleFrom(minimumSize: Size(110, 35)),
                                           child: Text(
                                             _months[11].toString() +
                                                 "/" +
@@ -352,7 +352,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                 "Lịch khởi hành sắp tới",
                                 style: TextStyle(
                                   color: kSecondaryColor,
-                                  fontSize: 26,
+                                  fontSize: 26, decoration: TextDecoration.none
                                 ),
                                 textAlign: TextAlign.start,
                               )
@@ -369,7 +369,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                  setState(() {
                                    setSelectedDay(0);
                                  });
-                               },
+                               },style: OutlinedButton.styleFrom(minimumSize: Size(460, 35)),
                                child: Text(
                                  "Khởi hành "+ _days[0].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[0]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
                                  style: TextStyle(
@@ -383,7 +383,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                  setState(() {
                                    setSelectedDay(1);
                                  });
-                               },
+                               },style: OutlinedButton.styleFrom(minimumSize: Size(460, 35)),
                                child: Text(
                                  "Khởi hành "+ _days[1].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[1]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
                                  style: TextStyle(
@@ -397,7 +397,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                  setState(() {
                                    setSelectedDay(2);
                                  });
-                               },
+                               },style: OutlinedButton.styleFrom(minimumSize: Size(460, 35)),
                                child: Text(
                                  "Khởi hành "+ _days[2].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[2]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
                                  style: TextStyle(
@@ -411,7 +411,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                  setState(() {
                                    setSelectedDay(3);
                                  });
-                               },
+                               },style: OutlinedButton.styleFrom(minimumSize: Size(460, 35)),
                                child: Text(
                                  "Khởi hành "+ _days[3].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[3]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
                                  style: TextStyle(
@@ -425,7 +425,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                  setState(() {
                                    setSelectedDay(4);
                                  });
-                               },
+                               },style: OutlinedButton.styleFrom(minimumSize: Size(460, 35)),
                                child: Text(
                                  "Khởi hành "+ _days[4].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[4]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
                                  style: TextStyle(
@@ -439,7 +439,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                  setState(() {
                                    setSelectedDay(5);
                                  });
-                               },
+                               },style: OutlinedButton.styleFrom(minimumSize: Size(460, 35)),
                                child: Text(
                                  "Khởi hành "+ _days[5].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[5]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
                                  style: TextStyle(
@@ -453,7 +453,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                  setState(() {
                                    setSelectedDay(6);
                                  });
-                               },
+                               },style: OutlinedButton.styleFrom(minimumSize: Size(460, 35)),
                                child: Text(
                                  "Khởi hành "+ _days[6].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[6]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
                                  style: TextStyle(
@@ -467,7 +467,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                  setState(() {
                                    setSelectedDay(7);
                                  });
-                               },
+                               },style: OutlinedButton.styleFrom(minimumSize: Size(460, 35)),
                                child: Text(
                                  "Khởi hành "+ _days[7].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[7]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
                                  style: TextStyle(
@@ -481,7 +481,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                  setState(() {
                                    setSelectedDay(8);
                                  });
-                               },
+                               },style: OutlinedButton.styleFrom(minimumSize: Size(460, 35)),
                                child: Text(
                                  "Khởi hành "+ _days[8].toString() + "/" + selectMonth.toString() + "/" + selectYear.toString()+ "----- Kết thúc " + (_days[8]+3).toString() + "/" + selectMonth.toString() + "/" + selectYear.toString() ,
                                  style: TextStyle(

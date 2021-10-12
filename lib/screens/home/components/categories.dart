@@ -25,7 +25,7 @@ class Categories extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => TravelDetailPage()))),
             CategoryCard(
-                icon: "assets/icons/heart.png",
+                icon: "assets/icons/shield.png",
                 text: "An toàn",
                 press: () => Navigator.push(
                     context,
