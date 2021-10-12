@@ -553,6 +553,17 @@ class _TourDetailState extends State<TourDetail> {
                       color: Color(0x1D1DADB0),
                     ),
                     _builWayPart(),
+                    SizedBox(width: double.infinity,height: 10,),
+                    Divider(
+                      height: 10,
+                      thickness: 20,
+                      color: Color(0x1D1DADB0),
+                    ),
+                    ElevatedButton(
+                        onPressed: ()=> {},
+                        style: ElevatedButton.styleFrom( minimumSize: Size(double.infinity, 50),
+                        ),
+                        child: Text('Xem Review', style: TextStyle(fontSize: 30),))
                   ],
                 ),
               ),

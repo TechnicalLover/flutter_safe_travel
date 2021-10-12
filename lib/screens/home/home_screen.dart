@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 24.0),
             child: Column(
               children: <Widget>[
-                _buildHeaderCovid(),
+                //_buildHeaderCovid(),
                 // WeatherCard(),
                 // DiscountBanner(),
                 SizedBox(
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildHeaderCovid() {
+ /* Widget _buildHeaderCovid() {
     return Row(
       children: <Widget>[
         Text("Hi Sang! đảm bảo bạn an toàn với covid 19 ",
@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
         )
       ],
     );
-  }
+  }*/
 
   Widget _buildHeading() {
     return Padding(
