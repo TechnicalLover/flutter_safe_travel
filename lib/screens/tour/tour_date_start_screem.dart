@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:safetravel/utilities/constants.dart';
 
-import 'confirm.dart';
+import 'confirm/confirm.dart';
 
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_constructors_in_immutables
@@ -46,7 +46,7 @@ var _isSelectedDay = [
   false,
   false,
 ];
-var _days=[1, 4, 7, 10, 13, 16, 19, 22, 25];
+var _days = [1, 4, 7, 10, 13, 16, 19, 22, 25];
 
 var _months = [10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var _year = [2021, 2022];
@@ -363,6 +363,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                             thickness: 1,
                             color: kSecondaryColor,
                           ),
+
                          Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                            OutlinedButton(
                                onPressed: () {
@@ -506,11 +507,11 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                               elevation: 0,
                               minimumSize: Size(150, 50),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(45)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(45)),
                               ),
                             ), // double.infinity is the width and 30 is the height
                           ),
-
                         ],
                       ))))
         ],
