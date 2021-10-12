@@ -21,9 +21,9 @@ import 'tour/qr_code.dart';
 // ignore_for_file: public_member_api_docs
 
 class MainScreen extends StatefulWidget {
-  int pageIndex = 0;
+  final int pageIndex;
 
-  MainScreen({Key? key}) : super(key: key);
+  MainScreen({Key? key, this.pageIndex = 0}) : super(key: key);
   // List<Widget> pageList = <Widget>[
   //   HomeScreen(),
   // ];
@@ -33,7 +33,14 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int pageIndex = 0;
+  late int pageIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    pageIndex = widget.pageIndex;
+  }
+
   List<Widget> pageList = <Widget>[
     HomeScreen(),
     ExperienceScreen(),
