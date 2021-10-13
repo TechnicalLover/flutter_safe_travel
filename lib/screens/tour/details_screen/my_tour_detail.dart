@@ -53,7 +53,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                   ),
                 ),
               ),
-              flex: 15,
+              flex: 12,
             ),
             Expanded(
               child: Padding(
@@ -63,7 +63,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      "Resort VinPearl",
+                      "Đà nẵng",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
@@ -81,7 +81,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                             width: 8,
                           ),
                           Text(
-                            "Phu Quoc, Viet Nam",
+                            "Hội An-Đà nẵng , Viet Nam",
                             style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.grey,
@@ -114,7 +114,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text("\$1299.00",
+                        Text("2 000 000 VND",
                             style: TextStyle(
                                 fontSize: 14,
                                 decoration: TextDecoration.lineThrough,
@@ -124,7 +124,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                           width: 5,
                         ),
                         Text(
-                          "\$999.00",
+                          "1 325 000 VND",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -133,90 +133,87 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                       ],
                     ),
                     Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, "
-                      "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                      " Ut enim ad minim veniam,"
-                      " quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+                      "Ngày 1: Hội An \n 13h00: Bọn mình xuống sân bay rồi di chuyển về nơi nghỉ ở Hội An \n Những điểm nhất định cần check-in: Phố cổ, dọc sông Thu Bồn, nước Mót, Faifo Coffe (130 Trần Phú, Hội An), hẻm tường vàng (đối diện Faifo Coffee)\n18h00: Về nghỉ ngơi rồi tối đi ăn Mỳ Quảng, Cao Lầu, tham quan chợ đêm bên kia sông và ngắm đèn lồng (các bạn có thể thuê thuyền thả hoa đăng)\n\nNgày 2: Rừng dừa Bảy Mẫu (Hội An) – Đà Nẵng\n06h00: Bọn mình dậy sớm để chuẩn bị, ăn sáng Bún Mắm bà Trung, trở lại Chùa Cầu vì hôm qua đông quá, sáng sớm ít người hơn.",
                       overflow: TextOverflow.fade,
-                    )
+                    ),
                   ],
                 ),
               ),
               flex: 7,
             ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Safety",
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "WiFi",
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Lunch",
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      )
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        "Spa",
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-              flex: 3,
-            ),
+            // Expanded(
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //     crossAxisAlignment: CrossAxisAlignment.center,
+            //     children: [
+            //       Column(
+            //         children: [
+            //           CircleAvatar(
+            //             backgroundColor: Colors.white,
+            //           ),
+            //           SizedBox(
+            //             height: 8,
+            //           ),
+            //           Text(
+            //             "Safety",
+            //             style: TextStyle(
+            //               fontSize: 12,
+            //             ),
+            //           )
+            //         ],
+            //       ),
+            //       Column(
+            //         children: [
+            //           CircleAvatar(
+            //             backgroundColor: Colors.white,
+            //           ),
+            //           SizedBox(
+            //             height: 8,
+            //           ),
+            //           Text(
+            //             "WiFi",
+            //             style: TextStyle(
+            //               fontSize: 12,
+            //             ),
+            //           )
+            //         ],
+            //       ),
+            //       Column(
+            //         children: [
+            //           CircleAvatar(
+            //             backgroundColor: Colors.white,
+            //           ),
+            //           SizedBox(
+            //             height: 8,
+            //           ),
+            //           Text(
+            //             "Lunch",
+            //             style: TextStyle(
+            //               fontSize: 12,
+            //             ),
+            //           )
+            //         ],
+            //       ),
+            //       Column(
+            //         children: [
+            //           CircleAvatar(
+            //             backgroundColor: Colors.white,
+            //           ),
+            //           SizedBox(
+            //             height: 8,
+            //           ),
+            //           Text(
+            //             "Spa",
+            //             style: TextStyle(
+            //               fontSize: 12,
+            //             ),
+            //           )
+            //         ],
+            //       )
+            //     ],
+            //   ),
+            //   flex: 3,
+            // ),
           ],
         ),
       ),
@@ -225,7 +222,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
           height: 72,
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Wrap(
@@ -257,7 +254,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                     ],
                   ),
                   Text(
-                    "---------------",
+                    "-----------------------",
                     style: TextStyle(color: kPrimaryColor),
                   ),
                   Column(
@@ -289,6 +286,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Wrap(
                     children: [
@@ -304,9 +302,6 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                             fontWeight: FontWeight.bold),
                       )
                     ],
-                  ),
-                  SizedBox(
-                    height: 8,
                   ),
                   Wrap(
                     children: [
@@ -325,7 +320,6 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                   ),
                 ],
               ),
-              
             ],
           ),
         ),
