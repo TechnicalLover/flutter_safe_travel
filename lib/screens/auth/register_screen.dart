@@ -22,7 +22,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
         text: TextSpan(
           children: [
             TextSpan(
-              text: 'Already registered? ',
+              text: 'Bạn đã có tài khoản? ',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
@@ -30,7 +30,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
               ),
             ),
             TextSpan(
-              text: 'Log In',
+              text: 'Đăng nhập',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
@@ -48,7 +48,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Username',
+          'Tài khoản',
           style: kLabelStyle,
         ),
         SizedBox(height: 10.0),
@@ -69,7 +69,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
                 Icons.people,
                 color: Colors.white,
               ),
-              hintText: 'Enter your username',
+              hintText: 'Nhập tài khoản',
               hintStyle: kHintTextStyle,
             ),
           ),
@@ -104,7 +104,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
                 Icons.email,
                 color: Colors.white,
               ),
-              hintText: 'Enter your Email',
+              hintText: 'Nhập Email',
               hintStyle: kHintTextStyle,
             ),
           ),
@@ -118,7 +118,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Password',
+          'Mật khẩu',
           style: kLabelStyle,
         ),
         SizedBox(height: 10.0),
@@ -139,7 +139,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
                 Icons.lock,
                 color: Colors.white,
               ),
-              hintText: 'Enter your Password',
+              hintText: 'Nhập mật khẩu',
               hintStyle: kHintTextStyle,
             ),
           ),
@@ -153,7 +153,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Confirm password',
+          'Xát nhận mật khẩu',
           style: kLabelStyle,
         ),
         SizedBox(height: 10.0),
@@ -174,7 +174,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
                 Icons.lock,
                 color: Colors.white,
               ),
-              hintText: 'Confirm Password',
+              hintText: 'Xát nhận mật khẩu',
               hintStyle: kHintTextStyle,
             ),
           ),
@@ -199,7 +199,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
         onPressed: () => print('Register Button Pressed'),
         style: style,
         child: Text(
-          'Register',
+          'ĐĂNG KÝ',
           style: TextStyle(
             color: Color(0xFF527DAA),
             letterSpacing: 1.5,
@@ -243,7 +243,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Register',
+                        'Đăng Ký Tài Khoản',
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'OpenSans',

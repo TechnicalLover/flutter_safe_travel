@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Email',
+          'Tài khoản',
           style: kLabelStyle,
         ),
         SizedBox(height: 10.0),
@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Icons.email,
                 color: Colors.white,
               ),
-              hintText: 'Enter your Email',
+              hintText: 'Nhập tài khoản',
               hintStyle: kHintTextStyle,
             ),
           ),
@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Password',
+          'Mật khẩu',
           style: kLabelStyle,
         ),
         SizedBox(height: 10.0),
@@ -78,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Icons.lock,
                 color: Colors.white,
               ),
-              hintText: 'Enter your Password',
+              hintText: 'Nhập mật khẩu',
               hintStyle: kHintTextStyle,
             ),
           ),
@@ -93,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: TextButton(
         onPressed: () => print('Forgot Password Button Pressed'),
         child: Text(
-          'Forgot Password?',
+          'Quên mật khẩu?',
           style: kLabelStyle,
         ),
       ),
@@ -119,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           Text(
-            'Remember me',
+            'Nhớ mật khẩu',
             style: kLabelStyle,
           ),
         ],
@@ -144,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
             context, MaterialPageRoute(builder: (context) => MainScreen())),
         style: style,
         child: Text(
-          'LOGIN',
+          'ĐĂNG NHẬP',
           style: TextStyle(
             color: Color(0xFF527DAA),
             letterSpacing: 1.5,
@@ -161,15 +161,15 @@ class _LoginScreenState extends State<LoginScreen> {
     return Column(
       children: <Widget>[
         Text(
-          '- OR -',
+          '- Hoặc -',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w400,
           ),
         ),
-        SizedBox(height: 20.0),
+        SizedBox(height: 22.0),
         Text(
-          'Sign in with',
+          'Đăng nhập với',
           style: kLabelStyle,
         ),
       ],
@@ -229,7 +229,7 @@ class _LoginScreenState extends State<LoginScreen> {
         text: TextSpan(
           children: [
             TextSpan(
-              text: 'Don\'t have an Account? ',
+              text: 'Bạn chưa có tài khoản? ',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
@@ -237,7 +237,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             TextSpan(
-              text: 'Sign Up',
+              text: 'Đăng ký',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18.0,
@@ -280,7 +280,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Sign In',
+                        'SafeTravel.com',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'OpenSans',
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'Xin chào',
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'OpenSans',

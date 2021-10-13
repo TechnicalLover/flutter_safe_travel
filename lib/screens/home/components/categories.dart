@@ -26,15 +26,11 @@ class Categories extends StatelessWidget {
                         builder: (context) => TravelDetailPage()))),
             CategoryCard(
                 icon: "assets/icons/shield.png",
-                text: "An toàn",
+                text: "Quét Covid",
                 press: () => Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => TrackingLocationScreen()))),
-            CategoryCard(
-                icon: "assets/icons/gift.png",
-                text: "Quà tặng ",
-                press: () => {}),
             CategoryCard(
                 icon: "assets/icons/more.png",
                 text: "Xem thêm",

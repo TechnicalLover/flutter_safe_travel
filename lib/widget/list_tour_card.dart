@@ -72,7 +72,7 @@ class _ListTourCardState extends State<ListTourCard> {
                             text: "${widget.title}\n".toUpperCase(),
                             style: Theme.of(context).textTheme.button),
                         TextSpan(
-                            text: "${widget.price}\$".toUpperCase(),
+                            text: "${widget.price} VND".toUpperCase(),
                             style: kTextPrice),
                       ]),
                     ),

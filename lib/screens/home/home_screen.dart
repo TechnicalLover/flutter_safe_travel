@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safetravel/screens/home/components/carousel_slider.dart';
 import 'package:safetravel/screens/home/search_screen.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/screens/tour/tour_detail_screen.dart';
 import 'package:safetravel/screens/tour/tour_screen.dart';
 import 'package:safetravel/screens/home/components/categories.dart';
@@ -48,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 10,
                 ),
                 _buildSearch(),
-                Categories(),
+                // Categories(),
                 _buildHeading(),
               ],
             ),
@@ -56,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
           _buildTourForYou(),
           Center(
             child: Text(
-              "Tour gần bạn",
+              "Tour nổi bật",
               style: shadownText,
             ),
           ),
@@ -93,10 +94,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       child: TextField(
         decoration: InputDecoration(
-          hintText: "Bạn muốn đi đâu? ...",
+          hintText: "Bạn muốn đi đâu?",
           hintStyle: TextStyle(
             color: kPrimaryColor.withOpacity(0.5),
-            fontFamily: GoogleFonts.allura().fontFamily,
+            fontFamily: mainFont,
           ),
           enabledBorder: InputBorder.none,
           focusedBorder: InputBorder.none,
@@ -155,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Container(
                     child: Text(
-                      "Gợi ý cho bạn",
+                      "Tour an toàn",
                       style: shadownText,
                     ),
                   ),
@@ -248,30 +249,30 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.only(top: 12, bottom: 30),
               children: [
                 InspirationCard(
-                  image: "assets/yachts/yacht1.jpg",
+                  image: "assets/tours/tour1.jpg",
                   description:
                       "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit.",
-                  title: "Top 10 Yacht Luxury ",
+                  title: "Top 10 chuyến đi nội địa nhiều nhất ",
                   press: () => {print("top10 1")},
                 ),
                 SizedBox(
                   height: 20.0,
                 ),
                 InspirationCard(
-                  image: "assets/yachts/yacht2.jpg",
+                  image: "assets/tours/tour2.jpg",
                   description:
                       "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit,",
-                  title: "Top 5 Yacht Rent a lot ",
+                  title: "Top 5 chuyến đi gần bạn ",
                   press: () => {print("top10 2")},
                 ),
                 SizedBox(
                   height: 20.0,
                 ),
                 InspirationCard(
-                  image: "assets/yachts/yacht3.jpg",
+                  image: "assets/tours/tour4.jpg",
                   description:
                       "Lorem ipsum dolor sit amet,\n consectetur adipiscing elit,",
-                  title: "Top 5 Popular place ",
+                  title: "Top 5 nơi phổ biến ",
                   press: () => {print("top10 3")},
                 ),
               ],

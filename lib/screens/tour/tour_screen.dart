@@ -202,7 +202,7 @@ class _TourScreenState extends State<TourScreen> {
                 image: "assets/tours/tour1.jpg",
                 title: "Classic",
                 address: "Huế",
-                price: 5000,
+                price: 5000000,
                 press: () => {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TourDetail()))
@@ -211,7 +211,7 @@ class _TourScreenState extends State<TourScreen> {
                 image: "assets/tours/tour2.jpg",
                 title: "Business",
                 address: "Phú Quốc",
-                price: 998,
+                price: 998000,
                 press: () => {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TourDetail()))
@@ -220,7 +220,7 @@ class _TourScreenState extends State<TourScreen> {
                 image: "assets/tours/tour4.jpg",
                 title: "Business",
                 address: "Hà Tiên",
-                price: 800,
+                price: 800000,
                 press: () => {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TourDetail()))
@@ -229,7 +229,7 @@ class _TourScreenState extends State<TourScreen> {
                 image: "assets/tours/tour1.jpg",
                 title: "Luxury",
                 address: "Đà nẵng",
-                price: 18976,
+                price: 1890000,
                 press: () => {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TourDetail()))
@@ -238,7 +238,7 @@ class _TourScreenState extends State<TourScreen> {
                 image: "assets/tours/tour1.jpg",
                 title: "Luxury",
                 address: "Hội an",
-                price: 18976,
+                price: 189000,
                 press: () => {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TourDetail()))
@@ -247,7 +247,7 @@ class _TourScreenState extends State<TourScreen> {
                 image: "assets/tours/tour4.jpg",
                 title: "Luxury",
                 address: "Đà nẵng",
-                price: 18976,
+                price: 1900000,
                 press: () => {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TourDetail()))
@@ -256,7 +256,7 @@ class _TourScreenState extends State<TourScreen> {
                 image: "assets/tours/tour4.jpg",
                 title: "Luxury",
                 address: "Vũng Tàu",
-                price: 18976,
+                price: 1900000,
                 press: () => {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TourDetail()))
@@ -265,7 +265,7 @@ class _TourScreenState extends State<TourScreen> {
                 image: "assets/tours/tour4.jpg",
                 title: "Luxury",
                 address: "Ninh Bình",
-                price: 18976,
+                price: 189760000,
                 press: () => {
                       Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => TourDetail()))
