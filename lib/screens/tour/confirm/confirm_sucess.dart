@@ -5,7 +5,8 @@ import 'package:safetravel/utilities/constants.dart';
 import 'confirm_constants.dart';
 
 class ConfirmSucess extends StatefulWidget {
-  const ConfirmSucess({Key? key}) : super(key: key);
+  Function setStatus;
+  ConfirmSucess(this.setStatus, {Key? key}) : super(key: key);
 
   @override
   _ConfirmSucessState createState() => _ConfirmSucessState();
@@ -13,6 +14,8 @@ class ConfirmSucess extends StatefulWidget {
 
 class _ConfirmSucessState extends State<ConfirmSucess> {
   var _isSuccess = true;
+  String qrUrl =
+      'https://vi.qr-code-generator.com/wp-content/themes/qr/new_structure/markets/basic_market/generator/dist/generator/assets/images/websiteQRCode_noFrame.png';
   @override
   void initState() {
     super.initState(); //when this route starts, it will execute this code
@@ -24,17 +27,19 @@ class _ConfirmSucessState extends State<ConfirmSucess> {
                 false; //update the variable declare this under your class so its accessible for both your widget build and initState which is located under widget build{}
           },
         );
+        widget.setStatus(2);
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Column(
       children: [
         Container(
           alignment: Alignment.center,
-          height: 200,
+          height: 150,
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -83,7 +88,25 @@ class _ConfirmSucessState extends State<ConfirmSucess> {
             'Thanh toán thành công!',
             style: h2,
           ),
-        )
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Visibility(
+          visible: !_isSuccess,
+          child: Column(
+            children: [
+              SizedBox(
+                width: size.width / 2.5,
+                child: Image.network(qrUrl),
+              ),
+              Text(
+                'Checkin QR Code',
+                style: h3nor.copyWith(color: goodGray),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }

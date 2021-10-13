@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:safetravel/screens/tour/confirm/confirm_fourth_page.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_second_page.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_sucess.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_third_page.dart';
 import 'package:safetravel/screens/tour/confirm/credit_cards_page.dart';
 import 'package:safetravel/utilities/constants.dart';
 
+import '../../main_screen.dart';
 import 'confirm_constants.dart';
 import 'confirm_first_page.dart';
 
@@ -31,6 +31,29 @@ class _ConfirmState extends State<Confirm> {
   final indicators = [false, false, false, false];
 
   int _currentIndex = 0;
+  int _status = 0;
+  bool _isSuccess = false;
+
+  late FirstPage firstPage;
+  late SecondPage secondPage;
+  late ThirdPage thirdPage;
+  late CreditCardsPage creditCardsPage;
+
+  void setStatus(int status) {
+    if (status == 2) _isSuccess = true;
+    setState(() {
+      _status = status;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    firstPage = const FirstPage();
+    secondPage = const SecondPage();
+    thirdPage = const ThirdPage();
+    creditCardsPage = const CreditCardsPage();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,19 +132,19 @@ class _ConfirmState extends State<Confirm> {
     Widget pageContent = const SizedBox();
     switch (_currentIndex) {
       case 0:
-        pageContent = const FirstPage();
+        pageContent = firstPage;
         break;
       case 1:
-        pageContent = const SecondPage();
+        pageContent = secondPage;
         break;
       case 2:
-        pageContent = const ThirdPage();
+        pageContent = thirdPage;
         break;
       case 3:
-        pageContent = CreditCardsPage();
+        pageContent = creditCardsPage;
         break;
       case 4:
-        pageContent = const ConfirmSucess();
+        pageContent = successPage();
         break;
     }
     return Expanded(
@@ -143,35 +166,67 @@ class _ConfirmState extends State<Confirm> {
     );
   }
 
+  ConfirmSucess successPage() {
+    if (!_isSuccess) setStatus(1);
+    return ConfirmSucess(setStatus);
+  }
+
   Widget footer() {
-    return Container(
+    Widget result = const SizedBox();
+    if (_status == 0) {
+      result = Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _currentIndex > 0
+              ? previousButton(
+                  'Trở lại',
+                  () {
+                    setState(() {
+                      if (_currentIndex > 0) _currentIndex--;
+                    });
+                  },
+                )
+              : const SizedBox(),
+          nextButton(
+            'Tiếp tục',
+            () {
+              setState(() {
+                if (_currentIndex < steps) _currentIndex++;
+                if (_currentIndex > 0) indicators[_currentIndex - 1] = true;
+              });
+            },
+          ),
+        ],
+      );
+    } else if (_status == 2) {
+      result = Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          homeButton(
+            'Trở về trang chủ',
+            () {
+              setState(
+                () {
+                  Navigator.pushAndRemoveUntil<dynamic>(
+                    context,
+                    MaterialPageRoute<dynamic>(
+                      builder: (BuildContext context) => MainScreen(),
+                    ),
+                    (route) =>
+                        false, //if you want to disable back feature set to false
+                  );
+                },
+              );
+            },
+          ),
+        ],
+      );
+    }
+    return SizedBox(
       height: 100,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            _currentIndex > 0
-                ? previousButton(
-                    'Trở lại',
-                    () {
-                      setState(() {
-                        if (_currentIndex > 0) _currentIndex--;
-                      });
-                    },
-                  )
-                : const SizedBox(),
-            nextButton(
-              'Tiếp tục',
-              () {
-                setState(() {
-                  if (_currentIndex < steps) _currentIndex++;
-                  if (_currentIndex > 0) indicators[_currentIndex - 1] = true;
-                });
-              },
-            ),
-          ],
-        ),
+        child: result,
       ),
     );
   }
@@ -210,6 +265,34 @@ class _ConfirmState extends State<Confirm> {
     return SizedBox(
       height: 50,
       width: 125,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              text,
+              style: h3.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const Icon(Icons.chevron_right, size: 15),
+          ],
+        ),
+        style: ElevatedButton.styleFrom(
+          primary: kPrimaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(50),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget homeButton(String text, VoidCallback onPressed) {
+    return SizedBox(
+      height: 50,
       child: ElevatedButton(
         onPressed: onPressed,
         child: Row(

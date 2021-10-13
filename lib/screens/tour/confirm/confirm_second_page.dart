@@ -49,7 +49,7 @@ class _SecondPageState extends State<SecondPage> {
                             ],
                           ),
                         ),
-                        Text('200 000 VNĐ', style: h3),
+                        Text('2 550 000 VNĐ', style: h3),
                       ],
                     ),
                     SizedBox(
@@ -70,7 +70,7 @@ class _SecondPageState extends State<SecondPage> {
                             ],
                           ),
                         ),
-                        Text('100 000 VNĐ', style: h3),
+                        Text('1 400 000 VNĐ', style: h3),
                       ],
                     ),
                     SizedBox(
@@ -91,7 +91,7 @@ class _SecondPageState extends State<SecondPage> {
                             ],
                           ),
                         ),
-                        Text('50 000 VNĐ', style: h3),
+                        Text('500 000 VNĐ', style: h3),
                       ],
                     ),
                   ],
@@ -113,7 +113,7 @@ class _SecondPageState extends State<SecondPage> {
                       style: h2,
                     ),
                     Text(
-                      '350 000 VNĐ',
+                      '4 450 000 VNĐ',
                       style: h2.copyWith(
                         color: kPrimaryColor,
                       ),
@@ -132,43 +132,43 @@ class _SecondPageState extends State<SecondPage> {
     return Column(
       children: [
         peopleCounter(
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 6),
-            child: SvgPicture.asset(
-              'assets/icons/adult.svg',
-              allowDrawingOutsideViewBox: true,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6),
+              child: SvgPicture.asset(
+                'assets/icons/adult.svg',
+                allowDrawingOutsideViewBox: true,
+              ),
             ),
-          ),
-          'Người lớn',
-          '16+ tuổi',
-        ),
+            'Người lớn',
+            '16+ tuổi',
+            2),
         peopleCounter(
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 9),
-            child: SvgPicture.asset(
-              'assets/icons/child.svg',
-              allowDrawingOutsideViewBox: true,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 9),
+              child: SvgPicture.asset(
+                'assets/icons/child.svg',
+                allowDrawingOutsideViewBox: true,
+              ),
             ),
-          ),
-          'Trẻ con',
-          '2-15 tuổi',
-        ),
+            'Trẻ con',
+            '2-15 tuổi',
+            2),
         peopleCounter(
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: SvgPicture.asset(
-              'assets/icons/baby.svg',
-              allowDrawingOutsideViewBox: true,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: SvgPicture.asset(
+                'assets/icons/baby.svg',
+                allowDrawingOutsideViewBox: true,
+              ),
             ),
-          ),
-          'Trẻ sơ sinh',
-          'Dưới 2 tuổi',
-        ),
+            'Trẻ sơ sinh',
+            'Dưới 2 tuổi',
+            1),
       ],
     );
   }
 
-  Widget peopleCounter(Widget icon, String title, String hint) {
+  Widget peopleCounter(Widget icon, String title, String hint, int value) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
@@ -213,7 +213,7 @@ class _SecondPageState extends State<SecondPage> {
                 alignment: Alignment.center,
                 width: 50,
                 child: Text(
-                  '1',
+                  '$value',
                   style: h2,
                 ),
               ),

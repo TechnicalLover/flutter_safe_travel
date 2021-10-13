@@ -19,22 +19,26 @@ class _FirstPageState extends State<FirstPage> {
       child: Form(
         child: Column(
           children: [
-            textFiled(const Icon(Icons.account_circle), 'Họ và tên'),
+            textFiled(const Icon(Icons.account_circle), 'Họ và tên',
+                'Đào Phương Nam'),
             const SizedBox(
               height: 15,
             ),
             genderRadio(),
-            textFiled(const Icon(Icons.mail_outline), 'Email'),
-            textFiled(const Icon(Icons.phone), 'Số điện thoại'),
-            textFiled(const Icon(Icons.home), 'Địa chỉ'),
+            textFiled(
+                const Icon(Icons.mail_outline), 'Email', 'ealflm@gmail.com'),
+            textFiled(const Icon(Icons.phone), 'Số điện thoại', '0369085855'),
+            textFiled(const Icon(Icons.home), 'Địa chỉ',
+                'Quận 9, Thành Phố Hồ Chí Minh'),
           ],
         ),
       ),
     );
   }
 
-  TextFormField textFiled(Icon icon, String text) {
+  TextFormField textFiled(Icon icon, String text, String init) {
     return TextFormField(
+      initialValue: init,
       decoration: InputDecoration(
         prefixIcon: icon,
         labelText: text,

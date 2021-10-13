@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:safetravel/utilities/constants.dart';
+
+import '../qr_code.dart';
 
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_constructors_in_immutables
@@ -55,24 +58,59 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
               ),
               flex: 12,
             ),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: 16, right: 16, top: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      "Đà nẵng",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Row(
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 16, right: 16, top: 12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "🇻🇳",
+                            "Đà nẵng",
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => QRCode()));
+                            },
+                            icon: Icon(Icons.qr_code),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8),
+                        child: Row(
+                          children: [
+                            Text(
+                              "🇻🇳",
+                              style: TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              "Hội An-Đà nẵng , Viet Nam",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold),
+                            )
+                          ],
+                        ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "⭐",
                             style: TextStyle(
                               fontSize: 12,
                             ),
@@ -81,7 +119,7 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                             width: 8,
                           ),
                           Text(
-                            "Hội An-Đà nẵng , Viet Nam",
+                            "4.5/5 (1250)",
                             style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.grey,
@@ -89,57 +127,37 @@ class _TravelDetailPageState extends State<TravelDetailPage> {
                           )
                         ],
                       ),
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          "⭐",
-                          style: TextStyle(
-                            fontSize: 12,
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text("2 000 000 VND",
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  decoration: TextDecoration.lineThrough,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold)),
+                          SizedBox(
+                            width: 5,
                           ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          "4.5/5 (1250)",
-                          style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold),
-                        )
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("2 000 000 VND",
+                          Text(
+                            "1 325 000 VND",
                             style: TextStyle(
-                                fontSize: 14,
-                                decoration: TextDecoration.lineThrough,
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold)),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "1 325 000 VND",
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: kPrimaryColor),
-                        ),
-                      ],
-                    ),
-                    Text(
-                      "Ngày 1: Hội An \n 13h00: Bọn mình xuống sân bay rồi di chuyển về nơi nghỉ ở Hội An \n Những điểm nhất định cần check-in: Phố cổ, dọc sông Thu Bồn, nước Mót, Faifo Coffe (130 Trần Phú, Hội An), hẻm tường vàng (đối diện Faifo Coffee)\n18h00: Về nghỉ ngơi rồi tối đi ăn Mỳ Quảng, Cao Lầu, tham quan chợ đêm bên kia sông và ngắm đèn lồng (các bạn có thể thuê thuyền thả hoa đăng)\n\nNgày 2: Rừng dừa Bảy Mẫu (Hội An) – Đà Nẵng\n06h00: Bọn mình dậy sớm để chuẩn bị, ăn sáng Bún Mắm bà Trung, trở lại Chùa Cầu vì hôm qua đông quá, sáng sớm ít người hơn.",
-                      overflow: TextOverflow.fade,
-                    ),
-                  ],
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: kPrimaryColor),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        "Ngày 1: Hội An \n 13h00: Bọn mình xuống sân bay rồi di chuyển về nơi nghỉ ở Hội An \n Những điểm nhất định cần check-in: Phố cổ, dọc sông Thu Bồn, nước Mót, Faifo Coffe (130 Trần Phú, Hội An), hẻm tường vàng (đối diện Faifo Coffee)\n18h00: Về nghỉ ngơi rồi tối đi ăn Mỳ Quảng, Cao Lầu, tham quan chợ đêm bên kia sông và ngắm đèn lồng (các bạn có thể thuê thuyền thả hoa đăng)\n\nNgày 2: Rừng dừa Bảy Mẫu (Hội An) – Đà Nẵng\n06h00: Bọn mình dậy sớm để chuẩn bị, ăn sáng Bún Mắm bà Trung, trở lại Chùa Cầu vì hôm qua đông quá, sáng sớm ít người hơn.",
+                        overflow: TextOverflow.fade,
+                      ),
+                    ],
+                  ),
                 ),
+                flex: 7,
               ),
-              flex: 7,
             ),
             // Expanded(
             //   child: Row(

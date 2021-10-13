@@ -97,9 +97,9 @@ class _ThirdPageState extends State<ThirdPage> {
                         dashColor: goodGray,
                       ),
                     ),
-                    itemLine('Người lớn', 2, '200 000 VNĐ', 10),
-                    itemLine('Trẻ con', 1, '50 000 VNĐ', 3),
-                    itemLine('Trẻ sơ sinh', 1, '25 000 VNĐ', 3),
+                    itemLine('Người lớn', 2, '2 550 000 VNĐ', 10),
+                    itemLine('Trẻ con', 1, '1 400 000 VNĐ', 3),
+                    itemLine('Trẻ sơ sinh', 1, '500 000 VNĐ', 3),
                     Container(
                       margin: EdgeInsets.only(top: 10),
                       child: DottedLine(
@@ -108,17 +108,17 @@ class _ThirdPageState extends State<ThirdPage> {
                     ),
                     customLine(
                       Text('Tạm tính', style: h3),
-                      Text('275 000 VNĐ', style: h3),
+                      Text('4 455 000 VNĐ', style: h3),
                       10,
                     ),
                     customLine(
                       Text('Phí dịch vụ', style: h3nor),
-                      Text('100 000 VNĐ', style: h3nor),
+                      Text('200 000 VNĐ', style: h3nor),
                       3,
                     ),
                     customLine(
                       Text('Khuyến mãi', style: h3ita),
-                      Text('50 000 VNĐ', style: h3ita),
+                      Text('100 000 VNĐ', style: h3ita),
                       3,
                     ),
                     Container(
@@ -129,7 +129,7 @@ class _ThirdPageState extends State<ThirdPage> {
                     ),
                     customLine(
                       Text('Tổng cộng', style: h2),
-                      Text('325 000 VNĐ', style: h2),
+                      Text('4 555 000 VNĐ', style: h2),
                       10,
                     )
                   ],
