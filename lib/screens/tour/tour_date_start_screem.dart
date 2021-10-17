@@ -76,7 +76,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Chọn ngày", style: h1.copyWith(color: Colors.white)),
+        title: Text("Chọn ngày", style: h1b.copyWith(color: Colors.white)),
         backgroundColor: kPrimaryColor,
       ),
       body: Column(
@@ -106,7 +106,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                   children: [
                                     Text(
                                       "Chọn tháng khởi hành",
-                                      style: h1.copyWith(color: kPrimaryColor),
+                                      style: h1b.copyWith(color: kPrimaryColor),
                                       textAlign: TextAlign.start,
                                     )
                                   ],
@@ -315,7 +315,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                   children: [
                                     Text(
                                       "Lịch khởi hành sắp tới",
-                                      style: h1.copyWith(color: kPrimaryColor),
+                                      style: h1b.copyWith(color: kPrimaryColor),
                                       textAlign: TextAlign.start,
                                     )
                                   ],
@@ -457,7 +457,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
             fit: BoxFit.fitWidth,
             child: Text(
               start,
-              style: h2nor.copyWith(
+              style: h2.copyWith(
                 color: color,
               ),
             ),
@@ -473,7 +473,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
             fit: BoxFit.fitWidth,
             child: Text(
               end,
-              style: h2nor.copyWith(
+              style: h2.copyWith(
                 color: color,
               ),
             ),
@@ -490,7 +490,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
         _months[indexMonth].toString().padLeft(2, '0') +
             "/" +
             _year[indexYear].toString().padLeft(2, '0'),
-        style: h2nor.copyWith(
+        style: h2.copyWith(
           color: _isSelected[indexMonth] ? kSecondaryColor : Colors.black,
         ),
       ),
@@ -514,7 +514,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
           children: [
             Text(
               text,
-              style: h3.copyWith(
+              style: h3b.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
               ),

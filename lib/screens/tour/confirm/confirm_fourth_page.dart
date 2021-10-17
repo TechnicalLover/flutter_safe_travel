@@ -14,7 +14,7 @@ class _FourthPageState extends State<FourthPage> {
   Widget build(BuildContext context) {
     return Text(
       'Hello World',
-      style: h1,
+      style: h1b,
     );
   }
 }

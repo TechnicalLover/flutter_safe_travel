@@ -18,63 +18,64 @@ final boxShadow = BoxShadow(
 String mainFont = 'OpenSans';
 String fontHeading = "iCielBCRostrum";
 
-final h1 = TextStyle(
-  color: goodBlack,
-  fontSize: 24,
-  fontFamily: mainFont,
-  fontWeight: FontWeight.bold,
-);
+const h1fs = 28.13;
+const h2fs = 22.50;
+const h3fs = 18.00;
+const h4fs = 14.40;
+const h5fs = 11.52;
 
-final h2 = TextStyle(
-  color: goodBlack,
-  fontSize: 19.20,
-  fontFamily: mainFont,
-  fontWeight: FontWeight.bold,
-);
-
-final h3 = TextStyle(
-  color: goodBlack,
-  fontSize: 15.36,
-  fontFamily: mainFont,
-  fontWeight: FontWeight.bold,
-);
-
-final h4 = TextStyle(
-  color: goodBlack,
-  fontSize: 12.29,
-  fontFamily: mainFont,
-  fontWeight: FontWeight.bold,
-);
-
-final h1nor = TextStyle(
-  color: goodBlack,
-  fontSize: 24,
-  fontFamily: mainFont,
-);
-
-final h2nor = TextStyle(
-  color: goodBlack,
-  fontSize: 19.20,
-  fontFamily: mainFont,
-);
-
-final h3nor = TextStyle(
+final baseFont = TextStyle(
   color: goodBlack,
   fontSize: 15.36,
   fontFamily: mainFont,
 );
 
-final h4nor = TextStyle(
-  color: goodBlack,
-  fontSize: 12.29,
-  fontFamily: mainFont,
+final h1b = baseFont.copyWith(
+  fontSize: h1fs,
+  fontWeight: FontWeight.bold,
 );
 
-final h3ita = TextStyle(
-  color: goodBlack,
-  fontSize: 15.36,
-  fontFamily: mainFont,
+final h2b = baseFont.copyWith(
+  fontSize: h1fs,
+  fontWeight: FontWeight.bold,
+);
+
+final h3b = baseFont.copyWith(
+  fontSize: h1fs,
+  fontWeight: FontWeight.bold,
+);
+final h4b = baseFont.copyWith(
+  fontSize: h1fs,
+  fontWeight: FontWeight.bold,
+);
+
+final h5b = baseFont.copyWith(
+  fontSize: h1fs,
+  fontWeight: FontWeight.bold,
+);
+
+final h1 = baseFont.copyWith(
+  fontSize: h1fs,
+  fontWeight: FontWeight.bold,
+);
+
+final h2 = baseFont.copyWith(
+  fontSize: h1fs,
+);
+
+final h3 = baseFont.copyWith(
+  fontSize: h1fs,
+);
+final h4 = baseFont.copyWith(
+  fontSize: h1fs,
+);
+
+final h5 = baseFont.copyWith(
+  fontSize: h1fs,
+);
+
+final h3ita = h3.copyWith(
   fontStyle: FontStyle.italic,
 );
 
-final formStyle = h3nor;
+final formStyle = h3;

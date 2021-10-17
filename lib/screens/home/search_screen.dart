@@ -139,7 +139,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                         onChanged: (value) {
                                                           setState(() {
                                                             _value = value!;
-                                                            price.text = value!;
+                                                            price.text = value;
                                                           });
                                                         },
                                                       ),
@@ -154,7 +154,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                         onChanged: (value) {
                                                           setState(() {
                                                             _value = value!;
-                                                            price.text = value!;
+                                                            price.text = value;
                                                           });
                                                         },
                                                       ),
@@ -169,7 +169,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                         onChanged: (value) {
                                                           setState(() {
                                                             _value = value!;
-                                                            price.text = value!;
+                                                            price.text = value;
                                                           });
                                                         },
                                                       ),
@@ -184,7 +184,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                         onChanged: (value) {
                                                           setState(() {
                                                             _value = value!;
-                                                            price.text = value!;
+                                                            price.text = value;
                                                           });
                                                         },
                                                       ),
@@ -199,7 +199,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                                         onChanged: (value) {
                                                           setState(() {
                                                             _value = value!;
-                                                            price.text = value!;
+                                                            price.text = value;
                                                           });
                                                         },
                                                       ),

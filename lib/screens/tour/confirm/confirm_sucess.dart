@@ -79,14 +79,14 @@ class _ConfirmSucessState extends State<ConfirmSucess> {
           visible: _isSuccess,
           child: Text(
             'Đang thực hiện thanh toán...',
-            style: h2nor,
+            style: h2,
           ),
         ),
         Visibility(
           visible: !_isSuccess,
           child: Text(
             'Thanh toán thành công!',
-            style: h2,
+            style: h2b,
           ),
         ),
         const SizedBox(
@@ -102,7 +102,7 @@ class _ConfirmSucessState extends State<ConfirmSucess> {
               ),
               Text(
                 'Checkin QR Code',
-                style: h3nor.copyWith(color: goodGray),
+                style: h3.copyWith(color: goodGray),
               ),
             ],
           ),

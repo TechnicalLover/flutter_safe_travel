@@ -26,7 +26,7 @@ class _SecondPageState extends State<SecondPage> {
                 alignment: Alignment.centerLeft,
                 child: Text(
                   'Chi tiết giá',
-                  style: h2,
+                  style: h2b,
                 ),
               ),
               Container(
@@ -40,7 +40,7 @@ class _SecondPageState extends State<SecondPage> {
                         RichText(
                           text: TextSpan(
                             text: 'Người lớn ',
-                            style: h3nor,
+                            style: h3,
                             children: const <TextSpan>[
                               TextSpan(
                                   text: 'x 2',
@@ -49,7 +49,7 @@ class _SecondPageState extends State<SecondPage> {
                             ],
                           ),
                         ),
-                        Text('2 550 000 VNĐ', style: h3),
+                        Text('2 550 000 VNĐ', style: h3b),
                       ],
                     ),
                     SizedBox(
@@ -61,7 +61,7 @@ class _SecondPageState extends State<SecondPage> {
                         RichText(
                           text: TextSpan(
                             text: 'Trẻ con ',
-                            style: h3nor,
+                            style: h3,
                             children: const <TextSpan>[
                               TextSpan(
                                   text: 'x 2',
@@ -70,7 +70,7 @@ class _SecondPageState extends State<SecondPage> {
                             ],
                           ),
                         ),
-                        Text('1 400 000 VNĐ', style: h3),
+                        Text('1 400 000 VNĐ', style: h3b),
                       ],
                     ),
                     SizedBox(
@@ -82,7 +82,7 @@ class _SecondPageState extends State<SecondPage> {
                         RichText(
                           text: TextSpan(
                             text: 'Trẻ sơ sinh ',
-                            style: h3nor,
+                            style: h3,
                             children: const <TextSpan>[
                               TextSpan(
                                   text: 'x 1',
@@ -91,7 +91,7 @@ class _SecondPageState extends State<SecondPage> {
                             ],
                           ),
                         ),
-                        Text('500 000 VNĐ', style: h3),
+                        Text('500 000 VNĐ', style: h3b),
                       ],
                     ),
                   ],
@@ -110,11 +110,11 @@ class _SecondPageState extends State<SecondPage> {
                   children: [
                     Text(
                       'Tạm tính',
-                      style: h2,
+                      style: h2b,
                     ),
                     Text(
                       '4 450 000 VNĐ',
-                      style: h2.copyWith(
+                      style: h2b.copyWith(
                         color: kPrimaryColor,
                       ),
                     ),
@@ -187,11 +187,11 @@ class _SecondPageState extends State<SecondPage> {
                 children: [
                   Text(
                     title,
-                    style: h3nor,
+                    style: h3,
                   ),
                   Text(
                     hint,
-                    style: h4nor.copyWith(
+                    style: h4.copyWith(
                       color: goodGray,
                     ),
                   ),
@@ -214,7 +214,7 @@ class _SecondPageState extends State<SecondPage> {
                 width: 50,
                 child: Text(
                   '$value',
-                  style: h2,
+                  style: h2b,
                 ),
               ),
               roundButton(

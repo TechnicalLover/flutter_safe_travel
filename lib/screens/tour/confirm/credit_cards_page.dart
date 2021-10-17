@@ -23,8 +23,8 @@ class CreditCardsPage extends StatelessWidget {
             _buildAddCardButton(),
             customLine(
               Text('Số tiền cần thanh toán',
-                  style: h3nor.copyWith(color: goodGray)),
-              Text('4 455 000 VNĐ', style: h2),
+                  style: h3.copyWith(color: goodGray)),
+              Text('4 455 000 VNĐ', style: h2b),
               10,
             )
           ],
@@ -129,7 +129,7 @@ class CreditCardsPage extends StatelessWidget {
             children: [
               Text(
                 'Thêm thẻ',
-                style: h3.copyWith(
+                style: h3b.copyWith(
                   color: goodGray,
                   fontWeight: FontWeight.w500,
                 ),

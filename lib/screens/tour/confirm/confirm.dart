@@ -122,7 +122,7 @@ class _ConfirmState extends State<Confirm> {
         alignment: Alignment.center,
         child: Text(
           title[_currentIndex],
-          style: h1,
+          style: h1b,
         ),
       ),
     );
@@ -247,7 +247,7 @@ class _ConfirmState extends State<Confirm> {
             ),
             Text(
               text,
-              style: h3.copyWith(
+              style: h3b.copyWith(
                 color: goodGray,
                 fontWeight: FontWeight.w500,
               ),
@@ -272,7 +272,7 @@ class _ConfirmState extends State<Confirm> {
           children: [
             Text(
               text,
-              style: h3.copyWith(
+              style: h3b.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
               ),
@@ -300,7 +300,7 @@ class _ConfirmState extends State<Confirm> {
           children: [
             Text(
               text,
-              style: h3.copyWith(
+              style: h3b.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
               ),

@@ -51,11 +51,11 @@ class _ThirdPageState extends State<ThirdPage> {
                         children: [
                           Text(
                             'Tour Đà Nẵng',
-                            style: h2,
+                            style: h2b,
                           ),
                           Text(
                             '08:00AM 26/12/2021',
-                            style: h3.copyWith(
+                            style: h3b.copyWith(
                               fontWeight: FontWeight.normal,
                               color: goodGray,
                             ),
@@ -72,23 +72,23 @@ class _ThirdPageState extends State<ThirdPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     customLine(
-                      Text('Người đặt', style: h3nor),
-                      Text('Đào Phương Nam', style: h3nor),
+                      Text('Người đặt', style: h3),
+                      Text('Đào Phương Nam', style: h3),
                       0,
                     ),
                     customLine(
-                      Text('Thời gian', style: h3nor),
-                      Text('8 ngày', style: h3nor),
+                      Text('Thời gian', style: h3),
+                      Text('8 ngày', style: h3),
                       0,
                     ),
                     customLine(
-                      Text('Nơi khởi hành', style: h3nor),
-                      Text('Tp. Hồ Chí Minh', style: h3nor),
+                      Text('Nơi khởi hành', style: h3),
+                      Text('Tp. Hồ Chí Minh', style: h3),
                       0,
                     ),
                     customLine(
-                      Text('Ngày khởi hành', style: h3nor),
-                      Text('20/12/2021', style: h3nor),
+                      Text('Ngày khởi hành', style: h3),
+                      Text('20/12/2021', style: h3),
                       0,
                     ),
                     Container(
@@ -107,13 +107,13 @@ class _ThirdPageState extends State<ThirdPage> {
                       ),
                     ),
                     customLine(
-                      Text('Tạm tính', style: h3),
-                      Text('4 455 000 VNĐ', style: h3),
+                      Text('Tạm tính', style: h3b),
+                      Text('4 455 000 VNĐ', style: h3b),
                       10,
                     ),
                     customLine(
-                      Text('Phí dịch vụ', style: h3nor),
-                      Text('200 000 VNĐ', style: h3nor),
+                      Text('Phí dịch vụ', style: h3),
+                      Text('200 000 VNĐ', style: h3),
                       3,
                     ),
                     customLine(
@@ -128,8 +128,8 @@ class _ThirdPageState extends State<ThirdPage> {
                       ),
                     ),
                     customLine(
-                      Text('Tổng cộng', style: h2),
-                      Text('4 555 000 VNĐ', style: h2),
+                      Text('Tổng cộng', style: h2b),
+                      Text('4 555 000 VNĐ', style: h2b),
                       10,
                     )
                   ],
@@ -158,7 +158,7 @@ class _ThirdPageState extends State<ThirdPage> {
           RichText(
             text: TextSpan(
               text: text + ' ',
-              style: h3nor,
+              style: h3,
               children: <TextSpan>[
                 TextSpan(
                     text: 'x $quantity',
@@ -166,7 +166,7 @@ class _ThirdPageState extends State<ThirdPage> {
               ],
             ),
           ),
-          Text(price, style: h3nor),
+          Text(price, style: h3),
         ],
       ),
     );
