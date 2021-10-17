@@ -69,7 +69,6 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/icons/
     - assets/yachts/yacht1.jpg
     - assets/yachts/yacht2.jpg
     - assets/yachts/yacht3.jpg
@@ -97,6 +96,11 @@ flutter:
     - assets/images/contact_less.png
     - assets/images/mastercard.png
     - assets/images/card_header@2x.png
+      
+    - assets/icons/
+    - assets/yachts/
+    - assets/images/
+    - assets/logos/
 
   fonts:
     - family: iCielBCRostrum

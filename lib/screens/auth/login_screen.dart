@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/auth/register_screen.dart';
 import 'package:safetravel/screens/main_screen.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 
 import 'package:safetravel/utilities/constants.dart';
 // ignore_for_file: prefer_const_constructors
@@ -23,28 +25,25 @@ class _LoginScreenState extends State<LoginScreen> {
       children: <Widget>[
         Text(
           'Tài khoản',
-          style: kLabelStyle,
+          style: h3,
         ),
-        SizedBox(height: 10.0),
+        SizedBox(height: 10.h),
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 50.h,
           child: TextField(
             keyboardType: TextInputType.emailAddress,
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'OpenSans',
-            ),
+            style: h3,
             decoration: InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
+              contentPadding: EdgeInsets.only(top: 14.h),
               prefixIcon: Icon(
                 Icons.email,
-                color: Colors.white,
+                color: goodBlack,
               ),
               hintText: 'Nhập tài khoản',
-              hintStyle: kHintTextStyle,
+              hintStyle: h3,
             ),
           ),
         ),
@@ -58,28 +57,25 @@ class _LoginScreenState extends State<LoginScreen> {
       children: <Widget>[
         Text(
           'Mật khẩu',
-          style: kLabelStyle,
+          style: h3,
         ),
-        SizedBox(height: 10.0),
+        SizedBox(height: 10.h),
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 50.h,
           child: TextField(
             obscureText: true,
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'OpenSans',
-            ),
+            style: h3,
             decoration: InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
+              contentPadding: EdgeInsets.only(top: 14.h),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.white,
+                color: goodBlack,
               ),
               hintText: 'Nhập mật khẩu',
-              hintStyle: kHintTextStyle,
+              hintStyle: h3,
             ),
           ),
         ),
@@ -94,35 +90,8 @@ class _LoginScreenState extends State<LoginScreen> {
         onPressed: () => print('Forgot Password Button Pressed'),
         child: Text(
           'Quên mật khẩu?',
-          style: kLabelStyle,
+          style: h3,
         ),
-      ),
-    );
-  }
-
-  Widget _buildRememberMeCheckbox() {
-    return SizedBox(
-      height: 20.0,
-      child: Row(
-        children: <Widget>[
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.white),
-            child: Checkbox(
-              value: _rememberMe,
-              checkColor: Colors.green,
-              activeColor: Colors.white,
-              onChanged: (value) {
-                setState(() {
-                  _rememberMe = value!;
-                });
-              },
-            ),
-          ),
-          Text(
-            'Nhớ mật khẩu',
-            style: kLabelStyle,
-          ),
-        ],
       ),
     );
   }
@@ -130,14 +99,14 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _buildLoginBtn() {
     ButtonStyle style = ElevatedButton.styleFrom(
       elevation: 5.0,
-      padding: EdgeInsets.all(15.0),
+      padding: EdgeInsets.all(25.r),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(30.0),
+        borderRadius: BorderRadius.circular(40.r),
       ),
-      primary: Colors.white,
+      primary: kPrimaryColor,
     );
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 25.0),
+      padding: EdgeInsets.symmetric(vertical: 10.h),
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () => Navigator.push(
@@ -145,13 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
         style: style,
         child: Text(
           'ĐĂNG NHẬP',
-          style: TextStyle(
-            color: Color(0xFF527DAA),
-            letterSpacing: 1.5,
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
-          ),
+          style: h3b.copyWith(color: Colors.white),
         ),
       ),
     );
@@ -160,17 +123,10 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _buildSignInWithText() {
     return Column(
       children: <Widget>[
+        SizedBox(height: 20.h),
         Text(
-          '- Hoặc -',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-        SizedBox(height: 22.0),
-        Text(
-          'Đăng nhập với',
-          style: kLabelStyle,
+          'Hoặc đăng nhập với',
+          style: h3,
         ),
       ],
     );
@@ -180,8 +136,8 @@ class _LoginScreenState extends State<LoginScreen> {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 60.0,
-        width: 60.0,
+        height: 80.h,
+        width: 80.w,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           color: Colors.white,
@@ -189,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
             BoxShadow(
               color: Colors.black26,
               offset: Offset(0, 2),
-              blurRadius: 6.0,
+              blurRadius: 6.r,
             ),
           ],
           image: DecorationImage(
@@ -202,17 +158,20 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildSocialBtnRow() {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 30.0),
+      padding: EdgeInsets.symmetric(vertical: 15.h),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           _buildSocialBtn(
             () => print('Login with Facebook'),
             AssetImage('assets/logos/facebook.jpg'),
           ),
+          SizedBox(
+            width: 50.w,
+          ),
           _buildSocialBtn(
             () => print('Login with Google'),
-            AssetImage('assets/logos/google.jpg'),
+            AssetImage('assets/logos/google.png'),
           ),
         ],
       ),
@@ -230,19 +189,11 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             TextSpan(
               text: 'Bạn chưa có tài khoản? ',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
-                fontWeight: FontWeight.w400,
-              ),
+              style: h3,
             ),
             TextSpan(
               text: 'Đăng ký',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
+              style: h3b,
             ),
           ],
         ),
@@ -265,46 +216,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/images/background.jpg'),
+                        image: AssetImage('assets/images/login.png'),
                         fit: BoxFit.cover)),
               ),
               SizedBox(
                 height: double.infinity,
                 child: SingleChildScrollView(
                   physics: AlwaysScrollableScrollPhysics(),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 40.0,
-                    vertical: 120.0,
-                  ),
+                  padding: EdgeInsets.fromLTRB(40.w, 160.h, 40.w, 50.h),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
-                        'SafeTravel.com',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'OpenSans',
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'Xin chào',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'OpenSans',
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 30.0),
                       _buildEmailTF(),
                       SizedBox(
-                        height: 30.0,
+                        height: 20.h,
                       ),
                       _buildPasswordTF(),
                       _buildForgotPasswordBtn(),
-                      _buildRememberMeCheckbox(),
                       _buildLoginBtn(),
                       _buildSignInWithText(),
                       _buildSocialBtnRow(),

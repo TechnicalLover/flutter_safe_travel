@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 
@@ -42,12 +43,12 @@ final shadownText = TextStyle(
     fontSize: 25);
 final hoverColor = Colors.white70;
 final kBoxDecorationStyle = BoxDecoration(
-  color: Color.fromRGBO(158, 217, 232, 0.3),
-  borderRadius: BorderRadius.circular(10.0),
+  color: Colors.white.withOpacity(0.6),
+  borderRadius: BorderRadius.circular(10.r),
   boxShadow: [
     BoxShadow(
       color: Colors.black12,
-      blurRadius: 6.0,
+      blurRadius: 6.r,
       offset: Offset(0, 2),
     ),
   ],

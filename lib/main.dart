@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(630, 780),
+      designSize: Size(630, 720),
       builder: () => MaterialApp(
         title: 'Flutter Login UI',
         debugShowCheckedModeBanner: false,

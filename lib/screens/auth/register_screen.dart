@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/utilities/constants.dart';
 // ignore_for_file: prefer_const_constructors
 // ignore_for_file: prefer_const_constructors_in_immutables
@@ -23,19 +25,11 @@ class _RegisterScreenState extends State<RegiterScreen> {
           children: [
             TextSpan(
               text: 'Bạn đã có tài khoản? ',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
-                fontWeight: FontWeight.w400,
-              ),
+              style: h3.copyWith(color: Colors.white),
             ),
             TextSpan(
               text: 'Đăng nhập',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
+              style: h3b.copyWith(color: Colors.white),
             ),
           ],
         ),
@@ -49,28 +43,25 @@ class _RegisterScreenState extends State<RegiterScreen> {
       children: <Widget>[
         Text(
           'Tài khoản',
-          style: kLabelStyle,
+          style: h3,
         ),
-        SizedBox(height: 10.0),
+        SizedBox(height: 10.h),
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 50.h,
           child: TextField(
             keyboardType: TextInputType.emailAddress,
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'OpenSans',
-            ),
+            style: h3,
             decoration: InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
+              contentPadding: EdgeInsets.only(top: 14.h),
               prefixIcon: Icon(
                 Icons.people,
-                color: Colors.white,
+                color: goodBlack,
               ),
               hintText: 'Nhập tài khoản',
-              hintStyle: kHintTextStyle,
+              hintStyle: h3,
             ),
           ),
         ),
@@ -84,28 +75,25 @@ class _RegisterScreenState extends State<RegiterScreen> {
       children: <Widget>[
         Text(
           'Email',
-          style: kLabelStyle,
+          style: h3,
         ),
-        SizedBox(height: 10.0),
+        SizedBox(height: 10.h),
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 50.h,
           child: TextField(
             keyboardType: TextInputType.emailAddress,
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'OpenSans',
-            ),
+            style: h3,
             decoration: InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
+              contentPadding: EdgeInsets.only(top: 14.h),
               prefixIcon: Icon(
                 Icons.email,
-                color: Colors.white,
+                color: goodBlack,
               ),
               hintText: 'Nhập Email',
-              hintStyle: kHintTextStyle,
+              hintStyle: h3,
             ),
           ),
         ),
@@ -119,28 +107,25 @@ class _RegisterScreenState extends State<RegiterScreen> {
       children: <Widget>[
         Text(
           'Mật khẩu',
-          style: kLabelStyle,
+          style: h3,
         ),
-        SizedBox(height: 10.0),
+        SizedBox(height: 10.h),
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 50.h,
           child: TextField(
             obscureText: true,
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'OpenSans',
-            ),
+            style: h3,
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.white,
+                color: goodBlack,
               ),
               hintText: 'Nhập mật khẩu',
-              hintStyle: kHintTextStyle,
+              hintStyle: h3,
             ),
           ),
         ),
@@ -153,29 +138,26 @@ class _RegisterScreenState extends State<RegiterScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Xát nhận mật khẩu',
-          style: kLabelStyle,
+          'Xác nhận mật khẩu',
+          style: h3,
         ),
-        SizedBox(height: 10.0),
+        SizedBox(height: 10.h),
         Container(
           alignment: Alignment.centerLeft,
           decoration: kBoxDecorationStyle,
-          height: 60.0,
+          height: 50.h,
           child: TextField(
             obscureText: true,
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'OpenSans',
-            ),
+            style: h3,
             decoration: InputDecoration(
               border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
+              contentPadding: EdgeInsets.only(top: 14.h),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Colors.white,
+                color: goodBlack,
               ),
-              hintText: 'Xát nhận mật khẩu',
-              hintStyle: kHintTextStyle,
+              hintText: 'Xác nhận mật khẩu',
+              hintStyle: h3,
             ),
           ),
         ),
@@ -201,7 +183,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
         child: Text(
           'ĐĂNG KÝ',
           style: TextStyle(
-            color: Color(0xFF527DAA),
+            color: kPrimaryColor,
             letterSpacing: 1.5,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
@@ -227,7 +209,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/images/background.jpg'),
+                      image: AssetImage('assets/images/register.png'),
                       fit: BoxFit.cover),
                 ),
               ),
@@ -244,14 +226,9 @@ class _RegisterScreenState extends State<RegiterScreen> {
                     children: <Widget>[
                       Text(
                         'Đăng Ký Tài Khoản',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'OpenSans',
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: h2b,
                       ),
-                      SizedBox(height: 20.0),
+                      SizedBox(height: 20.h),
                       _buildUsernameTF(),
                       SizedBox(
                         height: 20.0,
