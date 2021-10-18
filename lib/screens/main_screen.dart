@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/Experiance/Experiance_screen.dart';
 import 'package:safetravel/screens/Location/map.dart';
 import 'package:safetravel/screens/home/home_screen.dart';
+import 'package:safetravel/screens/page/explorer_page.dart';
+import 'package:safetravel/screens/page/group_page.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/screens/tour/confirm/salomon_bottom_bar.dart';
 import 'package:safetravel/screens/tour/tour_screen.dart';
@@ -25,151 +27,117 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   late int pageIndex;
+  late List<Widget> pageList;
+  late double _logoHeight;
 
   @override
   void initState() {
     super.initState();
     pageIndex = widget.pageIndex;
+    pageList = <Widget>[
+      ExplorerPage(setVisibleAppbar),
+      GroupPage(setVisibleAppbar),
+      GroupPage(setVisibleAppbar),
+      GroupPage(setVisibleAppbar),
+    ];
+    _logoHeight = 40.h;
   }
 
-  List<Widget> pageList = <Widget>[
-    HomeScreen(),
-    TourScreen(),
-    ExperienceScreen(),
-    MapCovid(),
-  ];
+  void setVisibleAppbar(bool isVisible) {
+    if (mounted) {
+      setState(() {
+        if (isVisible) {
+          _logoHeight = 40.h;
+        } else {
+          _logoHeight = 0;
+        }
+      });
+    }
+  }
 
-  final ScrollController _scrollController = ScrollController();
-  double _logoHeight = 60.h;
+  void setPageIndex(int index) {
+    if (mounted) {
+      setState(() {
+        pageIndex = index;
+      });
+    }
+    if (pageIndex == 0) {
+      setVisibleAppbar(true);
+    } else {
+      setVisibleAppbar(false);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              boxShadow: [boxShadow],
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AnimatedContainer(
-                  duration: Duration(milliseconds: 400),
-                  height: _logoHeight,
-                  child: SafeArea(
-                    child: Image.asset(
-                      'assets/images/safe-travel.png',
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        body: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [boxShadow],
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SafeArea(
+                    child: AnimatedContainer(
+                      margin: EdgeInsets.only(top: 5.h, left: 10.w),
+                      duration: Duration(milliseconds: 100),
+                      height: _logoHeight,
+                      child: Image.asset(
+                        'assets/images/safe-travel.png',
+                      ),
                     ),
                   ),
-                ),
-                SalomonBottomBar(
-                  currentIndex: pageIndex,
-                  onTap: (i) => setState(() => pageIndex = i),
-                  items: [
-                    /// Home
-                    SalomonBottomBarItem(
-                      icon: Icon(Icons.explore),
-                      title: Text("Khám phá"),
-                      selectedColor: kPrimaryColor,
-                    ),
+                  SalomonBottomBar(
+                    currentIndex: pageIndex,
+                    onTap: (i) => setPageIndex(i),
+                    items: [
+                      /// Home
+                      SalomonBottomBarItem(
+                        icon: Icon(Icons.explore),
+                        title: Text("Khám phá"),
+                        selectedColor: kPrimaryColor,
+                      ),
 
-                    /// Likes
-                    SalomonBottomBarItem(
-                      icon: Icon(Icons.favorite_border),
-                      title: Text("Likes"),
-                      selectedColor: kPrimaryColor,
-                    ),
+                      /// Likes
+                      SalomonBottomBarItem(
+                        icon: Icon(Icons.favorite_border),
+                        title: Text("Likes"),
+                        selectedColor: kPrimaryColor,
+                      ),
 
-                    /// Search
-                    SalomonBottomBarItem(
-                      icon: Icon(Icons.search),
-                      title: Text("Search"),
-                      selectedColor: kPrimaryColor,
-                    ),
+                      /// Search
+                      SalomonBottomBarItem(
+                        icon: Icon(Icons.search),
+                        title: Text("Search"),
+                        selectedColor: kPrimaryColor,
+                      ),
 
-                    /// Profile
-                    SalomonBottomBarItem(
-                      icon: Icon(Icons.person),
-                      title: Text("Profile"),
-                      selectedColor: kPrimaryColor,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: NotificationListener(
-              onNotification: (t) {
-                if (t is ScrollEndNotification) {
-                  if (_scrollController.position.userScrollDirection ==
-                      ScrollDirection.forward) {
-                    setState(() {
-                      _logoHeight = 60.h;
-                    });
-                  }
-                  if (_scrollController.position.userScrollDirection ==
-                      ScrollDirection.reverse) {
-                    setState(() {
-                      _logoHeight = 0;
-                    });
-                  }
-                }
-                return true;
-              },
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                child: Column(
-                  children: [
-                    Container(
-                      height: 80,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      height: 80,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      height: 80,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      height: 80,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      height: 80,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      height: 80,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      height: 80,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      height: 80,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      height: 80,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      height: 80,
-                      color: Colors.green,
-                    ),
-                  ],
-                ),
+                      /// Profile
+                      SalomonBottomBarItem(
+                        icon: Icon(Icons.person),
+                        title: Text("Profile"),
+                        selectedColor: kPrimaryColor,
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
+            Expanded(
+              child: IndexedStack(
+                children: pageList,
+                index: pageIndex,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

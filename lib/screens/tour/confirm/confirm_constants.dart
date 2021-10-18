@@ -19,12 +19,21 @@ final boxShadow = BoxShadow(
 String mainFont = 'OpenSans';
 String fontHeading = "iCielBCRostrum";
 
+/*
 final h1fs = 43.95.sp;
 final h2fs = 35.16.sp;
 final h3fs = 28.13.sp;
 final h4fs = 22.50.sp;
 final h5fs = 18.00.sp;
 final h6fs = 14.40.sp;
+*/
+
+final h1fs = 46.39.sp;
+final h2fs = 37.11.sp;
+final h3fs = 29.69.sp;
+final h4fs = 23.75.sp;
+final h5fs = 19.00.sp;
+final h6fs = 15.20.sp;
 
 final baseFont = TextStyle(
   color: goodBlack,

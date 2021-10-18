@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safetravel/screens/home/search_screen.dart';
+import 'package:safetravel/screens/page/model.dart';
 import 'package:safetravel/widget/inspiration_card.dart';
 import 'package:safetravel/widget/list_tour_card.dart';
 import 'package:safetravel/widget/nearby_card.dart';
@@ -204,8 +205,8 @@ class _TourScreenState extends State<TourScreen> {
                 address: "Huế",
                 price: 5000000,
                 press: () => {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => TourDetail()))
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TourDetail(TourModel())))
                     }),
             ListTourCard(
                 image: "assets/tours/tour2.jpg",
@@ -213,8 +214,8 @@ class _TourScreenState extends State<TourScreen> {
                 address: "Phú Quốc",
                 price: 998000,
                 press: () => {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => TourDetail()))
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TourDetail(TourModel())))
                     }),
             ListTourCard(
                 image: "assets/tours/tour4.jpg",
@@ -222,8 +223,8 @@ class _TourScreenState extends State<TourScreen> {
                 address: "Hà Tiên",
                 price: 800000,
                 press: () => {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => TourDetail()))
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TourDetail(TourModel())))
                     }),
             ListTourCard(
                 image: "assets/tours/tour1.jpg",
@@ -231,8 +232,8 @@ class _TourScreenState extends State<TourScreen> {
                 address: "Đà nẵng",
                 price: 1890000,
                 press: () => {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => TourDetail()))
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TourDetail(TourModel())))
                     }),
             ListTourCard(
                 image: "assets/tours/tour1.jpg",
@@ -240,8 +241,8 @@ class _TourScreenState extends State<TourScreen> {
                 address: "Hội an",
                 price: 189000,
                 press: () => {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => TourDetail()))
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TourDetail(TourModel())))
                     }),
             ListTourCard(
                 image: "assets/tours/tour4.jpg",
@@ -249,8 +250,8 @@ class _TourScreenState extends State<TourScreen> {
                 address: "Đà nẵng",
                 price: 1900000,
                 press: () => {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => TourDetail()))
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TourDetail(TourModel())))
                     }),
             ListTourCard(
                 image: "assets/tours/tour4.jpg",
@@ -258,8 +259,8 @@ class _TourScreenState extends State<TourScreen> {
                 address: "Vũng Tàu",
                 price: 1900000,
                 press: () => {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => TourDetail()))
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TourDetail(TourModel())))
                     }),
             ListTourCard(
                 image: "assets/tours/tour4.jpg",
@@ -267,8 +268,8 @@ class _TourScreenState extends State<TourScreen> {
                 address: "Ninh Bình",
                 price: 189760000,
                 press: () => {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => TourDetail()))
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => TourDetail(TourModel())))
                     })
           ]),
         ],

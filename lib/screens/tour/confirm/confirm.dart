@@ -23,7 +23,7 @@ class _ConfirmState extends State<Confirm> {
   final int steps = 4;
   final title = [
     'Thông tin liên hệ',
-    'Số lượng hành khách',
+    'Hành khách',
     'Hóa đơn',
     'Thanh toán',
     'Thanh toán',
@@ -57,8 +57,8 @@ class _ConfirmState extends State<Confirm> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    // SystemChrome.setSystemUIOverlayStyle(
+    // const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: backgroundColor,
@@ -122,7 +122,7 @@ class _ConfirmState extends State<Confirm> {
         alignment: Alignment.center,
         child: Text(
           title[_currentIndex],
-          style: h1b,
+          style: h2b,
         ),
       ),
     );

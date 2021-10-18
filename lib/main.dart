@@ -4,11 +4,10 @@
 // ignore_for_file: public_member_api_docs
 
 import 'dart:io';
-
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/auth/login_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() => {HttpOverrides.global = MyHttpOverrides(), runApp(MyApp())};
 
@@ -24,8 +23,14 @@ class MyHttpOverrides extends HttpOverrides {
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
+  _safe() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isSafe', false);
+  }
+
   @override
   Widget build(BuildContext context) {
+    _safe();
     return ScreenUtilInit(
       designSize: Size(630, 720),
       builder: () => MaterialApp(

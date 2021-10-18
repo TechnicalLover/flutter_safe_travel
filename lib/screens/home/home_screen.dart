@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safetravel/screens/home/components/carousel_slider.dart';
 import 'package:safetravel/screens/home/search_screen.dart';
+import 'package:safetravel/screens/page/model.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/screens/tour/tour_detail_screen.dart';
 import 'package:safetravel/screens/tour/tour_screen.dart';
@@ -193,8 +194,8 @@ class _HomeScreenState extends State<HomeScreen> {
               address: "Đà nẵng",
               price: 1000,
               press: () => {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => TourDetail()))
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => TourDetail(TourModel())))
                   }),
           NearByYouCard(
               image: "assets/tours/tour1.jpg",
@@ -202,8 +203,8 @@ class _HomeScreenState extends State<HomeScreen> {
               address: "Huế",
               price: 1000,
               press: () => {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => TourDetail()))
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => TourDetail(TourModel())))
                   }),
           NearByYouCard(
               image: "assets/tours/tour2.jpg",
@@ -211,8 +212,8 @@ class _HomeScreenState extends State<HomeScreen> {
               address: "Phú Quốc",
               price: 1000,
               press: () => {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => TourDetail()))
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => TourDetail(TourModel())))
                   }),
           NearByYouCard(
               image: "assets/tours/tour4.jpg",
@@ -220,8 +221,8 @@ class _HomeScreenState extends State<HomeScreen> {
               address: "Hà Tiên",
               price: 1000,
               press: () => {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => TourDetail()))
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => TourDetail(TourModel())))
                   }),
           NearByYouCard(
               image: "assets/tours/tour4.jpg",
@@ -229,8 +230,8 @@ class _HomeScreenState extends State<HomeScreen> {
               address: "Đà nẵng",
               price: 1000,
               press: () => {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => TourDetail()))
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => TourDetail(TourModel())))
                   })
         ],
       ),

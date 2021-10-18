@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:safetravel/utilities/constants.dart';
@@ -76,7 +77,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Chọn ngày", style: h1b.copyWith(color: Colors.white)),
+        title: Text("Chọn ngày", style: h2b.copyWith(color: Colors.white)),
         backgroundColor: kPrimaryColor,
       ),
       body: Column(
@@ -106,7 +107,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                   children: [
                                     Text(
                                       "Chọn tháng khởi hành",
-                                      style: h1b.copyWith(color: kPrimaryColor),
+                                      style: h3b.copyWith(color: kPrimaryColor),
                                       textAlign: TextAlign.start,
                                     )
                                   ],
@@ -114,7 +115,6 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                 Divider(
                                   height: 40,
                                   thickness: 1,
-                                  color: kSecondaryColor,
                                 ),
                                 Card(
                                     elevation: 0,
@@ -315,7 +315,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                   children: [
                                     Text(
                                       "Lịch khởi hành sắp tới",
-                                      style: h1b.copyWith(color: kPrimaryColor),
+                                      style: h3b.copyWith(color: kPrimaryColor),
                                       textAlign: TextAlign.start,
                                     )
                                   ],
@@ -323,7 +323,6 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                                 Divider(
                                   height: 40,
                                   thickness: 1,
-                                  color: kSecondaryColor,
                                 ),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -505,8 +504,8 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
 
   Widget nextButton(String text, VoidCallback onPressed) {
     return SizedBox(
-      height: 50,
-      width: 125,
+      height: 45.h,
+      width: 115.h,
       child: ElevatedButton(
         onPressed: onPressed,
         child: Row(

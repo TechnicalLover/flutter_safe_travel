@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 
 class SalomonBottomBar extends StatelessWidget {
   /// A bottom bar that faithfully follows the design by Aurélien Salomon
@@ -120,7 +121,8 @@ class SalomonBottomBar extends StatelessWidget {
                                       left: itemPadding.right / 2,
                                       right: itemPadding.right),
                                   child: DefaultTextStyle(
-                                    style: TextStyle(
+                                    style: h4.copyWith(
+                                      // change font
                                       color: Color.lerp(
                                           _selectedColor.withOpacity(0.0),
                                           _selectedColor,

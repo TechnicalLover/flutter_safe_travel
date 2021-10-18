@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:safetravel/screens/page/model.dart';
 import 'package:safetravel/screens/tour/tour_detail_screen.dart';
 import 'package:safetravel/utilities/constants.dart';
 
@@ -339,8 +340,8 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               Divider(),
               ElevatedButton(
-                  onPressed: () => Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => TourDetail())),
+                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => TourDetail(TourModel()))),
                   style: ElevatedButton.styleFrom(
                     shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(30.0),
