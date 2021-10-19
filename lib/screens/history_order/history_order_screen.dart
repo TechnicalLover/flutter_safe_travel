@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:safetravel/screens/tour/qr_code.dart';
+import 'package:safetravel/screens/page/data.dart';
+import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
+import 'package:safetravel/screens/tour/details_screen/my_tour_detail.dart';
 import 'dart:math';
-
-import 'package:safetravel/utilities/constants.dart';
 
 class Transaction {
   String name;
@@ -17,14 +19,15 @@ class Transaction {
 List<Transaction> transactions = List.generate(20, (index) {
   Random random = new Random();
   bool isRedeem = random.nextBool();
-  String name = isRedeem ? "Tour Phú Quốc" : "Tour Nha Trang";
-  double point = isRedeem ? 890.0 : (random.nextInt(9) + 1) * 100.0;
+  int index = random.nextInt(10);
+  String name = tourData[index].title;
+  double point = tourData[index].price;
   return Transaction(
       name: name,
       point: point,
       createdMillis: DateTime.now()
           .add(Duration(
-            days: -random.nextInt(7),
+            days: -random.nextInt(365),
             hours: -random.nextInt(23),
             minutes: -random.nextInt(59),
           ))
@@ -43,17 +46,10 @@ class _HistoryOrderScreenState extends State<HistoryOrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: kPrimaryColor,
-        title: Text(
-          "Lịch sử đặt tour",
-          style: TextStyle(color: Colors.white),
-        ),
-      ),
       body: GestureDetector(
         child: buildListView(),
         onTap: () => Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => QRCode(),
+          builder: (context) => TravelDetailPage(),
         )),
       ),
     );
@@ -61,9 +57,6 @@ class _HistoryOrderScreenState extends State<HistoryOrderScreen> {
 
   ListView buildListView() {
     String? prevDay;
-    String today = DateFormat("EEE, MMM d, y").format(DateTime.now());
-    String yesterday = DateFormat("EEE, MMM d, y")
-        .format(DateTime.now().add(Duration(days: -1)));
 
     return ListView.builder(
       itemCount: transactions.length,
@@ -71,7 +64,13 @@ class _HistoryOrderScreenState extends State<HistoryOrderScreen> {
         Transaction transaction = transactions[index];
         DateTime date =
             DateTime.fromMillisecondsSinceEpoch(transaction.createdMillis);
-        String dateString = DateFormat("EEE, MMM d, y").format(date);
+        //String dateString = DateFormat("EEE, MMM d, y").format(date);
+        initializeDateFormatting();
+        var format = DateFormat.yMd('vi');
+        var dateString = format.format(date);
+        String today = format.format(DateTime.now());
+        String yesterday =
+            format.format(DateTime.now().add(const Duration(days: -1)));
 
         if (today == dateString) {
           dateString = "Hôm nay";
@@ -123,21 +122,22 @@ class _HistoryOrderScreenState extends State<HistoryOrderScreen> {
           ),
           Expanded(
             flex: 1,
-            child: buildItemInfo(transaction, context),
+            child: buildItemInfo(index, transaction, context),
           ),
         ],
       ),
     );
   }
 
-  Card buildItemInfo(Transaction transaction, BuildContext context) {
+  Card buildItemInfo(int index, Transaction transaction, BuildContext context) {
     return Card(
       clipBehavior: Clip.antiAliasWithSaveLayer,
       child: Container(
+        padding: EdgeInsets.symmetric(vertical: 10.h),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-              colors: transaction.point.isNegative
-                  ? [Colors.deepOrange, Colors.red]
+              colors: index > 2
+                  ? [goodGray, goodGray]
                   : [Colors.green, Colors.teal]),
         ),
         child: Row(
@@ -156,7 +156,6 @@ class _HistoryOrderScreenState extends State<HistoryOrderScreen> {
             Expanded(
               flex: 1,
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                 child: Text(
                   transaction.name,
                   style: TextStyle(
@@ -167,7 +166,7 @@ class _HistoryOrderScreenState extends State<HistoryOrderScreen> {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               child: Text(
-                NumberFormat("###,###,####k VND").format(transaction.point),
+                NumberFormat("###,###,### đ").format(transaction.point),
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),

@@ -35,11 +35,27 @@ class _SafeModeState extends State<SafeModePage> {
 
   void pushNotification() {
     Future.delayed(
-        const Duration(milliseconds: 5000),
+        const Duration(milliseconds: 10000),
         () => NotificationApi.showNotification(
               title: 'Đào Phương Nam',
               body: 'Tiếp xúc gần với người lạ',
-              payload: 'daophuongnam',
+              payload: 'namdp',
+            ));
+
+    Future.delayed(
+        const Duration(milliseconds: 30000),
+        () => NotificationApi.showNotification(
+              title: 'Dương Thanh Sang',
+              body: 'Đi vào khu vực có tỉ lệ móc túi cao',
+              payload: 'sangdt',
+            ));
+
+    Future.delayed(
+        const Duration(milliseconds: 50000),
+        () => NotificationApi.showNotification(
+              title: 'Trần Lê Minh Đức',
+              body: 'Đi quá xa với đoàn',
+              payload: 'ductlm',
             ));
   }
 
@@ -151,7 +167,7 @@ class _SafeModeState extends State<SafeModePage> {
                       'Dương Thanh Sang',
                       'Đi vào khu vực có tỉ lệ móc túi cao'),
                   buildNotificationCard('assets/images/av3.jpeg',
-                      'Trần Lê Minh Đức', 'Tiếp xúc gần với người lạ'),
+                      'Trần Lê Minh Đức', 'Đi quá xa với đoàn'),
                   buildNotificationCard('assets/images/av4.jpeg',
                       'Trần Gia Nguyên', 'Đi vào khu vực vắng vẻ'),
                   buildNotificationCard('assets/images/av5.jpeg',
