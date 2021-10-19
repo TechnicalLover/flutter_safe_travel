@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/page/explorer_page.dart';
 import 'package:safetravel/screens/page/group_page.dart';
+import 'package:safetravel/screens/page/safemode_page.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/screens/tour/confirm/salomon_bottom_bar.dart';
 import 'package:safetravel/utilities/constants.dart';
@@ -26,6 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   late int pageIndex;
   late List<Widget> pageList;
   late double _logoHeight;
+  late Widget iconShield;
 
   @override
   void initState() {
@@ -33,12 +35,25 @@ class _MainScreenState extends State<MainScreen> {
     pageIndex = widget.pageIndex;
     pageList = <Widget>[
       ExplorerPage(setVisibleAppbar),
-      GroupPage(setVisibleAppbar),
+      SafeModePage(loadShield, setVisibleAppbar),
       GroupPage(setVisibleAppbar),
       GroupPage(setVisibleAppbar),
     ];
     _logoHeight = 40.h;
+    iconShield = Icon(Icons.shield_outlined);
     _confirm();
+  }
+
+  Future<void> loadShield() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool safeModeOn = prefs.getBool('safeModeOn') ?? false;
+    setState(() {
+      if (safeModeOn) {
+        iconShield = Icon(Icons.verified_user, color: kPrimaryColor);
+      } else {
+        iconShield = Icon(Icons.shield_outlined);
+      }
+    });
   }
 
   void setVisibleAppbar(bool isVisible) {
@@ -69,6 +84,41 @@ class _MainScreenState extends State<MainScreen> {
   _setSafeMode(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('safeModeOn', value);
+  }
+
+  void _success() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/images/shield.png',
+              height: 20.h,
+            ),
+            SizedBox(
+              width: 10.w,
+            ),
+            Text('Thành công', style: h3),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Kích hoạt thành công'),
+          ],
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+            },
+            child: Text('OK', style: h4),
+          ),
+        ],
+      ),
+    );
   }
 
   Future<void> _confirm() async {
@@ -136,6 +186,7 @@ class _MainScreenState extends State<MainScreen> {
                 Navigator.pop(context, 'OK');
                 _setSafeMode(true);
                 setState(() {});
+                _success();
               },
               child: Text('Đồng ý', style: h4),
             ),
@@ -147,6 +198,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    loadShield();
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
@@ -184,7 +236,7 @@ class _MainScreenState extends State<MainScreen> {
 
                       /// Likes
                       SalomonBottomBarItem(
-                        icon: Icon(Icons.shield_outlined),
+                        icon: iconShield,
                         title: Text("Chế độ an toàn"),
                         selectedColor: kPrimaryColor,
                       ),
@@ -208,10 +260,11 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
             Expanded(
-              child: IndexedStack(
-                children: pageList,
-                index: pageIndex,
-              ),
+              child: pageList[pageIndex],
+              // IndexedStack(
+              // children: pageList,
+              // index: pageIndex,
+              // ),
             ),
           ],
         ),

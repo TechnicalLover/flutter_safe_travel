@@ -49,6 +49,7 @@ dependencies:
   lottie: ^1.2.1
   shared_preferences: ^2.0.8
   video_player:
+  customtoggleswitch: ^1.1.0
 
 dev_dependencies:
   
