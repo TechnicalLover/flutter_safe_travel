@@ -15,4 +15,10 @@ final boxShadowDetail = BoxShadow(
   blurRadius: 20.r,
 );
 
+final boxShadowAvatar = BoxShadow(
+  color: goodGray.withOpacity(0.8),
+  offset: const Offset(-1, 1),
+  blurRadius: 8.r,
+);
+
 NumberFormat numberFormat = NumberFormat.currency(locale: 'vi', symbol: '₫');

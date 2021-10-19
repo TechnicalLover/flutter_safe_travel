@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:safetravel/screens/page/constants.dart';
 import 'package:safetravel/utilities/constants.dart';
 
 import 'confirm_constants.dart';
@@ -12,118 +14,245 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
+  int selectIndex = 0;
+  bool isSingle = true;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
-          peopleCounterContainer(),
           Column(
             children: [
               Container(
-                margin: EdgeInsets.only(top: 20),
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  'Chi tiết giá',
-                  style: h2b,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 15),
-                padding: EdgeInsets.symmetric(horizontal: 0),
-                child: Column(
+                child: Row(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            text: 'Người lớn ',
-                            style: h3,
-                            children: const <TextSpan>[
-                              TextSpan(
-                                  text: 'x 2',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        ),
-                        Text('2 550 000 VNĐ', style: h3b),
-                      ],
+                    Radio(
+                      value: true,
+                      groupValue: isSingle,
+                      onChanged: (value) {
+                        setState(() {
+                          isSingle = value as bool;
+                        });
+                      },
                     ),
-                    SizedBox(
-                      height: 3,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            text: 'Trẻ con ',
-                            style: h3,
-                            children: const <TextSpan>[
-                              TextSpan(
-                                  text: 'x 2',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        ),
-                        Text('1 400 000 VNĐ', style: h3b),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 3,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            text: 'Trẻ sơ sinh ',
-                            style: h3,
-                            children: const <TextSpan>[
-                              TextSpan(
-                                  text: 'x 1',
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                            ],
-                          ),
-                        ),
-                        Text('500 000 VNĐ', style: h3b),
-                      ],
+                    Text(
+                      'Đi 1 mình',
+                      style: h3b,
                     ),
                   ],
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: 10),
-                height: 1,
-                color: goodBlack,
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 10),
                 alignment: Alignment.centerLeft,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Tạm tính',
-                      style: h2b,
+                    Radio(
+                      value: false,
+                      groupValue: isSingle,
+                      onChanged: (value) {
+                        setState(() {
+                          isSingle = value as bool;
+                        });
+                      },
                     ),
-                    Text(
-                      '4 450 000 VNĐ',
-                      style: h2b.copyWith(
-                        color: kPrimaryColor,
-                      ),
+                    Text('Đi theo nhóm', style: h3b),
+                  ],
+                ),
+              ),
+              Visibility(
+                visible: !isSingle,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 10.h,
                     ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectIndex = 0;
+                        });
+                      },
+                      child: buildGroupCard(selectIndex == 0,
+                          'assets/images/gr1.png', 'Hội bạn cấp 3', [
+                        buildCircleAvatar('assets/images/av6.jpeg'),
+                        buildCircleAvatar('assets/images/av7.jpeg'),
+                        buildCircleAvatar('assets/images/av8.jpeg'),
+                        buildCircleAvatar('assets/images/av9.jpeg'),
+                        buildCircleAvatar('assets/images/av10.jpeg'),
+                        buildCircleAvatar('assets/images/av11.jpeg'),
+                        buildAddCircle(),
+                      ]),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectIndex = 1;
+                        });
+                      },
+                      child: buildGroupCard(selectIndex == 1,
+                          'assets/images/gr2.jpeg', 'HCI201 - Nhóm 5', [
+                        buildCircleAvatar('assets/images/av1.png'),
+                        buildCircleAvatar('assets/images/av2.jpeg'),
+                        buildCircleAvatar('assets/images/av3.jpeg'),
+                        buildCircleAvatar('assets/images/av4.jpeg'),
+                        buildCircleAvatar('assets/images/av5.jpeg'),
+                        buildAddCircle(),
+                      ]),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectIndex = 2;
+                        });
+                      },
+                      child: buildGroupCard(selectIndex == 2,
+                          'assets/images/gr3.jpeg', 'Nhóm siêu cấp vô địch', [
+                        buildCircleAvatar('assets/images/av17.jpeg'),
+                        buildCircleAvatar('assets/images/av16.jpeg'),
+                        buildCircleAvatar('assets/images/av15.jpeg'),
+                        buildCircleAvatar('assets/images/av14.jpeg'),
+                        buildCircleAvatar('assets/images/av13.jpeg'),
+                        buildAddCircle(),
+                      ]),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectIndex = 3;
+                        });
+                      },
+                      child: buildGroupCard(selectIndex == 3,
+                          'assets/images/gr4.jpeg', 'Đam mê đá bóng', [
+                        buildCircleAvatar('assets/images/av3.jpeg'),
+                        buildCircleAvatar('assets/images/av11.jpeg'),
+                        buildCircleAvatar('assets/images/av9.jpeg'),
+                        buildCircleAvatar('assets/images/av5.jpeg'),
+                        buildCircleAvatar('assets/images/av8.jpeg'),
+                        buildCircleAvatar('assets/images/av9.jpeg'),
+                        buildCircleAvatar('assets/images/av12.jpeg'),
+                        buildCircleAvatar('assets/images/av6.jpeg'),
+                        buildAddCircle(),
+                      ]),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          selectIndex = 4;
+                        });
+                      },
+                      child: buildGroupCard(selectIndex == 4,
+                          'assets/images/gr5.png', 'Yêu thích cây cảnh', [
+                        buildCircleAvatar('assets/images/av4.jpeg'),
+                        buildCircleAvatar('assets/images/av14.jpeg'),
+                        buildCircleAvatar('assets/images/av16.jpeg'),
+                        buildCircleAvatar('assets/images/av1.png'),
+                        buildAddCircle(),
+                      ]),
+                    ),
+                    moreButton('Tạo nhóm mới', () {}),
                   ],
                 ),
               ),
             ],
           ),
         ],
+      ),
+    );
+  }
+
+  Widget buildGroupCard(
+      bool isSelected, String groupImg, String title, List<Widget> list) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 10.h),
+      child: Row(
+        children: [
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.fromLTRB(20.w, 0.h, 20.w, 10.h),
+              alignment: Alignment.topLeft,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: isSelected
+                    ? Border.all(
+                        width: 2,
+                        color: kPrimaryColor,
+                      )
+                    : null,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20.r),
+                ),
+                boxShadow: [boxShadowDetail],
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 45.w,
+                            height: 45.h,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                fit: BoxFit.fitWidth,
+                                image: AssetImage(groupImg),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Text(title, style: h4b),
+                        ],
+                      ),
+                      const Icon(Icons.more_vert),
+                    ],
+                  ),
+                  Row(
+                    children: list,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Container buildCircleAvatar(String img) {
+    return Container(
+      margin: EdgeInsets.only(right: 5.w),
+      width: 45.w,
+      height: 45.h,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        boxShadow: [boxShadowAvatar],
+        image: DecorationImage(
+          fit: BoxFit.fitWidth,
+          image: AssetImage(img),
+        ),
+      ),
+    );
+  }
+
+  Container buildAddCircle() {
+    return Container(
+      margin: EdgeInsets.only(right: 5.w),
+      width: 45.w,
+      height: 45.h,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        boxShadow: [boxShadowAvatar],
+        color: Colors.white,
+      ),
+      child: const Icon(
+        Icons.add,
+        size: 15,
       ),
     );
   }
@@ -243,6 +372,30 @@ class _SecondPageState extends State<SecondPage> {
           children: [icon],
         ),
         shape: const CircleBorder(),
+      ),
+    );
+  }
+
+  Widget moreButton(String text, VoidCallback onPressed) {
+    return SizedBox(
+      height: 45.h,
+      width: 200.w,
+      child: RawMaterialButton(
+        onPressed: onPressed,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              text,
+              style: h4.copyWith(
+                color: goodGray,
+              ),
+            ),
+          ],
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
+        ),
       ),
     );
   }

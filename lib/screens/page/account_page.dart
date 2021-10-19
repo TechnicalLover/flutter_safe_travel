@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/page/constants.dart';
+import 'package:safetravel/screens/page/group_page.dart';
 import 'package:safetravel/screens/profile/profile_screen.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 
@@ -88,7 +89,17 @@ class _AccountPageState extends State<AccountPage> {
                   Expanded(
                       child: squareButton(const Icon(Icons.people), 'Bạn bè')),
                   Expanded(
-                      child: squareButton(const Icon(Icons.groups), 'Nhóm')),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const GroupPage()));
+                      },
+                      child: squareButton(
+                        const Icon(Icons.groups),
+                        'Nhóm',
+                      ),
+                    ),
+                  ),
                 ],
               ),
               Row(

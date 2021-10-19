@@ -223,7 +223,7 @@ class _SafeModeState extends State<SafeModePage> {
                   ),
                 ],
               ),
-              Icon(Icons.error_outline),
+              const Icon(Icons.error_outline),
             ],
           ),
           SizedBox(height: 5.h),

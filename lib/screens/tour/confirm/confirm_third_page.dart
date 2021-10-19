@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:safetravel/screens/page/constants.dart';
 import 'package:safetravel/screens/page/model.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 
@@ -111,7 +112,8 @@ class _ThirdPageState extends State<ThirdPage> {
                         dashColor: goodGray,
                       ),
                     ),
-                    itemLine('Số người', 2, '2 550 000 VNĐ', 10),
+                    itemLine('Số người', 5,
+                        numberFormat.format(model.price * 5), 10),
                     Container(
                       margin: EdgeInsets.only(top: 10),
                       child: DottedLine(
