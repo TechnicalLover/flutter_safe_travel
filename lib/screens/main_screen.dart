@@ -243,15 +243,15 @@ class _MainScreenState extends State<MainScreen> {
 
                       /// Search
                       SalomonBottomBarItem(
-                        icon: Icon(Icons.search),
-                        title: Text("Search"),
+                        icon: Icon(Icons.history),
+                        title: Text("Lịch sử đặt tour"),
                         selectedColor: kPrimaryColor,
                       ),
 
                       /// Profile
                       SalomonBottomBarItem(
-                        icon: Icon(Icons.person),
-                        title: Text("Profile"),
+                        icon: Icon(Icons.person_outline),
+                        title: Text("Tài khoản"),
                         selectedColor: kPrimaryColor,
                       ),
                     ],

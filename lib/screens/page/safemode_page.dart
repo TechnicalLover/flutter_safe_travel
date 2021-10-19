@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:safetravel/screens/page/constants.dart';
+import 'package:safetravel/screens/page/notification.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/utilities/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,7 +21,7 @@ class SafeModePage extends StatefulWidget {
 
 class _SafeModeState extends State<SafeModePage> {
   final ScrollController _scrollController = ScrollController();
-  bool _status = false;
+  bool _status = true;
 
   _setSafeMode(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -27,7 +29,35 @@ class _SafeModeState extends State<SafeModePage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  void pushNotification() {
+    Future.delayed(
+        const Duration(milliseconds: 5000),
+        () => NotificationApi.showNotification(
+              title: 'Đào Phương Nam',
+              body: 'Tiếp xúc gần với người lạ',
+              payload: 'daophuongnam',
+            ));
+  }
+
+  Future<void> loadStatus() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool safeModeOn = prefs.getBool('safeModeOn') ?? false;
+    setState(() {
+      if (safeModeOn) {
+        _status = true;
+      } else {
+        _status = false;
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    loadStatus();
     return NotificationListener(
       onNotification: (t) {
         if (t is ScrollEndNotification) {
@@ -57,6 +87,7 @@ class _SafeModeState extends State<SafeModePage> {
                     setState(() {
                       _status = value;
                     });
+                    if (value) pushNotification();
                   },
                   activeTrackColor: kPrimaryColor05,
                   activeColor: kPrimaryColor,
@@ -66,28 +97,153 @@ class _SafeModeState extends State<SafeModePage> {
             SizedBox(
               height: 40.h,
             ),
-            Visibility(
-              visible: _status,
-              child: Lottie.asset(
-                'assets/images/radar2.json',
-                width: 0.8.sw,
-                repeat: true,
+            SizedBox(
+              height: 0.8.sw,
+              width: 0.8.sw,
+              child: Stack(
+                children: [
+                  Visibility(
+                    visible: _status,
+                    child: Lottie.asset(
+                      'assets/images/radar2.json',
+                      width: 0.8.sw,
+                      repeat: true,
+                    ),
+                  ),
+                  Visibility(
+                    visible: !_status,
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 0.8.sw,
+                      width: 0.8.sw,
+                      child: activeButton('Nhấn để kích hoạt', () {
+                        setState(() {
+                          _status = true;
+                        });
+                      }),
+                    ),
+                  ),
+                ],
               ),
             ),
-            Visibility(
-              visible: !_status,
-              child: Container(
-                alignment: Alignment.center,
-                height: 0.8.sw,
-                width: 0.8.sw,
-                child: activeButton('Nhấn để kích hoạt', () {
-                  setState(() {
-                    _status = true;
-                  });
-                }),
+            SizedBox(
+              height: 40.h,
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 15.h),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [boxShadowImage],
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    child: Text('Lịch sử thông báo', style: h3),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  buildNotificationCard('assets/images/av1.png',
+                      'Đào Phương Nam', 'Tiếp xúc gần với người lạ'),
+                  buildNotificationCard(
+                      'assets/images/av2.jpeg',
+                      'Dương Thanh Sang',
+                      'Đi vào khu vực có tỉ lệ móc túi cao'),
+                  buildNotificationCard('assets/images/av3.jpeg',
+                      'Trần Lê Minh Đức', 'Tiếp xúc gần với người lạ'),
+                  buildNotificationCard('assets/images/av4.jpeg',
+                      'Trần Gia Nguyên', 'Đi vào khu vực vắng vẻ'),
+                  buildNotificationCard('assets/images/av5.jpeg',
+                      'Nguyễn Lê Mẫn Đạt', 'Tiếp xúc gần với người lạ'),
+                  moreButton('Xem thêm', () {}),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                ],
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Container buildNotificationCard(String img, String name, String description) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 0.w, vertical: 2.w),
+      padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.w),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [boxShadowDetail],
+        borderRadius: BorderRadius.all(
+          Radius.circular(20.r),
+        ),
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 35.w,
+                    height: 35.h,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        fit: BoxFit.fitWidth,
+                        image: AssetImage(img),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15.w,
+                  ),
+                  Text(
+                    name,
+                    style: h4b,
+                  ),
+                ],
+              ),
+              Icon(Icons.error_outline),
+            ],
+          ),
+          SizedBox(height: 5.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                description,
+                style: h4,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget moreButton(String text, VoidCallback onPressed) {
+    return SizedBox(
+      height: 45.h,
+      width: 150.w,
+      child: RawMaterialButton(
+        onPressed: onPressed,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              text,
+              style: h4.copyWith(
+                color: goodGray,
+              ),
+            ),
+          ],
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50),
         ),
       ),
     );

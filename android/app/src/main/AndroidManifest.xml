@@ -3,7 +3,7 @@
    <application
    
         android:label="SafeTravel"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/app_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
