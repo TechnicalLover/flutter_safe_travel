@@ -1,12 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-
+import 'package:safetravel/screens/page/model.dart';
 import 'package:safetravel/utilities/constants.dart';
-
 import 'confirm/confirm.dart';
 import 'confirm/confirm_constants.dart';
 
@@ -16,7 +11,8 @@ import 'confirm/confirm_constants.dart';
 // ignore_for_file: public_member_api_docs
 
 class TourDateStartScreen extends StatefulWidget {
-  TourDateStartScreen({Key? key}) : super(key: key);
+  final TourModel model;
+  TourDateStartScreen(this.model, {Key? key}) : super(key: key);
 
   @override
   _TourDateStartScreenState createState() => _TourDateStartScreenState();
@@ -73,6 +69,14 @@ void setSelectedDay(int index) {
 }
 
 class _TourDateStartScreenState extends State<TourDateStartScreen> {
+  late TourModel model;
+
+  @override
+  void initState() {
+    model = widget.model;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -420,7 +424,7 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                             'Tiếp tục',
                             () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => Confirm()));
+                                  builder: (context) => Confirm(model)));
                             },
                           ),
                           SizedBox(

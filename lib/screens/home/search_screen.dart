@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
+import 'package:safetravel/screens/main_screen.dart';
 import 'package:safetravel/screens/page/model.dart';
 import 'package:safetravel/screens/tour/tour_detail_screen.dart';
 import 'package:safetravel/utilities/constants.dart';
@@ -339,15 +341,22 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
               Divider(),
-              ElevatedButton(
-                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => TourDetail(TourModel()))),
-                  style: ElevatedButton.styleFrom(
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
+              Container(
+                height: 40.h,
+                child: ElevatedButton(
+                    onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => MainScreen())),
+                    style: ElevatedButton.styleFrom(
+                      primary: kPrimaryColor,
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(30.0),
+                      ),
                     ),
-                  ),
-                  child: Text('Tìm kiếm tour')),
+                    child: Text('Tìm kiếm tour')),
+              ),
+              SizedBox(
+                height: 50.h,
+              ),
             ],
           ),
         ),

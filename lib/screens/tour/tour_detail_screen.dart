@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/main_screen.dart';
 import 'package:safetravel/screens/page/model.dart';
+import 'package:safetravel/screens/page/qr_scan.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/screens/tour/tour_date_start_screem.dart';
 import 'package:safetravel/utilities/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class TourDetail extends StatefulWidget {
   final TourModel model;
@@ -27,6 +29,50 @@ class _TourDetailState extends State<TourDetail> {
     super.initState();
     model = widget.model;
     imgArray = model.imgUrl;
+  }
+
+  Future<void> _confirm() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isSafe = prefs.getBool('isSafe') ?? false;
+
+    if (isSafe) {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => TourDateStartScreen(model)));
+    } else {
+      showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          title: Row(
+            children: [
+              Image.asset(
+                'assets/images/shield.png',
+                height: 20.h,
+              ),
+              SizedBox(
+                width: 10.w,
+              ),
+              Text('Xác nhận', style: h3),
+            ],
+          ),
+          content:
+              Text('Xác nhận 2 mũi tiêm covid trước khi tiếp tục', style: h4),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () => Navigator.pop(context, 'Cancel'),
+              child: Text('Từ chối', style: h4),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context, 'OK');
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => QRScan(model)));
+              },
+              child: Text('Đồng ý', style: h4),
+            ),
+          ],
+        ),
+      );
+    }
   }
 
   Widget _builWayPart() {
@@ -389,10 +435,7 @@ class _TourDetailState extends State<TourDetail> {
             flex: 40,
             child: nextButton(
               "Đặt ngay",
-              () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => TourDateStartScreen()));
-              },
+              () => _confirm(),
             ),
           ), // double.infinity is the width and 30 is the height
         ],

@@ -145,7 +145,7 @@ List<TourModel> tourData = [
     title: 'Mộc Châu khám phá mảnh đất bốn mùa nở hoa',
     location: 'Tỉnh Mộc Châu',
     location2: 'Tp. Hồ Chí Minh',
-    duration: 6,
+    duration: 4,
     date: 'Thứ 7, 17/10/2021',
     description:
         'Mộc Châu, một cao nguyên yên bình và xinh đẹp cách Hà Nội khoảng 200km hấp dẫn du khách bởi sự nguyên sơ và những nét văn hóa bản địa đặc sắc',
@@ -211,7 +211,7 @@ List<TourModel> tourData = [
     title: 'Tứ tỉnh miền Tây',
     location: 'Miền Tây',
     location2: 'Tp. Hồ Chí Minh',
-    duration: 7,
+    duration: 4,
     date: 'Thứ 4, 14/10/2021',
     description:
         'Miền Tây luôn mang một nét văn hóa rất đặc trưng mà không lẫn với bất kỳ vùng miền nào. Có ai đến miền Tây rồi mà lại không thương nhớ nên chắc chắn bạn không thể bỏ lỡ điểm đến đáng giá này đâu nhé!',

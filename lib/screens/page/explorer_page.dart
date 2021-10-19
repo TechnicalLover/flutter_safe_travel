@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:safetravel/screens/home/search_screen.dart';
 import 'package:safetravel/screens/page/constants.dart';
 import 'package:safetravel/screens/page/data.dart';
 import 'package:safetravel/screens/page/model.dart';
@@ -22,9 +23,9 @@ class _ExplorerPageState extends State<ExplorerPage> {
   final TextEditingController textController = TextEditingController();
 
   Future<void> _refresh() {
-    setState(() {});
     return Future.delayed(
-      const Duration(seconds: 0),
+      const Duration(milliseconds: 1500),
+      () => setState(() {}),
     );
   }
 
@@ -123,9 +124,13 @@ class _ExplorerPageState extends State<ExplorerPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                searchAdvancedButton(
-                                    'Tìm kiếm nâng cao', () {}),
-                                searchButton('Tìm kiếm', () {}),
+                                searchAdvancedButton('Tìm kiếm nâng cao', () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => SearchScreen()));
+                                }),
+                                searchButton('Tìm kiếm', () {
+                                  setState(() {});
+                                }),
                               ],
                             ),
                             SizedBox(

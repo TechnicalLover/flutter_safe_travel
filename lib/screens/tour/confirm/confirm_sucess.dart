@@ -19,7 +19,7 @@ class _ConfirmSucessState extends State<ConfirmSucess> {
   @override
   void initState() {
     super.initState(); //when this route starts, it will execute this code
-    Future.delayed(const Duration(seconds: 10), () {
+    Future.delayed(const Duration(seconds: 4), () {
       if (mounted) {
         setState(
           () {
@@ -78,14 +78,14 @@ class _ConfirmSucessState extends State<ConfirmSucess> {
         Visibility(
           visible: _isSuccess,
           child: Text(
-            'Đang thực hiện thanh toán...',
+            'Đang đặt tour...',
             style: h2,
           ),
         ),
         Visibility(
           visible: !_isSuccess,
           child: Text(
-            'Thanh toán thành công!',
+            'Đặt tour thành công!',
             style: h2b,
           ),
         ),

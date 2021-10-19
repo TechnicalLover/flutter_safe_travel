@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:safetravel/screens/page/model.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 
 import 'dotted_line.dart';
 
 class ThirdPage extends StatefulWidget {
-  const ThirdPage({Key? key}) : super(key: key);
+  final TourModel model;
+  const ThirdPage(this.model, {Key? key}) : super(key: key);
 
   @override
   _ThirdPageState createState() => _ThirdPageState();
 }
 
 class _ThirdPageState extends State<ThirdPage> {
+  late TourModel model;
+  @override
+  void initState() {
+    model = widget.model;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -38,7 +47,7 @@ class _ThirdPageState extends State<ThirdPage> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(8),
                       child: Image.asset(
-                        "assets/tours/tour5.jpg",
+                        model.imgUrl[0],
                         width: 60,
                         height: 60,
                         fit: BoxFit.cover,
@@ -50,16 +59,16 @@ class _ThirdPageState extends State<ThirdPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Tour Đà Nẵng',
+                            model.title,
                             style: h2b,
                           ),
-                          Text(
-                            '08:00AM 26/12/2021',
-                            style: h3b.copyWith(
-                              fontWeight: FontWeight.normal,
-                              color: goodGray,
-                            ),
-                          ),
+                          // Text(
+                          //   '08:00AM 26/12/2021',
+                          //   style: h3b.copyWith(
+                          //     fontWeight: FontWeight.normal,
+                          //     color: goodGray,
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
@@ -78,17 +87,22 @@ class _ThirdPageState extends State<ThirdPage> {
                     ),
                     customLine(
                       Text('Thời gian', style: h3),
-                      Text('8 ngày', style: h3),
+                      Text(model.duration.toString() + ' ngày', style: h3),
                       0,
                     ),
                     customLine(
-                      Text('Nơi khởi hành', style: h3),
-                      Text('Tp. Hồ Chí Minh', style: h3),
+                      Text('Giờ khởi hành', style: h3),
+                      Text('8:00 20/12/2021', style: h3),
                       0,
                     ),
                     customLine(
-                      Text('Ngày khởi hành', style: h3),
-                      Text('20/12/2021', style: h3),
+                      Text('Điểm khởi hành', style: h3),
+                      Text(model.location2, style: h3),
+                      0,
+                    ),
+                    customLine(
+                      Text('Điểm đến', style: h3),
+                      Text(model.location, style: h3),
                       0,
                     ),
                     Container(
@@ -97,18 +111,17 @@ class _ThirdPageState extends State<ThirdPage> {
                         dashColor: goodGray,
                       ),
                     ),
-                    itemLine('Người lớn', 2, '2 550 000 VNĐ', 10),
-                    itemLine('Trẻ con', 1, '1 400 000 VNĐ', 3),
-                    itemLine('Trẻ sơ sinh', 1, '500 000 VNĐ', 3),
+                    itemLine('Số người', 2, '2 550 000 VNĐ', 10),
                     Container(
                       margin: EdgeInsets.only(top: 10),
                       child: DottedLine(
                         dashColor: goodGray,
                       ),
                     ),
+                    /*
                     customLine(
                       Text('Tạm tính', style: h3b),
-                      Text('4 455 000 VNĐ', style: h3b),
+                      Text('2 500 000 VNĐ', style: h3b),
                       10,
                     ),
                     customLine(
@@ -132,6 +145,7 @@ class _ThirdPageState extends State<ThirdPage> {
                       Text('4 555 000 VNĐ', style: h2b),
                       10,
                     )
+                    */
                   ],
                 )
               ],
@@ -157,11 +171,11 @@ class _ThirdPageState extends State<ThirdPage> {
         children: [
           RichText(
             text: TextSpan(
-              text: text + ' ',
+              text: text,
               style: h3,
               children: <TextSpan>[
                 TextSpan(
-                    text: 'x $quantity',
+                    text: ': $quantity',
                     style: const TextStyle(fontWeight: FontWeight.bold)),
               ],
             ),

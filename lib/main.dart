@@ -26,6 +26,8 @@ class MyApp extends StatelessWidget {
   _safe() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isSafe', false);
+    await prefs.setBool('safeModeOn', false);
+    await prefs.setBool('recommend', false);
   }
 
   @override

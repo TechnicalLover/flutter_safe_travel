@@ -18,9 +18,9 @@ class TourModel {
 
   TourModel({
     this.imgUrl = const [
-      '0.1.jpg',
-      '0.2.png',
-      '0.3.jpeg',
+      'assets/images/0.1.jpg',
+      'assets/images/0.2.png',
+      'assets/images/0.3.jpeg',
     ],
     this.title = 'Công viên văn hóa Suối Tiên',
     this.location = 'Tp. Hồ Chí Minh',

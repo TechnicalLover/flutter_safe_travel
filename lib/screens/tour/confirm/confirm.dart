@@ -1,32 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:safetravel/screens/page/model.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_second_page.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_sucess.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_third_page.dart';
-import 'package:safetravel/screens/tour/confirm/credit_cards_page.dart';
 import 'package:safetravel/utilities/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../main_screen.dart';
 import 'confirm_constants.dart';
 import 'confirm_first_page.dart';
 
 class Confirm extends StatefulWidget {
-  const Confirm({Key? key}) : super(key: key);
+  final TourModel model;
+  const Confirm(this.model, {Key? key}) : super(key: key);
 
   @override
   _ConfirmState createState() => _ConfirmState();
 }
 
 class _ConfirmState extends State<Confirm> {
+  late TourModel model;
   final PageController _pageController = PageController();
-  final int steps = 4;
+  final int steps = 3;
   final title = [
     'Thông tin liên hệ',
     'Hành khách',
-    'Hóa đơn',
-    'Thanh toán',
-    'Thanh toán',
+    'Xác nhận',
+    'Đặt tour',
   ];
   final indicators = [false, false, false, false];
 
@@ -37,7 +38,6 @@ class _ConfirmState extends State<Confirm> {
   late FirstPage firstPage;
   late SecondPage secondPage;
   late ThirdPage thirdPage;
-  late CreditCardsPage creditCardsPage;
 
   void setStatus(int status) {
     if (status == 2) _isSuccess = true;
@@ -49,10 +49,15 @@ class _ConfirmState extends State<Confirm> {
   @override
   void initState() {
     super.initState();
+    model = widget.model;
     firstPage = const FirstPage();
     secondPage = const SecondPage();
-    thirdPage = const ThirdPage();
-    creditCardsPage = const CreditCardsPage();
+    thirdPage = ThirdPage(model);
+  }
+
+  _setRecommend(bool value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('recommend', value);
   }
 
   @override
@@ -141,9 +146,6 @@ class _ConfirmState extends State<Confirm> {
         pageContent = thirdPage;
         break;
       case 3:
-        pageContent = creditCardsPage;
-        break;
-      case 4:
         pageContent = successPage();
         break;
     }
@@ -188,7 +190,7 @@ class _ConfirmState extends State<Confirm> {
                 )
               : const SizedBox(),
           nextButton(
-            'Tiếp tục',
+            _currentIndex == 2 ? 'Xác nhận' : 'Tiếp tục',
             () {
               setState(() {
                 if (_currentIndex < steps) _currentIndex++;
@@ -205,6 +207,7 @@ class _ConfirmState extends State<Confirm> {
           homeButton(
             'Trở về trang chủ',
             () {
+              _setRecommend(true);
               setState(
                 () {
                   Navigator.pushAndRemoveUntil<dynamic>(

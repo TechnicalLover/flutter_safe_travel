@@ -48,6 +48,7 @@ dependencies:
   intl: ^0.17.0
   lottie: ^1.2.1
   shared_preferences: ^2.0.8
+  video_player:
 
 dev_dependencies:
   
@@ -102,6 +103,7 @@ flutter:
     - assets/yachts/
     - assets/images/
     - assets/logos/
+    - assets/videos/
 
   fonts:
     - family: iCielBCRostrum
