@@ -130,7 +130,7 @@ class _SecondPageState extends State<SecondPage> {
                         buildCircleAvatar('assets/images/av9.jpeg'),
                         buildCircleAvatar('assets/images/av5.jpeg'),
                         buildCircleAvatar('assets/images/av8.jpeg'),
-                        buildCircleAvatar('assets/images/av9.jpeg'),
+                        buildCircleAvatar('assets/images/av10.jpeg'),
                         buildCircleAvatar('assets/images/av12.jpeg'),
                         buildCircleAvatar('assets/images/av6.jpeg'),
                         buildAddCircle(),

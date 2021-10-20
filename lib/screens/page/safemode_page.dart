@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:lottie/lottie.dart';
 import 'package:safetravel/screens/page/constants.dart';
 import 'package:safetravel/screens/page/notification.dart';
@@ -37,7 +38,7 @@ class _SafeModeState extends State<SafeModePage> {
     Future.delayed(
         const Duration(milliseconds: 10000),
         () => NotificationApi.showNotification(
-              title: 'Đào Phương Nam',
+              title: 'Đào Phương Nam - HCI201 Nhóm 5',
               body: 'Tiếp xúc gần với người lạ',
               payload: 'namdp',
             ));
@@ -45,7 +46,7 @@ class _SafeModeState extends State<SafeModePage> {
     Future.delayed(
         const Duration(milliseconds: 30000),
         () => NotificationApi.showNotification(
-              title: 'Dương Thanh Sang',
+              title: 'Dương Thanh Sang - HCI201 Nhóm 5',
               body: 'Đi vào khu vực có tỉ lệ móc túi cao',
               payload: 'sangdt',
             ));
@@ -53,7 +54,7 @@ class _SafeModeState extends State<SafeModePage> {
     Future.delayed(
         const Duration(milliseconds: 50000),
         () => NotificationApi.showNotification(
-              title: 'Trần Lê Minh Đức',
+              title: 'Trần Lê Minh Đức - HCI201 Nhóm 5',
               body: 'Đi quá xa với đoàn',
               payload: 'ductlm',
             ));
@@ -104,6 +105,13 @@ class _SafeModeState extends State<SafeModePage> {
                       _status = value;
                     });
                     if (value) pushNotification();
+                    if (value) {
+                      Fluttertoast.showToast(
+                        msg: "Kích hoạt thành công",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                      );
+                    }
                   },
                   activeTrackColor: kPrimaryColor05,
                   activeColor: kPrimaryColor,
@@ -133,6 +141,11 @@ class _SafeModeState extends State<SafeModePage> {
                       height: 0.8.sw,
                       width: 0.8.sw,
                       child: activeButton('Nhấn để kích hoạt', () {
+                        Fluttertoast.showToast(
+                          msg: "Kích hoạt thành công",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                        );
                         setState(() {
                           _status = true;
                         });
@@ -187,7 +200,7 @@ class _SafeModeState extends State<SafeModePage> {
 
   Container buildNotificationCard(String img, String name, String description) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 0.w, vertical: 2.w),
+      margin: EdgeInsets.symmetric(horizontal: 0.w, vertical: 5.w),
       padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.w),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -217,9 +230,18 @@ class _SafeModeState extends State<SafeModePage> {
                   SizedBox(
                     width: 15.w,
                   ),
-                  Text(
-                    name,
-                    style: h4b,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: h4b,
+                      ),
+                      Text(
+                        'HCI201 Nhóm 5',
+                        style: h5,
+                      ),
+                    ],
                   ),
                 ],
               ),

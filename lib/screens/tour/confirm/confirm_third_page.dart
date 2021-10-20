@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/page/constants.dart';
 import 'package:safetravel/screens/page/model.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
@@ -30,15 +31,15 @@ class _ThirdPageState extends State<ThirdPage> {
           BoxShadow(
             color: goodGray.withOpacity(0.3),
             offset: const Offset(-4, 4),
-            blurRadius: 20,
+            blurRadius: 20.r,
           ),
         ],
       ),
-      margin: const EdgeInsets.fromLTRB(30, 10, 30, 15),
+      margin: EdgeInsets.fromLTRB(40.w, 20.h, 40.w, 25.h),
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
+            padding: EdgeInsets.fromLTRB(40.w, 25.h, 40.w, 25.h),
             alignment: Alignment.topLeft,
             color: Colors.white,
             child: Column(
@@ -54,7 +55,7 @@ class _ThirdPageState extends State<ThirdPage> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 10.h),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +77,7 @@ class _ThirdPageState extends State<ThirdPage> {
                   ],
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 15.h,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,38 +85,42 @@ class _ThirdPageState extends State<ThirdPage> {
                     customLine(
                       Text('Người đặt', style: h3),
                       Text('Đào Phương Nam', style: h3),
-                      0,
+                      0.h,
                     ),
                     customLine(
                       Text('Thời gian', style: h3),
                       Text(model.duration.toString() + ' ngày', style: h3),
-                      0,
+                      0.h,
                     ),
                     customLine(
                       Text('Giờ khởi hành', style: h3),
                       Text('8:00 20/12/2021', style: h3),
-                      0,
+                      0.h,
                     ),
                     customLine(
                       Text('Điểm khởi hành', style: h3),
                       Text(model.location2, style: h3),
-                      0,
+                      0.h,
                     ),
                     customLine(
                       Text('Điểm đến', style: h3),
                       Text(model.location, style: h3),
-                      0,
+                      0.h,
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 10),
+                      margin: EdgeInsets.only(top: 8.h),
                       child: DottedLine(
                         dashColor: goodGray,
                       ),
                     ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    Text('Hội bạn cấp 3', style: h3b),
                     itemLine('Số người', 5,
-                        numberFormat.format(model.price * 5), 10),
+                        numberFormat.format(model.price * 5), 0.h),
                     Container(
-                      margin: EdgeInsets.only(top: 10),
+                      margin: EdgeInsets.only(top: 8.h),
                       child: DottedLine(
                         dashColor: goodGray,
                       ),
@@ -156,7 +161,7 @@ class _ThirdPageState extends State<ThirdPage> {
           ClipPath(
             clipper: PointsClipper(),
             child: Container(
-              height: 15,
+              height: 15.h,
               color: Colors.white,
             ),
           ),
