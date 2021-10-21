@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:safetravel/screens/main_screen.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
-import 'package:safetravel/screens/tour/tour_date_start_screem.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:video_player/video_player.dart';
 
-import 'model.dart';
-
 class QRScan extends StatefulWidget {
-  final TourModel model;
-  const QRScan(this.model, {Key? key}) : super(key: key);
+  const QRScan({Key? key}) : super(key: key);
 
   @override
   _QRScanState createState() => _QRScanState();
@@ -18,12 +15,9 @@ class QRScan extends StatefulWidget {
 class _QRScanState extends State<QRScan> {
   late VideoPlayerController _controller;
   late Future<void> _initializeVideoPlayerFuture;
-  late TourModel model;
 
   @override
   void initState() {
-    model = widget.model;
-
     _controller = VideoPlayerController.asset('assets/videos/covid-cert.mp4');
     _initializeVideoPlayerFuture = _controller.initialize();
 
@@ -66,8 +60,15 @@ class _QRScanState extends State<QRScan> {
     _setSafe();
     Navigator.pop(context);
     Navigator.pop(context);
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => TourDateStartScreen(model)));
+    Navigator.pushAndRemoveUntil<dynamic>(
+      context,
+      MaterialPageRoute<dynamic>(
+        builder: (BuildContext context) => MainScreen(
+          register: true,
+        ),
+      ),
+      (route) => false, //if you want to disable back feature set to false
+    );
   }
 
   @override

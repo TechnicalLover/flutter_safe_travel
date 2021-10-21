@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:safetravel/screens/auth/login_screen.dart';
+import 'package:safetravel/screens/page/qr_scan.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/utilities/constants.dart';
 // ignore_for_file: prefer_const_constructors
@@ -18,18 +20,23 @@ class _RegisterScreenState extends State<RegiterScreen> {
   Widget _buildSignupBtn() {
     return GestureDetector(
       onTap: () {
-        Navigator.pop(context);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginScreen(),
+          ),
+        );
       },
       child: RichText(
         text: TextSpan(
           children: [
             TextSpan(
               text: 'Bạn đã có tài khoản? ',
-              style: h3.copyWith(color: Colors.white),
+              style: h3,
             ),
             TextSpan(
               text: 'Đăng nhập',
-              style: h3b.copyWith(color: Colors.white),
+              style: h3b,
             ),
           ],
         ),
@@ -172,24 +179,73 @@ class _RegisterScreenState extends State<RegiterScreen> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(30.0),
       ),
-      primary: Colors.white,
+      primary: kPrimaryColor,
     );
     return Container(
       padding: EdgeInsets.symmetric(vertical: 20.0),
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () => print('Register Button Pressed'),
+        onPressed: () => _continue(),
         style: style,
         child: Text(
-          'ĐĂNG KÝ',
-          style: TextStyle(
-            color: kPrimaryColor,
-            letterSpacing: 1.5,
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'OpenSans',
-          ),
+          'TIẾP TỤC',
+          style: h3b.copyWith(color: Colors.white),
         ),
+      ),
+    );
+  }
+
+  void _fail() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Row(
+          children: [
+            Text('Đăng kí thất bại', style: h3),
+          ],
+        ),
+        content: Text('Không thể hoàn tất quá trình đăng kí.', style: h4),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+            },
+            child: Text('OK', style: h4),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _continue() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Row(
+          children: [
+            Text('Xác nhận', style: h3),
+          ],
+        ),
+        content: Text(
+            'Quý khách cần xác nhận đã tiêm 2 mũi vacxin covid để có thể hoàn tất quá trình đăng kí.',
+            style: h4),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'Cancel');
+              _fail();
+            },
+            child: Text('Không đồng ý', style: h4),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => QRScan()));
+            },
+            child: Text('Đồng ý', style: h4),
+          ),
+        ],
       ),
     );
   }
@@ -209,7 +265,8 @@ class _RegisterScreenState extends State<RegiterScreen> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/images/register.png'),
+                      image:
+                          AssetImage('assets/images/safe-travel-register.png'),
                       fit: BoxFit.cover),
                 ),
               ),
@@ -226,7 +283,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
                     children: <Widget>[
                       Text(
                         'Đăng Ký Tài Khoản',
-                        style: h2b,
+                        style: h1b.copyWith(color: Colors.white),
                       ),
                       SizedBox(height: 20.h),
                       _buildUsernameTF(),
@@ -246,6 +303,9 @@ class _RegisterScreenState extends State<RegiterScreen> {
                         height: 20.0,
                       ),
                       _buildRegisterBtn(),
+                      SizedBox(
+                        height: 10.0,
+                      ),
                       _buildSignupBtn(),
                     ],
                   ),

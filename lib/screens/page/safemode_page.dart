@@ -6,7 +6,6 @@ import 'package:lottie/lottie.dart';
 import 'package:safetravel/screens/page/constants.dart';
 import 'package:safetravel/screens/page/notification.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
-import 'package:safetravel/utilities/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SafeModePage extends StatefulWidget {
@@ -39,7 +38,7 @@ class _SafeModeState extends State<SafeModePage> {
         const Duration(milliseconds: 10000),
         () => NotificationApi.showNotification(
               title: 'Đào Phương Nam - HCI201 Nhóm 5',
-              body: 'Tiếp xúc gần với người lạ',
+              body: 'Tiếp xúc gần với bạn',
               payload: 'namdp',
             ));
 
@@ -93,6 +92,7 @@ class _SafeModeState extends State<SafeModePage> {
         controller: _scrollController,
         child: Column(
           children: [
+            /* Remove Switch Button
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -118,6 +118,7 @@ class _SafeModeState extends State<SafeModePage> {
                 ),
               ],
             ),
+            */
             SizedBox(
               height: 40.h,
             ),
@@ -174,7 +175,7 @@ class _SafeModeState extends State<SafeModePage> {
                     height: 15.h,
                   ),
                   buildNotificationCard('assets/images/av1.png',
-                      'Đào Phương Nam', 'Tiếp xúc gần với người lạ'),
+                      'Đào Phương Nam', 'Tiếp xúc gần với bạn'),
                   buildNotificationCard(
                       'assets/images/av2.jpeg',
                       'Dương Thanh Sang',
@@ -184,7 +185,7 @@ class _SafeModeState extends State<SafeModePage> {
                   buildNotificationCard('assets/images/av4.jpeg',
                       'Trần Gia Nguyên', 'Đi vào khu vực vắng vẻ'),
                   buildNotificationCard('assets/images/av5.jpeg',
-                      'Nguyễn Lê Mẫn Đạt', 'Tiếp xúc gần với người lạ'),
+                      'Nguyễn Lê Mẫn Đạt', 'Tiếp xúc gần với bạn'),
                   moreButton('Xem thêm', () {}),
                   SizedBox(
                     height: 10.h,

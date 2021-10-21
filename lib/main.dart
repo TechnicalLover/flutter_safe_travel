@@ -6,7 +6,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:safetravel/screens/auth/login_screen.dart';
+import 'package:safetravel/screens/start_page/start_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() => {HttpOverrides.global = MyHttpOverrides(), runApp(MyApp())};
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   _safe() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isSafe', false);
-    await prefs.setBool('safeModeOn', false);
+    await prefs.setBool('safeModeOn', true);
     await prefs.setBool('recommend', false);
   }
 
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       builder: () => MaterialApp(
         title: 'Flutter Login UI',
         debugShowCheckedModeBanner: false,
-        home: LoginScreen(),
+        home: StartPage(),
       ),
     );
   }

@@ -4,8 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/history_order/history_order_screen.dart';
 import 'package:safetravel/screens/page/account_page.dart';
 import 'package:safetravel/screens/page/explorer_page.dart';
-import 'package:safetravel/screens/page/group_page.dart';
-import 'package:safetravel/screens/page/history_page.dart';
 import 'package:safetravel/screens/page/safemode_page.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/screens/tour/confirm/salomon_bottom_bar.dart';
@@ -19,8 +17,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class MainScreen extends StatefulWidget {
   final int pageIndex;
+  final bool register;
 
-  MainScreen({Key? key, this.pageIndex = 0}) : super(key: key);
+  MainScreen({Key? key, this.pageIndex = 0, this.register = false})
+      : super(key: key);
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -43,8 +43,35 @@ class _MainScreenState extends State<MainScreen> {
       AccountPage(setVisibleAppbar),
     ];
     _logoHeight = 40.h;
-    iconShield = Icon(Icons.shield_outlined);
+    iconShield = Icon(Icons.verified_user, color: kPrimaryColor);
     _confirm();
+    if (widget.register) {
+      WidgetsBinding.instance!.addPostFrameCallback((_) => _welcome());
+    }
+  }
+
+  void _welcome() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Row(
+          children: [
+            Text('Đăng kí thành công', style: h3),
+          ],
+        ),
+        content: Text(
+            'Chào mừng quý khách đến với SafeTravel.\nHãy chọn cho mình một tour thật ưng ý nhé!\nChúc quý khách có một ngày vui vẻ.',
+            style: h4),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+            },
+            child: Text('OK', style: h4),
+          ),
+        ],
+      ),
+    );
   }
 
   Future<void> loadShield() async {
@@ -201,7 +228,6 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    loadShield();
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(

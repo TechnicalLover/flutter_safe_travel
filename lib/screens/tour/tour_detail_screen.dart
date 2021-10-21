@@ -64,8 +64,8 @@ class _TourDetailState extends State<TourDetail> {
             TextButton(
               onPressed: () {
                 Navigator.pop(context, 'OK');
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => QRScan(model)));
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => QRScan()));
               },
               child: Text('Đồng ý', style: h4),
             ),

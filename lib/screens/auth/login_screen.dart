@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/auth/register_screen.dart';
 import 'package:safetravel/screens/main_screen.dart';
+import 'package:safetravel/screens/start_page/term_page.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 
 import 'package:safetravel/utilities/constants.dart';
@@ -109,8 +110,15 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: EdgeInsets.symmetric(vertical: 10.h),
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MainScreen())),
+        onPressed: () {
+          Navigator.pushAndRemoveUntil<dynamic>(
+            context,
+            MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => MainScreen(),
+            ),
+            (route) => false, //if you want to disable back feature set to false
+          );
+        },
         style: style,
         child: Text(
           'ĐĂNG NHẬP',
@@ -182,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => RegiterScreen()));
+            context, MaterialPageRoute(builder: (context) => TermScreen()));
       },
       child: RichText(
         text: TextSpan(
