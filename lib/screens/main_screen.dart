@@ -18,9 +18,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MainScreen extends StatefulWidget {
   final int pageIndex;
   final bool register;
+  final bool suggest;
 
-  MainScreen({Key? key, this.pageIndex = 0, this.register = false})
-      : super(key: key);
+  MainScreen({
+    Key? key,
+    this.pageIndex = 0,
+    this.register = false,
+    this.suggest = false,
+  }) : super(key: key);
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -43,10 +48,13 @@ class _MainScreenState extends State<MainScreen> {
       AccountPage(setVisibleAppbar),
     ];
     _logoHeight = 40.h;
-    iconShield = Icon(Icons.verified_user, color: kPrimaryColor);
+    iconShield = Icon(Icons.shield_outlined, color: kPrimaryColor);
     _confirm();
     if (widget.register) {
       WidgetsBinding.instance!.addPostFrameCallback((_) => _welcome());
+    }
+    if (widget.suggest) {
+      WidgetsBinding.instance!.addPostFrameCallback((_) => _suggest());
     }
   }
 
@@ -137,6 +145,66 @@ class _MainScreenState extends State<MainScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Kích hoạt thành công'),
+          ],
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+            },
+            child: Text('OK', style: h4),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _suggest() async {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/images/shield.png',
+              height: 20.h,
+            ),
+            SizedBox(
+              width: 10.w,
+            ),
+            Text('Gợi ý', style: h3),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            RichText(
+              text: TextSpan(
+                text: 'Chế độ an toàn',
+                style: h4b,
+                children: <TextSpan>[
+                  TextSpan(
+                    text: ' đang được bật',
+                    style: h4,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            RichText(
+              text: TextSpan(
+                text: 'Chế độ an toàn: ',
+                style: h4.copyWith(color: goodGray),
+                children: <TextSpan>[
+                  TextSpan(
+                      text:
+                          'Các thành viên trong tour sẽ được thông báo khi: \n   - Đi quá xa nhau.\n   - Tiếp xúc quá gần với nhau.\n   - Đi đến khu vực quá vắng vẻ.\n   - Đi đến khu vực nguy hiểm, thường xuyên bị cướp giật, móc túi. \nSẽ được nhắc nhở đeo khẩu trang, khử khuẩn tay thường xuyên.'),
+                ],
+              ),
+            ),
           ],
         ),
         actions: <Widget>[
@@ -290,10 +358,6 @@ class _MainScreenState extends State<MainScreen> {
             ),
             Expanded(
               child: pageList[pageIndex],
-              // IndexedStack(
-              // children: pageList,
-              // index: pageIndex,
-              // ),
             ),
           ],
         ),

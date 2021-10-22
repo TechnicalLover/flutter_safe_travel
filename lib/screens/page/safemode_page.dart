@@ -174,8 +174,11 @@ class _SafeModeState extends State<SafeModePage> {
                   SizedBox(
                     height: 15.h,
                   ),
-                  buildNotificationCard('assets/images/av1.png',
-                      'Đào Phương Nam', 'Tiếp xúc gần với bạn'),
+                  InkWell(
+                    onTap: () => pushNotification(),
+                    child: buildNotificationCard('assets/images/av1.png',
+                        'Đào Phương Nam', 'Tiếp xúc gần với bạn'),
+                  ),
                   buildNotificationCard(
                       'assets/images/av2.jpeg',
                       'Dương Thanh Sang',

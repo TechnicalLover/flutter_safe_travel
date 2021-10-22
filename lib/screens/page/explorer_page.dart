@@ -50,6 +50,42 @@ class _ExplorerPageState extends State<ExplorerPage> {
         .push(MaterialPageRoute(builder: (context) => TourDetail(model)));
   }
 
+  Future<void> _toolTip() async {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/images/shield.png',
+              height: 20.h,
+            ),
+            SizedBox(
+              width: 10.w,
+            ),
+            Text('Gợi ý', style: h3),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+                'Tour này đã được xác nhận trên 21 ngày không có ca covid dương tính tại các địa điểm trong tour.'),
+          ],
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+            },
+            child: Text('OK', style: h4),
+          ),
+        ],
+      ),
+    );
+  }
+
   List<Widget> buildTourCards() {
     List<Widget> result = [];
     tourData.shuffle();
@@ -201,6 +237,14 @@ class _ExplorerPageState extends State<ExplorerPage> {
                           style: h3b,
                         ),
                       ),
+                      SizedBox(
+                        width: 10.w,
+                      ),
+                      InkWell(
+                        onTap: () => _toolTip(),
+                        child: const Icon(Icons.verified_user,
+                            color: kPrimaryColor),
+                      ),
                     ],
                   ),
                   const Divider(),
@@ -283,8 +327,16 @@ class _ExplorerPageState extends State<ExplorerPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('Giá chỉ từ', style: h4b),
-                          Text(model.priceVND,
-                              style: h3b.copyWith(color: kPrimaryColor)),
+                          Row(
+                            children: [
+                              Text(model.priceVND,
+                                  style: h3b.copyWith(color: kPrimaryColor)),
+                              Text(
+                                '/' + model.duration.toString() + ' ngày',
+                                style: h4b,
+                              ),
+                            ],
+                          ),
                         ],
                       ),
                       moreButton('Xem thêm', () => _moreAction(model)),
@@ -344,7 +396,6 @@ class _ExplorerPageState extends State<ExplorerPage> {
               ),
             ),
             Stack(
-              alignment: Alignment.bottomCenter,
               children: [
                 Container(
                   margin: EdgeInsets.fromLTRB(30.w, 0, 30.w, 0.h),
@@ -360,22 +411,32 @@ class _ExplorerPageState extends State<ExplorerPage> {
                     ),
                   ),
                 ),
-                Container(
-                  alignment: Alignment.center,
-                  height: 20.h,
-                  width: 60.w,
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.4),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20.r),
-                    ),
-                  ),
-                  margin: EdgeInsets.only(bottom: 8.h),
-                  child: Text(
-                    '1/' + model.imgUrl.length.toString(),
-                    style: h4.copyWith(
-                      color: Colors.white,
-                    ),
+                Positioned(
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        height: 20.h,
+                        width: 60.w,
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.4),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(20.r),
+                          ),
+                        ),
+                        margin: EdgeInsets.only(bottom: 8.h),
+                        child: Text(
+                          '1/' + model.imgUrl.length.toString(),
+                          style: h4.copyWith(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

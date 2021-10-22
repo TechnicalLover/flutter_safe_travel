@@ -213,7 +213,9 @@ class _ConfirmState extends State<Confirm> {
                   Navigator.pushAndRemoveUntil<dynamic>(
                     context,
                     MaterialPageRoute<dynamic>(
-                      builder: (BuildContext context) => MainScreen(),
+                      builder: (BuildContext context) => MainScreen(
+                        suggest: true,
+                      ),
                     ),
                     (route) =>
                         false, //if you want to disable back feature set to false

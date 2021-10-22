@@ -7,6 +7,8 @@ import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/screens/tour/details_screen/my_tour_detail.dart';
 import 'dart:math';
 
+import 'package:safetravel/utilities/constants.dart';
+
 class Transaction {
   String name;
   double point;
@@ -43,6 +45,7 @@ class HistoryOrderScreen extends StatefulWidget {
 }
 
 class _HistoryOrderScreenState extends State<HistoryOrderScreen> {
+  bool groupValue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,11 +132,110 @@ class _HistoryOrderScreenState extends State<HistoryOrderScreen> {
     );
   }
 
+  void _cancel() async {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Row(
+          children: [
+            Text('Lý do huỷ', style: h3),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Quý khách vui lòng chọn lí do muốn huỷ tour'),
+            Row(
+              children: [
+                Radio(
+                  value: true,
+                  groupValue: groupValue,
+                  onChanged: (value) => {},
+                ),
+                Text('Tìm được tour khác ưng ý hơn'),
+              ],
+            ),
+            Row(
+              children: [
+                Radio(
+                  value: true,
+                  groupValue: groupValue,
+                  onChanged: (value) => {},
+                ),
+                Text('Thay đổi lịch'),
+              ],
+            ),
+            Row(
+              children: [
+                Radio(
+                  value: false,
+                  groupValue: groupValue,
+                  onChanged: (value) => {},
+                ),
+                Text('Khác'),
+              ],
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: const TextField(
+                decoration: InputDecoration(
+                  hintText: 'Nhập lí do khác',
+                ),
+              ),
+            ),
+          ],
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context, 'Cancel'),
+            child: Text('Huỷ', style: h4),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+              _pushSuccess();
+            },
+            child: Text('Đồng ý', style: h4),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _pushSuccess() async {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Row(
+          children: [
+            Text('Thành công', style: h3),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text('Huỷ thành công'),
+          ],
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+            },
+            child: Text('OK', style: h4),
+          ),
+        ],
+      ),
+    );
+  }
+
   Card buildItemInfo(int index, Transaction transaction, BuildContext context) {
     return Card(
       clipBehavior: Clip.antiAliasWithSaveLayer,
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10.h),
+        padding: EdgeInsets.fromLTRB(0, 10.h, 10.w, 10.h),
         decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: index > 2
@@ -155,23 +257,53 @@ class _HistoryOrderScreenState extends State<HistoryOrderScreen> {
             ),
             Expanded(
               flex: 1,
-              child: Container(
-                child: Text(
-                  transaction.name,
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    transaction.name,
+                    style: const TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    NumberFormat("###,###,### đ").format(transaction.point),
+                    style: const TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: Text(
-                NumberFormat("###,###,### đ").format(transaction.point),
-                style:
-                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-              ),
-            ),
+            index <= 2
+                ? Container(
+                    child: buildSecondaryButton('Huỷ', () {
+                      _cancel();
+                    }),
+                  )
+                : SizedBox(
+                    width: 100.w,
+                  ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildSecondaryButton(String text, VoidCallback onPressed) {
+    return OutlinedButton(
+      onPressed: onPressed,
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+        child: Text(
+          text,
+          style: h5.copyWith(
+            color: Colors.white,
+          ),
+        ),
+      ),
+      style: ElevatedButton.styleFrom(
+        side: const BorderSide(width: 2.0, color: Colors.white),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(32.0),
         ),
       ),
     );

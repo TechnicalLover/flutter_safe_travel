@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/page/constants.dart';
 import 'package:safetravel/screens/page/model.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
+import 'package:safetravel/utilities/constants.dart';
 
 import 'dotted_line.dart';
 
@@ -117,6 +118,21 @@ class _ThirdPageState extends State<ThirdPage> {
                       height: 8.h,
                     ),
                     Text('Hội bạn cấp 3', style: h3b),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    buildMemberCard('assets/images/av1.png', 'Đào Phương Nam'),
+                    buildMemberCard(
+                        'assets/images/av2.jpeg', 'Dương Thanh Sang'),
+                    buildMemberCard(
+                        'assets/images/av3.jpeg', 'Trần Lê Minh Đức'),
+                    buildMemberCard(
+                        'assets/images/av4.jpeg', 'Trần Gia Nguyên'),
+                    buildMemberCard(
+                        'assets/images/av5.jpeg', 'Nguyễn Lê Mẫn Đạt'),
+                    SizedBox(
+                      height: 8.h,
+                    ),
                     itemLine('Số người', 5,
                         numberFormat.format(model.price * 5), 0.h),
                     Container(
@@ -164,6 +180,83 @@ class _ThirdPageState extends State<ThirdPage> {
               height: 15.h,
               color: Colors.white,
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _toolTip() async {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/images/shield.png',
+              height: 20.h,
+            ),
+            SizedBox(
+              width: 10.w,
+            ),
+            Text('Gợi ý', style: h3),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              'Người này đã xác nhận tiêm 2 mũi vacxin covid',
+            ),
+          ],
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+            },
+            child: Text('OK', style: h4),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildMemberCard(String img, String title) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 45.w,
+                height: 45.h,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    fit: BoxFit.fitWidth,
+                    image: AssetImage(img),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 10.w,
+              ),
+              Text(title, style: h4b),
+              SizedBox(
+                width: 8.w,
+              ),
+              /*
+              InkWell(
+                onTap: () => _toolTip(),
+                child:
+                    const Icon(Icons.gpp_good, size: 20, color: kPrimaryColor),
+              ),
+              */
+            ],
           ),
         ],
       ),

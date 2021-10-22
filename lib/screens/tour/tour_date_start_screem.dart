@@ -70,6 +70,13 @@ void setSelectedDay(int index) {
 
 class _TourDateStartScreenState extends State<TourDateStartScreen> {
   late TourModel model;
+  var selectTime = 0;
+
+  void setSelectedTime(int index) {
+    setState(() {
+      selectTime = index;
+    });
+  }
 
   @override
   void initState() {
@@ -96,6 +103,115 @@ class _TourDateStartScreenState extends State<TourDateStartScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
+                          SizedBox(height: 10),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [cardShadow],
+                            ),
+                            padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Chọn giờ khởi hành",
+                                      style: h3b.copyWith(color: kPrimaryColor),
+                                      textAlign: TextAlign.start,
+                                    )
+                                  ],
+                                ),
+                                Divider(
+                                  height: 40,
+                                  thickness: 1,
+                                ),
+                                Card(
+                                    elevation: 0,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                onPressed: () {
+                                                  setSelectedTime(0);
+                                                },
+                                                style: OutlinedButton.styleFrom(
+                                                    minimumSize: Size(110, 35)),
+                                                child: Text(
+                                                  '07:00',
+                                                  style: h4.copyWith(
+                                                    color: selectTime == 0
+                                                        ? kPrimaryColor
+                                                        : Colors.black,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                onPressed: () {
+                                                  setSelectedTime(1);
+                                                },
+                                                style: OutlinedButton.styleFrom(
+                                                    minimumSize: Size(110, 35)),
+                                                child: Text(
+                                                  '10:00',
+                                                  style: h4.copyWith(
+                                                    color: selectTime == 1
+                                                        ? kPrimaryColor
+                                                        : Colors.black,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                onPressed: () {
+                                                  setSelectedTime(2);
+                                                },
+                                                style: OutlinedButton.styleFrom(
+                                                    minimumSize: Size(110, 35)),
+                                                child: Text(
+                                                  '15:00',
+                                                  style: h4.copyWith(
+                                                    color: selectTime == 2
+                                                        ? kPrimaryColor
+                                                        : Colors.black,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: OutlinedButton(
+                                                onPressed: () {
+                                                  setSelectedTime(3);
+                                                },
+                                                style: OutlinedButton.styleFrom(
+                                                    minimumSize: Size(110, 35)),
+                                                child: Text(
+                                                  '18:00',
+                                                  style: h4.copyWith(
+                                                    color: selectTime == 3
+                                                        ? kPrimaryColor
+                                                        : Colors.black,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    )),
+                              ],
+                            ),
+                          ),
                           SizedBox(height: 10),
                           Container(
                             decoration: BoxDecoration(

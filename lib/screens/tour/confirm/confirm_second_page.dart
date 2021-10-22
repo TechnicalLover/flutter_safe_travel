@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:safetravel/screens/page/constants.dart';
+import 'package:safetravel/screens/tour/confirm/group_page.dart';
 import 'package:safetravel/utilities/constants.dart';
 
 import 'confirm_constants.dart';
@@ -65,8 +66,21 @@ class _SecondPageState extends State<SecondPage> {
                 visible: !isSingle,
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 10.h,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        moreButton(
+                          'Tạo nhóm mới',
+                          () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ConfirmGroupPage()),
+                            );
+                          },
+                        ),
+                      ],
                     ),
                     InkWell(
                       onTap: () {
@@ -151,7 +165,6 @@ class _SecondPageState extends State<SecondPage> {
                         buildAddCircle(),
                       ]),
                     ),
-                    moreButton('Tạo nhóm mới', () {}),
                   ],
                 ),
               ),
@@ -379,7 +392,7 @@ class _SecondPageState extends State<SecondPage> {
   Widget moreButton(String text, VoidCallback onPressed) {
     return SizedBox(
       height: 45.h,
-      width: 200.w,
+      width: 220.w,
       child: RawMaterialButton(
         onPressed: onPressed,
         child: Row(
@@ -390,6 +403,11 @@ class _SecondPageState extends State<SecondPage> {
               style: h4.copyWith(
                 color: goodGray,
               ),
+            ),
+            Icon(
+              Icons.add,
+              size: 20,
+              color: goodGray,
             ),
           ],
         ),

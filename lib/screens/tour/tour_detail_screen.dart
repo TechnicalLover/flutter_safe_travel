@@ -233,15 +233,128 @@ class _TourDetailState extends State<TourDetail> {
             .toList());
   }
 
+  Future<void> _toolTip() async {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/images/shield.png',
+              height: 20.h,
+            ),
+            SizedBox(
+              width: 10.w,
+            ),
+            Text('Gợi ý', style: h3),
+          ],
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+                'Tour này đã được xác nhận trên 21 ngày không có ca covid dương tính tại các địa điểm trong tour.'),
+          ],
+        ),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context, 'OK');
+            },
+            child: Text('OK', style: h4),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _builTitleTour() {
+    var ratingValue = model.rating;
+    List<Widget> ratings = [];
+
+    int i = 0;
+    for (; i < ratingValue.floor(); i++) {
+      ratings.add(
+        const Icon(Icons.star, color: Colors.yellow),
+      );
+    }
+
+    if (ratingValue - ratingValue.floor() >= 0.5) {
+      ratings.add(
+        const Icon(Icons.star_half, color: Colors.yellow),
+      );
+      i++;
+    }
+
+    for (; i < 5; i++) {
+      ratings.add(
+        const Icon(Icons.star_outline, color: Colors.yellow),
+      );
+    }
     return Container(
       alignment: Alignment.center,
       width: double.infinity,
       margin: const EdgeInsets.only(right: 5, left: 5),
-      padding: const EdgeInsets.all(10),
-      child: Text(
-        model.title,
-        style: h3b,
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  model.title,
+                  style: h3b,
+                ),
+              ),
+              SizedBox(
+                width: 10.w,
+              ),
+              InkWell(
+                onTap: () => _toolTip(),
+                child: const Icon(Icons.verified_user, color: kPrimaryColor),
+              ),
+            ],
+          ),
+          Divider(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      text: model.rating.toStringAsFixed(1),
+                      style: h3b,
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: '/5',
+                          style: h5,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text(model.ratingCount.toString() + ' lượt đánh giá'),
+                ],
+              ),
+              Row(
+                children: ratings,
+              ),
+            ],
+          ),
+          Divider(),
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  model.description,
+                  style: h4,
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -435,7 +548,11 @@ class _TourDetailState extends State<TourDetail> {
             flex: 40,
             child: nextButton(
               "Đặt ngay",
-              () => _confirm(),
+              //() => _confirm(),
+              () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => TourDateStartScreen(model)));
+              },
             ),
           ), // double.infinity is the width and 30 is the height
         ],
