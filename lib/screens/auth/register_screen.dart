@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/auth/login_screen.dart';
+import 'package:safetravel/screens/main_screen.dart';
 import 'package:safetravel/screens/page/qr_scan.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/utilities/constants.dart';
@@ -226,9 +227,46 @@ class _RegisterScreenState extends State<RegiterScreen> {
             Text('Xác nhận', style: h3),
           ],
         ),
-        content: Text(
-            'Quý khách cần xác nhận đã tiêm 2 mũi vacxin covid để có thể hoàn tất quá trình đăng kí.',
-            style: h4),
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+                'Quý khách cần xác nhận đã tiêm 2 mũi vacxin covid để có thể hoàn tất quá trình đăng kí.',
+                style: h4),
+            SizedBox(
+              height: 2.h,
+            ),
+            RichText(
+              text: TextSpan(
+                text: '',
+                style: h4,
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'QR Code',
+                    style: h4b,
+                  ),
+                  TextSpan(
+                    text: ' sẽ được cấp ở ứng dụng ',
+                    style: h4,
+                  ),
+                  TextSpan(
+                    text: 'Sổ sức khoẻ điện tử',
+                    style: h4b,
+                  ),
+                  TextSpan(
+                    text: ' nếu quý khách đã tiêm đủ 2 mũi vacxin covid.',
+                    style: h4,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 2.h,
+            ),
+            Text('Cho phép ứng dụng mở camera để quét QR Code?', style: h4b),
+          ],
+        ),
         actions: <Widget>[
           TextButton(
             onPressed: () {
