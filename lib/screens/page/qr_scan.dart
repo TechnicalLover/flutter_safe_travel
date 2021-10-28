@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/main_screen.dart';
+import 'package:safetravel/screens/start_page/covid_confirm_page.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:video_player/video_player.dart';
@@ -21,6 +22,7 @@ class _QRScanState extends State<QRScan> {
     _controller = VideoPlayerController.asset('assets/videos/covid-cert.mp4');
     _initializeVideoPlayerFuture = _controller.initialize();
 
+/*
     Future.delayed(const Duration(milliseconds: 5000), () {
       showDialog<String>(
         context: context,
@@ -47,6 +49,7 @@ class _QRScanState extends State<QRScan> {
         ),
       );
     });
+    */
 
     super.initState();
   }
@@ -163,12 +166,26 @@ class _QRScanState extends State<QRScan> {
               ),
             ),
             Expanded(
-              child: Container(
-                height: 65.h,
-                width: 65.h,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushAndRemoveUntil<dynamic>(
+                    context,
+                    MaterialPageRoute<dynamic>(
+                      builder: (BuildContext context) => const CovidConfirmPage(
+                        status: true,
+                      ),
+                    ),
+                    (route) =>
+                        false, //if you want to disable back feature set to false
+                  );
+                },
+                child: Container(
+                  height: 65.h,
+                  width: 65.h,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
                 ),
               ),
             ),

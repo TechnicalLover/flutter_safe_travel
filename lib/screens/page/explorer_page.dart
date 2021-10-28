@@ -216,6 +216,26 @@ class _ExplorerPageState extends State<ExplorerPage> {
       );
     }
 
+    Color discountColor = Colors.yellow;
+    if (model.discount > 0.1) discountColor = Colors.orange;
+
+    Widget discount = model.discount != 0
+        ? Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 10.w,
+              vertical: 10.h,
+            ),
+            decoration: BoxDecoration(
+              color: discountColor,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              'Giảm giá ' + (model.discount * 100).toStringAsFixed(0) + '%',
+              style: h4b,
+            ),
+          )
+        : const SizedBox();
+
     return Column(
       children: [
         Stack(
@@ -292,6 +312,10 @@ class _ExplorerPageState extends State<ExplorerPage> {
                       SizedBox(
                         height: 5.h,
                       ),
+                      /*
+                      SizedBox(
+                        height: 5.h,
+                      ),
                       Row(
                         children: [
                           const Icon(Icons.date_range),
@@ -304,6 +328,7 @@ class _ExplorerPageState extends State<ExplorerPage> {
                           )
                         ],
                       )
+                      */
                     ],
                   ),
                   const Divider(),
@@ -321,12 +346,24 @@ class _ExplorerPageState extends State<ExplorerPage> {
                     height: 10.h,
                   ),
                   Row(
+                    children: [
+                      discount,
+                    ],
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('Giá chỉ từ', style: h4b),
+                          model.discount != 0.0
+                              ? Text(model.discountPriceVND,
+                                  style: h4b.copyWith(
+                                    color: goodGray,
+                                    decoration: TextDecoration.lineThrough,
+                                  ))
+                              : const SizedBox(),
                           Row(
                             children: [
                               Text(model.priceVND,

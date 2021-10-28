@@ -12,15 +12,15 @@ import 'package:safetravel/utilities/constants.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class TourDetail extends StatefulWidget {
+class TourDetailRaw extends StatefulWidget {
   final TourModel model;
-  const TourDetail(this.model, {Key? key}) : super(key: key);
+  const TourDetailRaw(this.model, {Key? key}) : super(key: key);
 
   @override
-  _TourDetailState createState() => _TourDetailState();
+  _TourDetailRawState createState() => _TourDetailRawState();
 }
 
-class _TourDetailState extends State<TourDetail> {
+class _TourDetailRawState extends State<TourDetailRaw> {
   late TourModel model;
   late List<String> imgArray;
 
@@ -747,19 +747,6 @@ class _TourDetailState extends State<TourDetail> {
                     ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: goodGray.withOpacity(0.2),
-                        offset: const Offset(0, -5),
-                        blurRadius: 10.r,
-                      )
-                    ],
-                  ),
-                  child: _builBottomBar(),
-                )
               ],
             )));
   }

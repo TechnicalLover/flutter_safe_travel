@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/auth/login_screen.dart';
-import 'package:safetravel/screens/main_screen.dart';
 import 'package:safetravel/screens/page/qr_scan.dart';
+import 'package:safetravel/screens/start_page/covid_confirm_page.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/utilities/constants.dart';
 // ignore_for_file: prefer_const_constructors
@@ -50,7 +50,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Tài khoản',
+          'Tên đăng nhập',
           style: h3,
         ),
         SizedBox(height: 10.h),
@@ -68,7 +68,7 @@ class _RegisterScreenState extends State<RegiterScreen> {
                 Icons.people,
                 color: goodBlack,
               ),
-              hintText: 'Nhập tài khoản',
+              hintText: 'Tên đăng nhập',
               hintStyle: h3,
             ),
           ),
@@ -186,7 +186,14 @@ class _RegisterScreenState extends State<RegiterScreen> {
       padding: EdgeInsets.symmetric(vertical: 20.0),
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () => _continue(),
+        onPressed: () => {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CovidConfirmPage(),
+            ),
+          ),
+        },
         style: style,
         child: Text(
           'TIẾP TỤC',

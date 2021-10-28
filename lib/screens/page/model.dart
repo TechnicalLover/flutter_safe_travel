@@ -13,8 +13,10 @@ class TourModel {
   int shareCount;
   double rating;
   int ratingCount;
+  double discount;
 
   String get priceVND => numberFormat.format(price);
+  String get discountPriceVND => numberFormat.format(price * (1 - discount));
 
   TourModel({
     this.imgUrl = const [
@@ -34,5 +36,6 @@ class TourModel {
     this.shareCount = 142,
     this.rating = 4.3,
     this.ratingCount = 241,
+    this.discount = 0.0,
   });
 }

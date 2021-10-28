@@ -51,3 +51,34 @@ Widget buildSecondaryButton(String text, VoidCallback onPressed) {
     ),
   );
 }
+
+Widget buildOutlinedButton(String text, VoidCallback onPressed) {
+  return ElevatedButton(
+    onPressed: onPressed,
+    child: Container(
+      margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            text,
+            style: h4b.copyWith(
+              color: goodBlack,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    ),
+    style: ElevatedButton.styleFrom(
+      primary: Colors.white,
+      shape: RoundedRectangleBorder(
+        side: BorderSide(
+          color: goodBlack,
+        ),
+        borderRadius: BorderRadius.circular(50.r),
+      ),
+    ),
+  );
+}

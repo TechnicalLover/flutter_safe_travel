@@ -76,7 +76,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 decoration: InputDecoration(
                     prefixIcon: Icon(Icons.tour),
                     border: InputBorder.none,
-                    hintText: 'Tên tour hoặc Nơi khỏi hành'),
+                    hintText: 'Tên tour hoặc Nơi khởi hành'),
               ),
               Divider(),
               TextField(

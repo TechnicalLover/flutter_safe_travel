@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:safetravel/screens/history_order/history_order_screen.dart';
 import 'package:safetravel/screens/page/account_page.dart';
 import 'package:safetravel/screens/page/explorer_page.dart';
+import 'package:safetravel/screens/page/history_page.dart';
 import 'package:safetravel/screens/page/safemode_page.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/screens/tour/confirm/salomon_bottom_bar.dart';
@@ -44,7 +44,7 @@ class _MainScreenState extends State<MainScreen> {
     pageList = <Widget>[
       ExplorerPage(setVisibleAppbar),
       SafeModePage(loadShield, setVisibleAppbar),
-      HistoryOrderScreen(),
+      HistoryPage(setVisibleAppbar),
       AccountPage(setVisibleAppbar),
     ];
     _logoHeight = 40.h;

@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Tài khoản',
+          'Tên đăng nhập',
           style: h3,
         ),
         SizedBox(height: 10.h),
@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Icons.email,
                 color: goodBlack,
               ),
-              hintText: 'Nhập tài khoản',
+              hintText: 'Tên đăng nhập',
               hintStyle: h3,
             ),
           ),
@@ -242,8 +242,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       _buildPasswordTF(),
                       _buildForgotPasswordBtn(),
                       _buildLoginBtn(),
-                      _buildSignInWithText(),
-                      _buildSocialBtnRow(),
+                      SizedBox(
+                        height: 20.h,
+                      ),
                       _buildSignupBtn(),
                     ],
                   ),

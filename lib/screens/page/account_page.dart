@@ -87,29 +87,28 @@ class _AccountPageState extends State<AccountPage> {
               Row(
                 children: [
                   Expanded(
-                      child: squareButton(const Icon(Icons.people), 'Bạn bè')),
+                      child:
+                          squareButton(const Icon(Icons.favorite), 'Đã thích')),
                   Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const GroupPage()));
-                      },
+                      child:
+                          squareButton(const Icon(Icons.reviews), 'Đánh giá')),
+                ],
+              ),
+              Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const GroupPage()));
+                    },
+                    child: SizedBox(
+                      width: 285.w,
                       child: squareButton(
                         const Icon(Icons.groups),
                         'Nhóm',
                       ),
                     ),
                   ),
-                ],
-              ),
-              Row(
-                children: [
-                  Expanded(
-                      child:
-                          squareButton(const Icon(Icons.favorite), 'Đã thích')),
-                  Expanded(
-                      child:
-                          squareButton(const Icon(Icons.reviews), 'Đánh giá')),
                 ],
               ),
               moreButton('Xem thêm', () {}),

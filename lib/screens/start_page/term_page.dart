@@ -26,15 +26,15 @@ class _TermScreenState extends State<TermScreen> {
             'Quý khách cần đồng ý điều khoản sử dụng để tiếp tục.\nQuý khách có muốn thoát?',
             style: h4),
         actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.pop(context, 'Cancel'),
-            child: Text('Huỷ bỏ', style: h4),
+          buildOutlinedButton(
+            'Huỷ bỏ',
+            () => Navigator.pop(context, 'Cancel'),
           ),
-          TextButton(
-            onPressed: () {
+          buildOutlinedButton(
+            'Thoát',
+            () {
               SystemChannels.platform.invokeMethod('SystemNavigator.pop');
             },
-            child: Text('Thoát', style: h4),
           ),
         ],
       ),
@@ -114,15 +114,21 @@ class _TermScreenState extends State<TermScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            buildSecondaryButton('Từ chối', () {
-              _declineTerms();
-            }),
-            buildPrimaryButton('Đồng ý và tiếp tục', () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => RegiterScreen()),
-              );
-            }),
+            SizedBox(
+              width: 200.w,
+              child: buildSecondaryButton('Từ chối', () {
+                _declineTerms();
+              }),
+            ),
+            SizedBox(
+              width: 200.w,
+              child: buildPrimaryButton('Đồng ý', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegiterScreen()),
+                );
+              }),
+            ),
           ],
         ),
       ),

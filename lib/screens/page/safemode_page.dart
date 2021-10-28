@@ -176,19 +176,37 @@ class _SafeModeState extends State<SafeModePage> {
                   ),
                   InkWell(
                     onTap: () => pushNotification(),
-                    child: buildNotificationCard('assets/images/av1.png',
-                        'Đào Phương Nam', 'Tiếp xúc gần với bạn'),
+                    child: buildNotificationCard(
+                      'assets/images/av1.png',
+                      'Đào Phương Nam',
+                      'Tiếp xúc gần với thành viên trong nhóm khác',
+                      Colors.red,
+                    ),
                   ),
                   buildNotificationCard(
-                      'assets/images/av2.jpeg',
-                      'Dương Thanh Sang',
-                      'Đi vào khu vực có tỉ lệ móc túi cao'),
-                  buildNotificationCard('assets/images/av3.jpeg',
-                      'Trần Lê Minh Đức', 'Đi quá xa với đoàn'),
-                  buildNotificationCard('assets/images/av4.jpeg',
-                      'Trần Gia Nguyên', 'Đi vào khu vực vắng vẻ'),
-                  buildNotificationCard('assets/images/av5.jpeg',
-                      'Nguyễn Lê Mẫn Đạt', 'Tiếp xúc gần với bạn'),
+                    'assets/images/av2.jpeg',
+                    'Dương Thanh Sang',
+                    'Đi vào khu vực có tỉ lệ móc túi cao',
+                    Colors.orange,
+                  ),
+                  buildNotificationCard(
+                    'assets/images/av3.jpeg',
+                    'Trần Lê Minh Đức',
+                    'Đi quá xa với đoàn',
+                    Colors.yellow,
+                  ),
+                  buildNotificationCard(
+                    'assets/images/av4.jpeg',
+                    'Trần Gia Nguyên',
+                    'Đi vào khu vực vắng vẻ',
+                    Colors.orange,
+                  ),
+                  buildNotificationCard(
+                    'assets/images/av5.jpeg',
+                    'Nguyễn Lê Mẫn Đạt',
+                    'Tiếp xúc gần với bạn',
+                    goodBlack,
+                  ),
                   moreButton('Xem thêm', () {}),
                   SizedBox(
                     height: 10.h,
@@ -202,7 +220,8 @@ class _SafeModeState extends State<SafeModePage> {
     );
   }
 
-  Container buildNotificationCard(String img, String name, String description) {
+  Container buildNotificationCard(
+      String img, String name, String description, Color color) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 0.w, vertical: 5.w),
       padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.w),
@@ -249,7 +268,7 @@ class _SafeModeState extends State<SafeModePage> {
                   ),
                 ],
               ),
-              const Icon(Icons.error_outline),
+              Icon(Icons.error_outline, color: color),
             ],
           ),
           SizedBox(height: 5.h),

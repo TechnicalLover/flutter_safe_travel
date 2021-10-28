@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:safetravel/screens/history_order/history_order_screen.dart';
+import 'package:safetravel/screens/page/history_list.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage(this.setVisibleAppbar, {Key? key}) : super(key: key);
@@ -32,7 +32,7 @@ class _HistoryPageState extends State<HistoryPage> {
       },
       child: SingleChildScrollView(
         controller: _scrollController,
-        child: const HistoryOrderScreen(),
+        child: const HistoryList(),
       ),
     );
   }

@@ -22,6 +22,7 @@ List<TourModel> tourData = [
     shareCount: 124,
     rating: 4.3,
     ratingCount: 342,
+    discount: 0.2,
   ),
   TourModel(
     imgUrl: [
@@ -63,6 +64,7 @@ List<TourModel> tourData = [
     shareCount: 96,
     rating: 4.6,
     ratingCount: 642,
+    discount: 0.15,
   ),
   TourModel(
     imgUrl: [
@@ -86,6 +88,7 @@ List<TourModel> tourData = [
     shareCount: 80,
     rating: 4.7,
     ratingCount: 382,
+    discount: 0.1,
   ),
   TourModel(
     imgUrl: [
@@ -107,6 +110,7 @@ List<TourModel> tourData = [
     shareCount: 256,
     rating: 4.8,
     ratingCount: 1243,
+    discount: 0.2,
   ),
   TourModel(
     imgUrl: [
@@ -154,6 +158,7 @@ List<TourModel> tourData = [
     shareCount: 214,
     rating: 4.8,
     ratingCount: 673,
+    discount: 0.1,
   ),
   TourModel(
     imgUrl: [
@@ -198,6 +203,7 @@ List<TourModel> tourData = [
     shareCount: 411,
     rating: 4.7,
     ratingCount: 564,
+    discount: 0.15,
   ),
   TourModel(
     imgUrl: [
@@ -242,6 +248,7 @@ List<TourModel> tourData = [
     shareCount: 411,
     rating: 4.9,
     ratingCount: 615,
+    discount: 0.05,
   ),
   TourModel(
     imgUrl: [
