@@ -83,7 +83,7 @@ class _ThirdPageState extends State<ThirdPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     customLine(
-                      Text('Người đặt', style: h3),
+                      Text('Người đăng kí', style: h3),
                       Text('Đào Phương Nam', style: h3),
                       0.h,
                     ),

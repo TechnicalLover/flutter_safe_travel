@@ -5,6 +5,7 @@ import 'package:safetravel/screens/page/account_page.dart';
 import 'package:safetravel/screens/page/explorer_page.dart';
 import 'package:safetravel/screens/page/history_page.dart';
 import 'package:safetravel/screens/page/safemode_page.dart';
+import 'package:safetravel/screens/start_page/widget.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/screens/tour/confirm/salomon_bottom_bar.dart';
 import 'package:safetravel/utilities/constants.dart';
@@ -71,11 +72,11 @@ class _MainScreenState extends State<MainScreen> {
             'Chào mừng quý khách đến với SafeTravel.\nHãy chọn cho mình một tour thật ưng ý nhé!\nChúc quý khách có một ngày vui vẻ.',
             style: h4),
         actions: <Widget>[
-          TextButton(
-            onPressed: () {
+          buildOutlinedButton(
+            'OK',
+            () {
               Navigator.pop(context, 'OK');
             },
-            child: Text('OK', style: h4),
           ),
         ],
       ),
@@ -148,11 +149,11 @@ class _MainScreenState extends State<MainScreen> {
           ],
         ),
         actions: <Widget>[
-          TextButton(
-            onPressed: () {
+          buildOutlinedButton(
+            'OK',
+            () {
               Navigator.pop(context, 'OK');
             },
-            child: Text('OK', style: h4),
           ),
         ],
       ),
@@ -208,11 +209,11 @@ class _MainScreenState extends State<MainScreen> {
           ],
         ),
         actions: <Widget>[
-          TextButton(
-            onPressed: () {
+          buildOutlinedButton(
+            'OK',
+            () {
               Navigator.pop(context, 'OK');
             },
-            child: Text('OK', style: h4),
           ),
         ],
       ),

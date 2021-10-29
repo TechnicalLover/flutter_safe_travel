@@ -28,6 +28,8 @@ class MyApp extends StatelessWidget {
     await prefs.setBool('isSafe', false);
     await prefs.setBool('safeModeOn', true);
     await prefs.setBool('recommend', false);
+    await prefs.setStringList('memberImages', []);
+    await prefs.setStringList('members', []);
   }
 
   @override

@@ -24,7 +24,7 @@ class _ConfirmState extends State<Confirm> {
   final PageController _pageController = PageController();
   final int steps = 3;
   final title = [
-    'Thông tin liên hệ',
+    'Thông tin người đăng kí',
     'Hành khách',
     'Xác nhận',
     'Đặt tour',

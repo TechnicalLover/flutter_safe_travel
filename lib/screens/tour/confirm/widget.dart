@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:safetravel/screens/tour/confirm/confirm_constants.dart';
 import 'package:safetravel/utilities/constants.dart';
 
-Widget buildPrimaryButton(String text, VoidCallback onPressed) {
+Widget buildPrimaryButton2(String text, VoidCallback onPressed) {
   return ElevatedButton(
     onPressed: onPressed,
     child: Container(
@@ -31,7 +31,7 @@ Widget buildPrimaryButton(String text, VoidCallback onPressed) {
   );
 }
 
-Widget buildSecondaryButton(String text, VoidCallback onPressed) {
+Widget buildSecondaryButton2(String text, VoidCallback onPressed) {
   return OutlinedButton(
     onPressed: onPressed,
     child: Container(

@@ -171,7 +171,7 @@ List<TourModel> tourData = [
       basePath + '8.7.jpeg',
     ],
     title: 'Hà Giang mùa hoa Tam giác mạch',
-    location: 'Tình Hà Giang',
+    location: 'Tỉnh Hà Giang',
     location2: 'Tp. Hồ Chí Minh',
     duration: 3,
     date: 'Thứ 2, 12/10/2021',
